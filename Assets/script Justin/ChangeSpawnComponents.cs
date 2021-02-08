@@ -13,7 +13,7 @@ public class ChangeSpawnComponents : MonoBehaviour
     void Start()
     {
         objectToClone = GetComponentInChildren<EnemySpawnerComponent>();
-        NewSpawn = objectToClone.spawnPoint;
+        //NewSpawn = objectToClone.spawnPoint;
     }
 
     // Update is called once per frame

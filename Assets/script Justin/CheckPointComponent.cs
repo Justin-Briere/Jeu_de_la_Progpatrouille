@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CheckPointComponent : MonoBehaviour
 {
-    public GestionPlayer player;
+    public EnemySpawnerComponent player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<GestionPlayer>();
+        player = FindObjectOfType<EnemySpawnerComponent>();
     }
 
     /// <summary>

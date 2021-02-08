@@ -11,7 +11,7 @@ public class EnemySpawnerComponent : MonoBehaviour
      GameObject objectToClone;
     public PlayerHealthComponent[] gameObjects;
     [SerializeField]
-    public Transform spawnPoint;
+    public GameObject spawnPoint;
 
      Transform TestSpawnPoint;
     private float time;
@@ -20,14 +20,18 @@ public class EnemySpawnerComponent : MonoBehaviour
     {
         gameObjects = GetComponentsInChildren<PlayerHealthComponent>();
         TestSpawnPoint = GetComponentInParent<Transform>();
+
         var un = 1;
-        var spawned = Instantiate(objectToClone, TestSpawnPoint.position, transform.rotation);
+        var spawned = Instantiate(objectToClone, spawnPoint.transform.position, transform.rotation);
             spawned.transform.localScale = transform.localScale;
           
         
  
     }
-   
+    public void SpawnPoint(GameObject newPosition)
+    {
+        spawnPoint = newPosition;
+    }
     IEnumerator Example()
     {
         print(Time.time);
