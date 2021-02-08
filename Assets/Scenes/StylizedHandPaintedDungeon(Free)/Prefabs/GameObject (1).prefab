@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8171457949906244638}
   - component: {fileID: 6597916995384402348}
   - component: {fileID: 7843014639977060722}
+  - component: {fileID: 7816289231483159096}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -117,13 +118,13 @@ MonoBehaviour:
   movementCommands:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6177939356112059547}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 7843014639977060722}
+        m_TargetAssemblyTypeName: MovementComponent, Assembly-CSharp
+        m_MethodName: AddDirection
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -131,13 +132,13 @@ MonoBehaviour:
         m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6177939356112059547}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7816289231483159096}
+        m_TargetAssemblyTypeName: SpinComponent, Assembly-CSharp
+        m_MethodName: SpinLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -215,6 +216,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &7816289231483159096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791717723976079852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbec697328451e4ca9ca8ae6578487e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationPerSecond: 400
 --- !u!1 &5356684069317605895
 GameObject:
   m_ObjectHideFlags: 0
