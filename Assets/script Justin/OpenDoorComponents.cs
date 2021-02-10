@@ -11,19 +11,21 @@ using UnityEngine;
 
 public class OpenDoorComponents : MonoBehaviour
 {
-    public MeshRenderer[] ListTiles;
+    public TileComponents[] ListTiles;
     bool LevelComleted = true;
    
-    void Start()                            // regarde si les tiles sont identique.
+    void Test()                            // regarde si les tiles sont identique.
     {
-        ListTiles = GetComponentsInChildren<MeshRenderer>();
-        var CurrentMat = ListTiles[1];
-        ListTiles[0] = CurrentMat;
-        foreach (MeshRenderer Floor in ListTiles)
+        ListTiles = FindObjectsOfType<TileComponents>();
+        
+        //var CurrentMat = ListTiles[1];
+        //ListTiles[0] = CurrentMat;
+        foreach (TileComponents Floor in ListTiles)
 
         {
 
-            if (Floor.material.color != ListTiles[1].material.color)
+            if (Floor.gameObject.GetComponent<MeshRenderer>().material.color != ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color)
+
             {
                 LevelComleted = false;
                 Debug.Log("Non");
@@ -44,6 +46,7 @@ public class OpenDoorComponents : MonoBehaviour
     // Update is called once per frame
     private void OnMouseDown()                          // fonction qui permet de call le start par clicker sur un items.
     {
-        Start();
+        if ( gameObject.layer == 9 )
+            Test();
     }
 }
