@@ -17,9 +17,10 @@ public class OpenDoorComponents : MonoBehaviour
     int cnt = 0;
     float timeToWait = 3;
     float timer = 0;
+    float currCountdownValue;
     void Start()
     {
-        //Timer();
+        StartCoroutine(StartCountdown());
     }
     void Update()
     {
@@ -28,15 +29,19 @@ public class OpenDoorComponents : MonoBehaviour
         Debug.Log(timer);
         
 //if (timer > 2.901f) timer = 0f;
-        if ((timeToWait - timer) <= 0.0001)
+        if (cnt==0 &&(timeToWait - timer) <= 0.01)
         {
+            cnt = 1;
             timer = timer - timer;
 
-            ChangeOneTile();
+            //ChangeOneTile();
 
 
         }
-       
+        if (timer > 2.901f) cnt = 0;
+
+
+
         Test();
     }
    
@@ -57,10 +62,7 @@ public class OpenDoorComponents : MonoBehaviour
                 Debug.Log("Non");
                 break;
             }
-            else
-            {
-                
-            }
+           
 
 
         }
@@ -79,7 +81,7 @@ public class OpenDoorComponents : MonoBehaviour
         }
         
     }
-   
+
     private void ChangeOneTile()
     {
         timer = 0;
@@ -93,6 +95,16 @@ public class OpenDoorComponents : MonoBehaviour
             List[value].gameObject.GetComponent<MeshRenderer>().material = List[1].BlackMaterial;
         }
 
-      
+
+    }
+    public IEnumerator StartCountdown(float countdownValue = 3)
+    {
+       
+            yield return new WaitForSeconds(10.0f);
+       
+
+        ChangeOneTile();
+        StartCoroutine(StartCountdown());
+
     }
 }
