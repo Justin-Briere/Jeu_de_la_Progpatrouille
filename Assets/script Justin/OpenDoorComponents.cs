@@ -12,21 +12,26 @@ using UnityEngine;
 public class OpenDoorComponents : MonoBehaviour
 {
     public TileComponents[] ListTiles;
-    bool LevelComleted = true;
+    public bool LevelComleted = false;
+    bool Explosé = false;
     private static System.Timers.Timer aTimer;
     int cnt = 0;
     float timeToWait = 3;
     float timer = 0;
     float currCountdownValue;
+    [SerializeField]
+    private GameObject ModèleExplosion;
+
     void Start()
     {
+        LevelComleted = false;
         StartCoroutine(StartCountdown());
     }
     void Update()
     {
         
         timer += Time.deltaTime;
-        Debug.Log(timer);
+        //Debug.Log(timer);
         
 //if (timer > 2.901f) timer = 0f;
         if (cnt==0 &&(timeToWait - timer) <= 0.01)
@@ -48,12 +53,14 @@ public class OpenDoorComponents : MonoBehaviour
     void Test()                            // regarde si les tiles sont identique.
     {
         ListTiles = FindObjectsOfType<TileComponents>();
-        
+        int cnt = 0;
         //var CurrentMat = ListTiles[1];
         //ListTiles[0] = CurrentMat;
         foreach (TileComponents Floor in ListTiles)
 
         {
+            
+
 
             if (Floor.gameObject.GetComponent<MeshRenderer>().material.color != ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color)
 
@@ -61,14 +68,31 @@ public class OpenDoorComponents : MonoBehaviour
                 LevelComleted = false;
                 Debug.Log("Non");
                 break;
-            }
-           
+            }cnt++;
 
 
+            
         }
+        if (cnt == ListTiles.Length && !Explosé)
+            
+        {
+            
+                for (int i = 0; i <= 2; i++)
+                {
+                    GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
 
-        if (LevelComleted) { Debug.Log("OUI!!!"); }
-        LevelComleted = true;
+                    Destroy(Explosion, 3);
+                    
+                    Explosé = true;
+                }
+            LevelComleted = true;
+        }
+        
+
+        
+       
+
+
     }
 
     // Update is called once per frame
@@ -88,7 +112,7 @@ public class OpenDoorComponents : MonoBehaviour
 
         TileComponents[] List = FindObjectsOfType<TileComponents>();
         var value = Random.Range(0, List.Length);
-        if (List[value].gameObject.GetComponent<MeshRenderer>().material.color == List[1].BlackMaterial.color)
+        if (List[value].gameObject.GetComponent<MeshRenderer>().material.color == List[1].BlackMaterial.color && !LevelComleted)
             List[value].gameObject.GetComponent<MeshRenderer>().material = List[1].WhiteMaterial;
         else
         {
@@ -99,12 +123,17 @@ public class OpenDoorComponents : MonoBehaviour
     }
     public IEnumerator StartCountdown(float countdownValue = 3)
     {
-       
-            yield return new WaitForSeconds(10.0f);
-       
+        if (!LevelComleted)
+        {
 
-        ChangeOneTile();
-        StartCoroutine(StartCountdown());
+            Test();
+
+            yield return new WaitForSeconds(10f);
+
+
+            ChangeOneTile();
+            StartCoroutine(StartCountdown());
+        }
 
     }
 }

@@ -128,6 +128,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4791717723976079852, guid: 21153c36971f64e4fa01900d48864168, type: 3}
   m_PrefabInstance: {fileID: 954903161}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &318997744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7816289231483159096, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+  m_PrefabInstance: {fileID: 954903161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318997742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbec697328451e4ca9ca8ae6578487e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &318997745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7843014639977060722, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+  m_PrefabInstance: {fileID: 954903161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318997742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72037a32c6d50fe418c9ffe58caadab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &318997747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +372,46 @@ PrefabInstance:
       propertyPath: nActionKeys
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 318997745}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MovementComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddDirection
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 318997744}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpinComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpinRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8756892832343824261, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -456,7 +518,7 @@ GameObject:
   - component: {fileID: 1325538632}
   - component: {fileID: 1325538631}
   m_Layer: 0
-  m_Name: time Manager
+  m_Name: timeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,6 +537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListTiles: []
+  LevelComleted: 1
+  "Mod\xE8leExplosion": {fileID: 3576924614362489592, guid: 4a919ff208278c347a4582e77e55ed83, type: 3}
 --- !u!4 &1325538632
 Transform:
   m_ObjectHideFlags: 0
@@ -631,6 +695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListTiles: []
+  LevelComleted: 1
+  "Mod\xE8leExplosion": {fileID: 0}
 --- !u!65 &1598194722
 BoxCollider:
   m_ObjectHideFlags: 0
