@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Prefabs/AllRooms.prefab
+Assets/Prefabs/NormalFloor.prefab
+Assets/ScriptsWill/RealJump.cs.meta
