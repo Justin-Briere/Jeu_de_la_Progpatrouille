@@ -4,7 +4,7 @@ public class TestJump101 : MonoBehaviour
 {
     public int forceConst = 1;
     private Rigidbody selfRigidbody;
-    private Rigidbody Floor;
+    public GameObject Floor;
     float dist;
     DistanceComponents test; 
     void Start()
@@ -12,12 +12,12 @@ public class TestJump101 : MonoBehaviour
         selfRigidbody = GetComponent<Rigidbody>();
     }
 
-    public void Jump()   
+    void OnMouseDown()
     {
         selfRigidbody.transform.Translate(0, forceConst, 0);
 
         
-        var allo =  (test.CalculatueDistance(selfRigidbody.gameObject, Floor.gameObject));
+        var allo =  (test.CalculatueDistance(selfRigidbody.gameObject, Floor));
            Debug.Log("Distance to other: " +allo );
            
             

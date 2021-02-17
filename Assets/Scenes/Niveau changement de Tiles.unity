@@ -307,17 +307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcbec697328451e4ca9ca8ae6578487e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &318997745 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7843014639977060722, guid: 21153c36971f64e4fa01900d48864168, type: 3}
-  m_PrefabInstance: {fileID: 954903161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318997742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72037a32c6d50fe418c9ffe58caadab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &318997747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,13 +327,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318997742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 505e873ba90c6f64685c7e5c3582eeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   forceConst: 1
   Floor: {fileID: 613618489}
+--- !u!114 &318997753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318997742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc83a2127eecd9346816808fae10d8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpForce: 350
+  divisionOfSpeedInAir: 5
 --- !u!1 &339661788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 9c33f225c6ee98243a57390a7235bd50, type: 3}
@@ -1707,7 +1711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6597916995384402348, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Mass
-      value: 17.39
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6597916995384402348, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Constraints
@@ -1727,15 +1731,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066198271696905098, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Size.x
-      value: 0.8
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7066198271696905098, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Size.y
-      value: 0.8
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7066198271696905098, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Size.z
-      value: 0.8
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7587282832634094779, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1744,6 +1748,10 @@ PrefabInstance:
     - target: {fileID: 7587282832634094779, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843014639977060722, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.size
@@ -1772,10 +1780,10 @@ PrefabInstance:
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 318997745}
+      objectReference: {fileID: 318997753}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MovementComponent, Assembly-CSharp
+      value: JumpAndMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: movementCommands.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1840,14 +1848,14 @@ PrefabInstance:
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 318997752}
+      objectReference: {fileID: 318997742}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TestJump101, Assembly-CSharp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1855,7 +1863,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 318997753}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: movementCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JumpAndMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8756892832343824261, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Enabled
@@ -2929,7 +2945,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 49.68, y: 3.08, z: 0.9}
+  m_Size: {x: 49.68, y: 10.96, z: 0.9}
   m_Center: {x: 0.00000023841858, y: 1.5004798, z: 0}
 --- !u!1001 &1694911923
 PrefabInstance:
