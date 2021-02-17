@@ -33,11 +33,9 @@ public class PlateformMouvementComponent : MonoBehaviour
     }
     /*private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            collision.collider.transform.SetParent(null);
-
-        ///var text = GameObject.FindGameObjectWithTag("Player");
-        //text.transform.Translate(vector * speed * Time.deltaTime);
+        Debug.Log("ici");
+        var text = GameObject.FindGameObjectWithTag("Player");
+        text.transform.Translate(vector * speed * Time.deltaTime);
         
        // Follow.Move(vector) = transform.Translate(vector * (speed * Time.deltaTime)); 
     }

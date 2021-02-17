@@ -25,7 +25,7 @@ public class OpenDoorComponents : MonoBehaviour
     void Start()
     {
         LevelComleted = false;
-        StartCoroutine(StartCountdown());
+         StartCoroutine(StartCountdown());
     }
     void Update()
     {

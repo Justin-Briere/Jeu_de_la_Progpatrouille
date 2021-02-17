@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505e873ba90c6f64685c7e5c3582eeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceConst: 50
+  forceConst: 1
 --- !u!1 &339661788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 9c33f225c6ee98243a57390a7235bd50, type: 3}
@@ -1742,7 +1742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: keys.Array.size
@@ -1750,10 +1750,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: movementCommands.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: movementCommands.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
@@ -1827,6 +1831,26 @@ PrefabInstance:
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: keys.Array.data[4]
       value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 318997752}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TestJump101, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8756892832343824261, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Enabled
@@ -2470,7 +2494,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d56b341fb6cba0e4f96669e4995bcbe6, type: 2}
+  - {fileID: 2100000, guid: a1eb00c4ab7923348a6ff7b8c92d122a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
