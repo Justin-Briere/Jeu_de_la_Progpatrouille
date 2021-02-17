@@ -19,7 +19,7 @@ public class MovementComponent : MonoBehaviour
 
     public void AddDirection(int directionIndex) => direction += directions[directionIndex];
    
-    private void Move(Vector3 direction) => transform.Translate(direction * (speed * Time.deltaTime));
+    public  void Move(Vector3 direction) => transform.Translate(direction * (speed * Time.deltaTime));
 
     private void Update()
     {
