@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 814591211}
   - component: {fileID: 814591210}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1708,6 +1708,10 @@ PrefabInstance:
     - target: {fileID: 6597916995384402348, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_Mass
       value: 17.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597916995384402348, guid: 21153c36971f64e4fa01900d48864168, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6622431075449280590, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_LocalScale.x
