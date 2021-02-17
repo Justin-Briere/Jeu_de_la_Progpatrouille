@@ -16,6 +16,7 @@ public class PlateformMouvementComponent : MonoBehaviour
     private void OnCollisionEnter()
     {
         Debug.Log("ici");
+
         var text = GameObject.FindGameObjectWithTag("Player");
         text.transform.Translate(vector * speed * Time.deltaTime);
         
