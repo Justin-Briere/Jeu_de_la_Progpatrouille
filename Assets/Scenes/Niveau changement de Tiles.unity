@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 350
-  divisionOfSpeedInAir: 5
+  divisionOfSpeedInAir: 1
 --- !u!1 &339661788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 9c33f225c6ee98243a57390a7235bd50, type: 3}
@@ -2369,7 +2369,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.51, y: 2.9990404, z: 0.8}
+  m_Size: {x: 17.51, y: 2.9990404, z: 0.95}
   m_Center: {x: 0.00000023841858, y: 1.5004798, z: 0}
 --- !u!1 &1430277904 stripped
 GameObject:

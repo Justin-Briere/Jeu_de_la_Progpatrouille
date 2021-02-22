@@ -12,15 +12,11 @@ public class SpawnPlateforme : MonoBehaviour
     public GameObject PlateForm;
 
     // Lorsqu'il est trigger, les plate forme commence à spawn
-    public void SpawnPF(Transform spawnP)
-    {
-        Instantiate(PlateForm, spawnP.position, spawnP.rotation);
-        current = current + 1;
-    }
+   
 
     // Permet d'activer la première plateforme
     private void OnMouseDown()
     {
-         Instantiate(PlateForm, SpawnPoint.position, SpawnPoint.rotation);
+        Instantiate(PlateForm, SpawnPoint.position, SpawnPoint.rotation);
     }
 }

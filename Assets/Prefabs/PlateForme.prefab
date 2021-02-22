@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 4814891617583647545}
   - component: {fileID: 3350631868459570751}
   - component: {fileID: 6471066281877446140}
-  - component: {fileID: 8144003053857728060}
-  - component: {fileID: 3516289931709041254}
   m_Layer: 0
   m_Name: PlateForme
   m_TagString: Plateforme
@@ -97,29 +95,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8144003053857728060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363441349296640081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd33d6aeca1b90643aa48ee023d44127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
---- !u!114 &3516289931709041254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363441349296640081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c2ae705beb5f64d8cc37c129a02826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 10
