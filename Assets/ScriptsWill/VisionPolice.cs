@@ -40,15 +40,17 @@ public class VisionPolice : MonoBehaviour
     {
         rotationPolice = transform.rotation.y * Mathf.Deg2Rad;
         positionPolice = transform.position;
-        fieldOfView = new Vector3(Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x,       Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y - rotationPolice      , Mathf.Cos(phi) + positionPolice.z) * rayon;
+        fieldOfView = new Vector3 (Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x,       Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y /*- rotationPolice*/      , Mathf.Cos(phi) + positionPolice.z);      
         positionBandit = GameObject.Find("Bandit").transform.position;
-        ChekVision();
+        ChekVision(fieldOfView.normalized * rayon);
     }
 
 
-    private void ChekVision()
+    private void ChekVision(Vector3 fieldOfView2)
     {
-        if(positionBandit.x <= fieldOfView.x && positionBandit.y <= fieldOfView.y && positionBandit.z <= fieldOfView.z)
+       // Debug.Log(fieldOfView2);
+
+        if (positionBandit.x <= fieldOfView2.x && positionBandit.y <= fieldOfView2.y && positionBandit.z <= fieldOfView2.z)
         {
             Debug.Log("yo wesh mon fuere tes la");
         }
