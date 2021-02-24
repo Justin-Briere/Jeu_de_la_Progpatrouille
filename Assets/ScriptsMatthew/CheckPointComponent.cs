@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChechPointComponent : MonoBehaviour
+public class CheckPointComponent : MonoBehaviour
 {
     /// <summary>
     /// Permet de changer le spawn point du joueur lorsqu'il passe sur le game object

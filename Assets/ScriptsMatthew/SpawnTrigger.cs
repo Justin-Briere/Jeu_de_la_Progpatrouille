@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPlateforme : MonoBehaviour
+public class SpawnTrigger : MonoBehaviour
 {
-    public int current = 1;
     //Position de la plateforme de base
     public Transform SpawnPoint;
 
@@ -14,8 +13,9 @@ public class SpawnPlateforme : MonoBehaviour
     // Lorsqu'il est trigger, les plate forme commence à spawn
 
     // Permet d'activer la première plateforme
-    private void OnMouseDown()
+    private void OnTriggerEnter(Collider collider)
     {
-        Instantiate(PlateForm, SpawnPoint.position, SpawnPoint.rotation);
+        if(collider.gameObject.CompareTag("Player"))
+            Instantiate(PlateForm, SpawnPoint.position, SpawnPoint.rotation);
     }
 }
