@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TriggerPlateForm : MonoBehaviour
 {
-    SpawnPlateforme TriggerSpawn = new SpawnPlateforme();
+    ListSpawnPosition TriggerSpawn = new ListSpawnPosition();
 
-    [SerializeField]
-    Transform [] spawnPositions = new Transform[3];
+    
 
-    private void OnColliderEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        TriggerSpawn.SpawnPF(spawnPositions[TriggerSpawn.current]);
+        if (other.gameObject.tag == "Player")
+            TriggerSpawn.SpawnPF();
     }
 }
