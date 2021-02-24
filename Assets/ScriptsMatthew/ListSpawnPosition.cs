@@ -6,18 +6,17 @@ public class ListSpawnPosition : MonoBehaviour
 {
     public int current = 1;
     
-    Transform[] spawnPositions ;
+    public Transform[] spawnPositions ;
     public GameObject PlateForm;
     Transform spawnP;
-    private void Start()
+   
+    public  void SpawnPF(Transform spawnPositions)
     {
-         spawnPositions = GetComponents<Transform>();
-    }
-    public void SpawnPF()
-    {
-
-        spawnP = spawnPositions[current];
-        Instantiate(PlateForm, spawnP.position, spawnP.rotation);
+        ListSpawnPosition TriggerSpawn = new ListSpawnPosition();
+        // ListSpawnPosition Platform = new ListSpawnPosition();
+        var Plate = PlateForm.GetComponentInChildren<BoxCollider>().gameObject;
+        // spawnPositions[current];
+        Instantiate(Plate, spawnPositions.position, spawnPositions.rotation);
         current = current + 1;
     }
 

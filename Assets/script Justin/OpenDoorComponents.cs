@@ -29,24 +29,13 @@ public class OpenDoorComponents : MonoBehaviour
     }
     void Update()
     {
-        
         timer += Time.deltaTime;
-        //Debug.Log(timer);
-        
-//if (timer > 2.901f) timer = 0f;
         if (cnt==0 &&(timeToWait - timer) <= 0.01)
         {
             cnt = 1;
             timer = timer - timer;
-
-            //ChangeOneTile();
-
-
         }
         if (timer > 2.901f) cnt = 0;
-
-
-
         Test();
     }
    
@@ -54,44 +43,25 @@ public class OpenDoorComponents : MonoBehaviour
     {
         ListTiles = FindObjectsOfType<TileComponents>();
         int cnt = 0;
-        //var CurrentMat = ListTiles[1];
-        //ListTiles[0] = CurrentMat;
         foreach (TileComponents Floor in ListTiles)
-
         {
-            
-
-
             if (Floor.gameObject.GetComponent<MeshRenderer>().material.color != ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color)
-
             {
                 LevelComleted = false;
                 Debug.Log("Non");
                 break;
             }cnt++;
-
-
-            
         }
         if (cnt == ListTiles.Length && !Explosé)
-            
         {
-            
                 for (int i = 0; i <= 2; i++)
                 {
                     GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
-
                     Destroy(Explosion, 3);
-                    
                     Explosé = true;
                 }
             LevelComleted = true;
         }
-        
-
-        
-       
-
 
     }
 
@@ -101,15 +71,12 @@ public class OpenDoorComponents : MonoBehaviour
         if (gameObject.layer == 9)
         {
             Test();
-            
         }
-        
     }
 
     private void ChangeOneTile()
     {
         timer = 0;
-
         TileComponents[] List = FindObjectsOfType<TileComponents>();
         var value = Random.Range(0, List.Length);
         if (List[value].gameObject.GetComponent<MeshRenderer>().material.color == List[1].BlackMaterial.color && !LevelComleted)
@@ -118,22 +85,15 @@ public class OpenDoorComponents : MonoBehaviour
         {
             List[value].gameObject.GetComponent<MeshRenderer>().material = List[1].BlackMaterial;
         }
-
-
     }
-    public IEnumerator StartCountdown(float countdownValue = 3)
+    public IEnumerator StartCountdown(float countdownValue = 3) // code inspiré d'internet
     {
         if (!LevelComleted)
         {
-
             Test();
-
             yield return new WaitForSeconds(10f);
-
-
             ChangeOneTile();
             StartCoroutine(StartCountdown());
         }
-
     }
 }

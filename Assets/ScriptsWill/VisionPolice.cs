@@ -40,7 +40,10 @@ public class VisionPolice : MonoBehaviour
     {
         rotationPolice = transform.rotation.y * Mathf.Deg2Rad;
         positionPolice = transform.position;
-        fieldOfView = new Vector3 (Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x,       Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y /*- rotationPolice*/      , Mathf.Cos(phi) + positionPolice.z);      
+        var x = Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x;
+        var y = Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y;
+        var z = Mathf.Cos(phi) + positionPolice.z;
+        fieldOfView = new Vector3 (x,y,z);      
         positionBandit = GameObject.Find("Bandit").transform.position;
         ChekVision(fieldOfView.normalized * rayon);
     }
