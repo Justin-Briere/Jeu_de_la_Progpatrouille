@@ -10,7 +10,7 @@ public class ChechPointComponent : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") //ou layer selon un nombre MAIS VOIR AVEC 
+        if (other.gameObject.tag == "Player") 
             GameManager.Instance.lastCheckPoint = transform;
     }
 }
