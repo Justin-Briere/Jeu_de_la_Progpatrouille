@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: 1
+  spawnPositions: []
   PlateForm: {fileID: 5199667875259620605, guid: 59aa848abc2cda146b8e91df2f229c5c, type: 3}
 --- !u!4 &363092642
 Transform:
@@ -1227,6 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7159d97b7f0fc4a9feadf0584ce8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPositions: {fileID: 0}
 --- !u!4 &1858768885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2886409693543219410, guid: 3cbaf0f34a716904faeb7fa97b536854, type: 3}
