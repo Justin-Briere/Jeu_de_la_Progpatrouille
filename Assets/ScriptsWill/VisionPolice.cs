@@ -26,51 +26,80 @@ public class VisionPolice : MonoBehaviour
     private float y;
     private float z;
 
+    //void Start()
+    //{
+    //    //positionPolice = transform.position ;
+    //    //Debug.Log(positionPolice);
+
+
+    //    //positionBandit = GameObject.Find("Bandit").transform.position;
+    //    //Debug.Log(positionBandit);
+
+    //    //teta = teta * Mathf.Deg2Rad;
+
+        
+    //}
+
+
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    rotationPolice = transform.rotation.y * Mathf.Deg2Rad;
+    //    positionPolice = transform.position;
+
+    //    x = Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x;
+    //    y = Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y;
+    //    z = Mathf.Cos(phi) + positionPolice.z;
+    //    fieldOfView = new Vector3 (x,y,z);    
+        
+    //    positionBandit = GameObject.Find("Bandit").transform.position;
+    //    ChekVision(fieldOfView.normalized * rayon);
+    //}
+
+
+    //private void ChekVision(Vector3 fieldOfView2)
+    //{
+    //   // Debug.Log(fieldOfView2);
+
+    //    if (positionBandit.x <= fieldOfView2.x && positionBandit.y <= fieldOfView2.y && positionBandit.z <= fieldOfView2.z)  ////position bandit-position
+    //    {
+    //        Debug.Log("yo wesh mon fuere tes la");
+    //    }
+    //}
+
+
     void Start()
     {
-        //positionPolice = transform.position ;
-        //Debug.Log(positionPolice);
+        x = Mathf.Sin(phi) * Mathf.Cos(teta) *rayon;
+        y = Mathf.Sin(phi) * Mathf.Sin(teta) *rayon ;
+        z = Mathf.Cos(phi) *rayon;
+
+        fieldOfView = new Vector3(x, y, z);
 
 
-        //positionBandit = GameObject.Find("Bandit").transform.position;
-        //Debug.Log(positionBandit);
+        //Vector3[] fieldOfViews = new Vector3[3];
+        //fieldOfViews[0] = new Vector3(x, y, z);
 
-        //teta = teta * Mathf.Deg2Rad;
 
         
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
-        rotationPolice = transform.rotation.y * Mathf.Deg2Rad;
-        positionPolice = transform.position;
-
-        x = Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x;
-        y = Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y;
-        z = Mathf.Cos(phi) + positionPolice.z;
-        fieldOfView = new Vector3 (x,y,z);    
-        
         positionBandit = GameObject.Find("Bandit").transform.position;
-        ChekVision(fieldOfView.normalized * rayon);
+        ChekVision();
     }
 
-
-    private void ChekVision(Vector3 fieldOfView2)
+    private void ChekVision()
     {
-       // Debug.Log(fieldOfView2);
+        var xPolice = GetComponentInParent<Transform>().position.x + fieldOfView.x;     //regqgerggr
+        var yPolice = GetComponentInParent<Transform>().position.y + fieldOfView.y;
+        var zPolice = GetComponentInParent<Transform>().position.z + fieldOfView.z;
 
-        if (positionBandit.x <= fieldOfView2.x && positionBandit.y <= fieldOfView2.y && positionBandit.z <= fieldOfView2.z)
+        if(positionBandit.x <= xPolice && positionBandit.y <= yPolice && positionBandit.z <= zPolice)
         {
             Debug.Log("yo wesh mon fuere tes la");
         }
     }
-
-    //private bool Verification()
-    //{
-    //    //Debug.Log("je passe dans verif"); 
-    //    return positionBandit.x <= fieldOfView.x && positionBandit.y <= fieldOfView.y && positionBandit.z <= fieldOfView.z;
-    //}
 }
