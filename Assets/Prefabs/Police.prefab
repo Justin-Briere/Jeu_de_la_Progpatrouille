@@ -75,6 +75,8 @@ GameObject:
   - component: {fileID: 3831275435206840145}
   - component: {fileID: 6032634003441831420}
   - component: {fileID: 2105250235956762783}
+  - component: {fileID: 6520869660728646782}
+  - component: {fileID: 1848312343930177570}
   m_Layer: 0
   m_Name: Eyes
   m_TagString: Untagged
@@ -158,6 +160,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6520869660728646782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851421247760606349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b67a2e47628ab142b56dc0203e22235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: 0
+--- !u!114 &1848312343930177570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851421247760606349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3af58d1ec76b45499a00c82e69c8d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayon: 1
 --- !u!1 &6899978578141271096
 GameObject:
   m_ObjectHideFlags: 0

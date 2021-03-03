@@ -14,6 +14,10 @@ public class VisionPolice : MonoBehaviour
     private float phi = Mathf.PI/4;
 
 
+    [SerializeField]
+    GameObject vectooore;
+
+
     private Vector3 positionPolice;
 
     private Vector3 positionBandit;
@@ -71,9 +75,9 @@ public class VisionPolice : MonoBehaviour
 
     void Start()
     {
-        x = Mathf.Sin(phi) * Mathf.Cos(teta) *rayon;
-        y = Mathf.Sin(phi) * Mathf.Sin(teta) *rayon ;
-        z = Mathf.Cos(phi) *rayon;
+        x = Mathf.Sin(phi) * Mathf.Cos(teta) * rayon;
+        y = Mathf.Sin(phi) * Mathf.Sin(teta) * rayon;
+        z = Mathf.Cos(phi) * rayon;
 
         fieldOfView = new Vector3(x, y, z);
 
@@ -82,22 +86,47 @@ public class VisionPolice : MonoBehaviour
         //fieldOfViews[0] = new Vector3(x, y, z);
 
 
-        
+
     }
 
     void Update()
     {
+
+
         positionBandit = GameObject.Find("Bandit").transform.position;
         ChekVision();
     }
 
     private void ChekVision()
     {
-        var xPolice = GetComponentInParent<Transform>().position.x + fieldOfView.x;     //regqgerggr
+        var xPolice = GetComponentInParent<Transform>().position.x + fieldOfView.x;    
         var yPolice = GetComponentInParent<Transform>().position.y + fieldOfView.y;
         var zPolice = GetComponentInParent<Transform>().position.z + fieldOfView.z;
 
-        if(positionBandit.x <= xPolice && positionBandit.y <= yPolice && positionBandit.z <= zPolice)
+
+        
+
+        var Norm = fieldOfView.magnitude;
+        print(Norm);
+        var Norma = fieldOfView.magnitude;
+        Debug.Log("x:"+ fieldOfView.x);
+        print("y:"+ fieldOfView.y);
+        print("z:" + fieldOfView.z);
+
+        //var allo = new Vector3(xPolice,,);
+
+        //if (positionBandit.x <= xPolice && positionBandit.y <= yPolice && positionBandit.z <= zPolice)
+
+        print("XXXXX :      " + (positionBandit.x - xPolice));
+        print("YYYY :      " + ( positionBandit.y - yPolice));
+        print("ZZZZZ :      " + (positionBandit.z - zPolice));
+
+
+
+        print("magni :      " + positionBandit.magnitude);
+
+
+        if (Norm<= positionBandit.magnitude)
         {
             Debug.Log("yo wesh mon fuere tes la");
         }
