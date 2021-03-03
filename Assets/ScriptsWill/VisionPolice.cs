@@ -107,26 +107,27 @@ public class VisionPolice : MonoBehaviour
         
 
         var Norm = fieldOfView.magnitude;
-        print(Norm);
+       // print(Norm);
         var Norma = fieldOfView.magnitude;
-        Debug.Log("x:"+ fieldOfView.x);
-        print("y:"+ fieldOfView.y);
-        print("z:" + fieldOfView.z);
+        //Debug.Log("x:"+ fieldOfView.x);
+        //print("y:"+ fieldOfView.y);
+        //print("z:" + fieldOfView.z);
 
         //var allo = new Vector3(xPolice,,);
 
         //if (positionBandit.x <= xPolice && positionBandit.y <= yPolice && positionBandit.z <= zPolice)
 
-        print("XXXXX :      " + (positionBandit.x - xPolice));
-        print("YYYY :      " + ( positionBandit.y - yPolice));
-        print("ZZZZZ :      " + (positionBandit.z - zPolice));
+        //print("XXXXX :      " + (positionBandit.x - xPolice));
+        //print("YYYY :      " + ( positionBandit.y - yPolice));
+        //print("ZZZZZ :      " + (positionBandit.z - zPolice));
+
+        var NormB = new Vector3((positionBandit.x - xPolice), (positionBandit.y - yPolice), (positionBandit.z - zPolice)).magnitude;
+
+        //print("magni :      " + positionBandit.magnitude);
+       // print("norm1 " + (Norm - NormB)); print("norm2 " + (NormB - Norm));
 
 
-
-        print("magni :      " + positionBandit.magnitude);
-
-
-        if (Norm<= positionBandit.magnitude)
+        if ((NormB - Norm) <= 1)
         {
             Debug.Log("yo wesh mon fuere tes la");
         }
