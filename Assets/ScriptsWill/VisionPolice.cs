@@ -102,7 +102,7 @@ public class VisionPolice : MonoBehaviour
         var xPolice = GetComponentInParent<Transform>().position.x + fieldOfView.x;    
         var yPolice = GetComponentInParent<Transform>().position.y + fieldOfView.y;
         var zPolice = GetComponentInParent<Transform>().position.z + fieldOfView.z;
-
+        var vectP = new Vector3(GetComponentInParent<Transform>().position.x, GetComponentInParent<Transform>().position.y, GetComponentInParent<Transform>().position.z);
 
         
 
@@ -124,10 +124,12 @@ public class VisionPolice : MonoBehaviour
         var NormB = new Vector3((positionBandit.x - xPolice), (positionBandit.y - yPolice), (positionBandit.z - zPolice)).magnitude;
 
         //print("magni :      " + positionBandit.magnitude);
-       // print("norm1 " + (Norm - NormB)); print("norm2 " + (NormB - Norm));
+        // print("norm1 " + (Norm - NormB)); print("norm2 " + (NormB - Norm));
 
+        float test = Vector3.Angle(positionBandit, vectP);
+        print("angle " + test);
 
-        if ((NormB - Norm) <= 1)
+        if ((positionBandit.x - xPolice) <= rayon && (positionBandit.z - zPolice) <= rayon && (positionBandit.y - yPolice) <= rayon)
         {
             Debug.Log("yo wesh mon fuere tes la");
         }
