@@ -675,7 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472328015}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: spawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814591209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3978624, y: 0.11323547, z: -0.34642568}
+  m_LocalPosition: {x: -4.86, y: 0.11323547, z: -8.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1990234070}
@@ -1951,7 +1951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2132224824264276904, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7474277
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 2132224824264276904, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2136,7 +2136,7 @@ PrefabInstance:
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 318997742}
+      objectReference: {fileID: 0}
     - target: {fileID: 8171457949906244638, guid: 21153c36971f64e4fa01900d48864168, type: 3}
       propertyPath: actionCommands.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: 
