@@ -57,7 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd33d6aeca1b90643aa48ee023d44127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spawns: []
   speed: 1.5
+  vector: {x: 0, y: 0, z: -1}
 --- !u!114 &235483480329441311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +124,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3350631868459570751, guid: aa5984caac7647844804cfaa5201781c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d35201dea40a0e547ae315a4120a0798, type: 2}
     - target: {fileID: 5363441349296640081, guid: aa5984caac7647844804cfaa5201781c, type: 3}
       propertyPath: m_Name
       value: PlateForme
