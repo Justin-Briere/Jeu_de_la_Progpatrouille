@@ -22,7 +22,6 @@ public class PlateformMouvementComponent : MonoBehaviour
     private void Start()
     {
         Plateform = GetComponentInChildren<Transform>();
-        Spawn = new SpawnTrigger();
     }
     void Update()
     {
