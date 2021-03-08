@@ -28,9 +28,9 @@ public class VisionPolice : MonoBehaviour
 
     void Start()
     {
-        x = Mathf.Sin(phi) * Mathf.Cos(teta) ;
-        y = Mathf.Sin(phi) * Mathf.Sin(teta) ;
-        z = Mathf.Cos(phi) ;
+        x = 45;
+        y = 45;
+        z = 45;
     }
 
     void Update()
@@ -44,10 +44,6 @@ public class VisionPolice : MonoBehaviour
 
     private void CheckRayon()
     {  
-        var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-        var yPolice = GetComponentInParent<Transform>().position.y;     //ibid
-        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
-
 
         //LES 5 PROCHAINE LIGNES SERVENT À DÉTERMINER SI LE JOUEUR EST DANS LE RAYON PRÉDÉFINI DU POLICIER DU POLICIER
         var distanceRayon = Vector3.Distance(GetComponentInParent<Transform>().position, positionBandit);
@@ -61,7 +57,20 @@ public class VisionPolice : MonoBehaviour
 
     private void CheckAngleXZ()
     {
+        var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
 
+        var Vpopo = new Vector3(xPolice, 0, zPolice);
+        var Vban = new Vector3(positionBandit.x, 0, positionBandit.z);
+
+        var Vtot = Vpopo - Vban;
+
+        var angle = Mathf.Tan(Vtot.x / Vtot.y);  //DOIT FAIRE ARC TAN 
+
+        if(Mathf.Abs(angle) < x)
+        {
+            Debug.Log("angle is right");
+        }
     }
 
     private void CheckAngleXY()
@@ -83,3 +92,13 @@ public class VisionPolice : MonoBehaviour
 //Debug.Log("angle x :                                          " + rfnij);
 
 //        // if(est dans le bon angle)
+
+
+//var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+//var yPolice = GetComponentInParent<Transform>().position.y;     //ibid
+//var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+
+
+//x = Mathf.Sin(phi) * Mathf.Cos(teta) ;
+// y = Mathf.Sin(phi) * Mathf.Sin(teta) ;
+// z = Mathf.Cos(phi) ;
