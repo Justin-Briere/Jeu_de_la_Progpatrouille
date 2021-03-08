@@ -16,18 +16,19 @@ public class PlateformMouvementComponent : MonoBehaviour
     //[SerializeField]
     private Vector3 vector = new Vector3(0, 0, -1);
 
+    SpawnTrigger Spawn;
     private Transform Plateform;
     //MovementComponent Follow;
     private void Start()
     {
         Plateform = GetComponentInChildren<Transform>();
-       
+        Spawn = new SpawnTrigger();
     }
     void Update()
     {
 
         if (isMoving)
-            Plateform.position += speed * (vector * Time.deltaTime);
+            Plateform.position += speed * (vector * Time.deltaTime) * Plateform.rotation.y ;
     }
 
     //private void OnCollisionEnter(Collision collision)
