@@ -65,9 +65,9 @@ public class VisionPolice : MonoBehaviour
 
         var Vtot = Vpopo - Vban;
 
-        var angle = Mathf.Tan(Vtot.x / Vtot.y);  //DOIT FAIRE ARC TAN 
+        var angle = Mathf.Atan(Vtot.x / Vtot.y);  //DOIT FAIRE ARC TAN 
 
-        if(Mathf.Abs(angle) < x)
+        if(Mathf.Abs(angle) < Mathf.PI/2)
         {
             Debug.Log("angle is right");
         }
