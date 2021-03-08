@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class VisionPolice : MonoBehaviour
 {
@@ -30,48 +31,9 @@ public class VisionPolice : MonoBehaviour
     private float y;
     private float z;
 
-    //void Start()
-    //{
-    //    //positionPolice = transform.position ;
-    //    //Debug.Log(positionPolice);
 
-
-    //    //positionBandit = GameObject.Find("Bandit").transform.position;
-    //    //Debug.Log(positionBandit);
-
-    //    //teta = teta * Mathf.Deg2Rad;
-
-        
-    //}
-
-
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    rotationPolice = transform.rotation.y * Mathf.Deg2Rad;
-    //    positionPolice = transform.position;
-
-    //    x = Mathf.Sin(phi) * Mathf.Cos(teta) + positionPolice.x;
-    //    y = Mathf.Sin(phi) * Mathf.Sin(teta) + positionPolice.y;
-    //    z = Mathf.Cos(phi) + positionPolice.z;
-    //    fieldOfView = new Vector3 (x,y,z);    
-        
-    //    positionBandit = GameObject.Find("Bandit").transform.position;
-    //    ChekVision(fieldOfView.normalized * rayon);
-    //}
-
-
-    //private void ChekVision(Vector3 fieldOfView2)
-    //{
-    //   // Debug.Log(fieldOfView2);
-
-    //    if (positionBandit.x <= fieldOfView2.x && positionBandit.y <= fieldOfView2.y && positionBandit.z <= fieldOfView2.z)  ////position bandit-position
-    //    {
-    //        Debug.Log("yo wesh mon fuere tes la");
-    //    }
-    //}
-
+    GameObject testPlayer1;
+    GameObject testPlayer2;
 
     void Start()
     {
@@ -81,34 +43,38 @@ public class VisionPolice : MonoBehaviour
 
         fieldOfView = new Vector3(x, y, z);
 
-
-        //Vector3[] fieldOfViews = new Vector3[3];
-        //fieldOfViews[0] = new Vector3(x, y, z);
-
-
-
+        Debug.Log("rayon est de  :    " + rayon);
     }
 
     void Update()
     {
+        
 
 
         positionBandit = GameObject.Find("Bandit").transform.position;
+
+       
+
         ChekVision();
     }
 
     private void ChekVision()
     {
-        var xPolice = GetComponentInParent<Transform>().position.x + fieldOfView.x;    
-        var yPolice = GetComponentInParent<Transform>().position.y + fieldOfView.y;
-        var zPolice = GetComponentInParent<Transform>().position.z + fieldOfView.z;
-        var vectP = new Vector3(GetComponentInParent<Transform>().position.x, GetComponentInParent<Transform>().position.y, GetComponentInParent<Transform>().position.z);
+        //var xPolice = GetComponentInParent<Transform>().position.x + fieldOfView.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+        //var yPolice = GetComponentInParent<Transform>().position.y + fieldOfView.y;     //ibid
+        //var zPolice = GetComponentInParent<Transform>().position.z + fieldOfView.z;     //ibid
 
-        
 
-        var Norm = fieldOfView.magnitude;
-       // print(Norm);
-        var Norma = fieldOfView.magnitude;
+        var xPolice = GetComponentInParent<Transform>().position.x ;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+        var yPolice = GetComponentInParent<Transform>().position.y ;     //ibid
+        var zPolice = GetComponentInParent<Transform>().position.z ;     //ibid
+
+        //var vectP = new Vector3(GetComponentInParent<Transform>().position.x, GetComponentInParent<Transform>().position.y, GetComponentInParent<Transform>().position.z);
+
+
+
+        // print(Norm);
+
         //Debug.Log("x:"+ fieldOfView.x);
         //print("y:"+ fieldOfView.y);
         //print("z:" + fieldOfView.z);
@@ -121,17 +87,23 @@ public class VisionPolice : MonoBehaviour
         //print("YYYY :      " + ( positionBandit.y - yPolice));
         //print("ZZZZZ :      " + (positionBandit.z - zPolice));
 
-        var NormB = new Vector3((positionBandit.x - xPolice), (positionBandit.y - yPolice), (positionBandit.z - zPolice)).magnitude;
+        //float test = Vector3.Angle(positionBandit, vectP);
 
-        //print("magni :      " + positionBandit.magnitude);
-        // print("norm1 " + (Norm - NormB)); print("norm2 " + (NormB - Norm));
+        var testtt = Vector3.Distance(GetComponentInParent<Transform>().position, positionBandit);
+        //Debug.Log("norm vecteur :                                          " + testtt);
 
-        float test = Vector3.Angle(positionBandit, vectP);
-        print("angle " + test);
+        var testtt2 = Vector3.AngleBetween(GetComponentInParent<Transform>().position, positionBandit);
+        Debug.Log("norm vecteur :                                          " + testtt2);
 
-        if ((positionBandit.x - xPolice) <= rayon && (positionBandit.z - zPolice) <= rayon && (positionBandit.y - yPolice) <= rayon)
-        {
-            Debug.Log("yo wesh mon fuere tes la");
-        }
+
+        //if (Mathf.Abs(NormB.magnitude) <= Mathf.Abs(rayon))
+        //{
+        //    Debug.Log("T'eS DAnS lE rAYoN");
+        //}
+
+        //if ((positionBandit.x - xPolice) <= rayon && (positionBandit.z - zPolice) <= rayon && (positionBandit.y - yPolice) <= rayon)
+        //{
+        //    Debug.Log("yo wesh mon fuere tes la");
+        //}
     }
 }
