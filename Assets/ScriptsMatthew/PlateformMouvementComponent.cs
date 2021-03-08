@@ -27,7 +27,7 @@ public class PlateformMouvementComponent : MonoBehaviour
     {
 
         if (isMoving)
-            Plateform.position += speed * (vector * Time.deltaTime) * Plateform.rotation.y ;
+            Plateform.position += speed * (vector * Time.deltaTime) * Plateform.rotation.y ; // vector valeur pas bonne (pas de rotation de plateforme)
     }
 
     //private void OnCollisionEnter(Collision collision)
