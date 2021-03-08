@@ -13,7 +13,7 @@ public class PlateformMouvementComponent : MonoBehaviour
 
     private bool isMoving = true;
 
-    [SerializeField]
+    //[SerializeField]
     private Vector3 vector = new Vector3(0, 0, -1);
 
     private Transform Plateform;
@@ -25,6 +25,7 @@ public class PlateformMouvementComponent : MonoBehaviour
     }
     void Update()
     {
+
         if (isMoving)
             Plateform.position += speed * (vector * Time.deltaTime);
     }
@@ -37,8 +38,9 @@ public class PlateformMouvementComponent : MonoBehaviour
 
     //    // Follow.Move(vector) = transform.Translate(vector * (speed * Time.deltaTime)); 
     //}
-    public void DéterminerDirection()
+    public Vector3 DéterminerDirection()
     {
+        Vector3 vector = new Vector3();
         GameObject Spawn1 = GameObject.Find("Spawn1");
         GameObject Spawn2 = GameObject.Find("Spawn2");
         GameObject Spawn3 = GameObject.Find("Spawn3");
@@ -47,8 +49,14 @@ public class PlateformMouvementComponent : MonoBehaviour
         Spawns.Add(Spawn2);
         Spawns.Add(Spawn3);
 
-        if (Spawn1.transform.position.z >= 6.77) ;
-
+        for (int i = 0; i <= Spawns.Count; ++i)
+            if (i % 2 == 0)
+            {
+                vector = new Vector3(0, 0, -1);
+            }
+            else
+                vector = new Vector3(0, 0, 1);
+        return vector;
     }
 
     
