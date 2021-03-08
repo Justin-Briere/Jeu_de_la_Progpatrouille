@@ -9,7 +9,7 @@ public class SpawnTrigger : MonoBehaviour
 
     //Objet à faire spawner
     public GameObject PlateForm;
-
+    
     // Lorsqu'il est trigger, les plate forme commence à spawn
 
     // Permet d'activer la première plateforme
