@@ -38,7 +38,7 @@ public class OpenDoorComponents : MonoBehaviour
         if (timer > 2.901f) cnt = 0;
         Test();
     }
-   
+
     void Test()                            // regarde si les tiles sont identique.
     {
         ListTiles = FindObjectsOfType<TileComponents>();
@@ -50,19 +50,27 @@ public class OpenDoorComponents : MonoBehaviour
                 LevelComleted = false;
                 Debug.Log("Non");
                 break;
-            }cnt++;
+            }
+            cnt++;
         }
-        if (cnt == ListTiles.Length && !Explosé)
+        if (cnt == ListTiles.Length && !Explosé)      // action lorsque les tuiles sont tous de la mm couleur
         {
-                for (int i = 0; i <= 2; i++)
-                {
-                    GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
-                    Destroy(Explosion, 3);
-                    Explosé = true;
-                }
+            for (int i = 0; i <= 2; i++)
+            {
+
+                //var Door = GameObject.FindGameObjectWithTag("door");
+               // RotateDoor(Door);
+                GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
+                Destroy(Explosion, 3);
+                Explosé = true;
+            }
             LevelComleted = true;
         }
 
+    }
+    private void RotateDoor( GameObject Door)
+    {
+       // Door.transform.RotateAround(Vector3.up, 20 );
     }
 
     // Update is called once per frame

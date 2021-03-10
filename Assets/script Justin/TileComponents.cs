@@ -24,7 +24,7 @@ public class TileComponents : MonoBehaviour
         var Difficulty = "easy"; 
         if (Difficulty == "easy")
         {
-            EasyMode = false; 
+            EasyMode = true; 
         }
         var Done = IsFinish.GetComponent<OpenDoorComponents>();
         
