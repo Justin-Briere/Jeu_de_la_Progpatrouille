@@ -6,18 +6,15 @@ public class PlateformMouvementComponent : MonoBehaviour
 {
     public List<GameObject> Spawns;
     
-
-
     [SerializeField]
     private float speed = 1.5f;
 
-    private bool isMoving = true;
-
     //[SerializeField]
-    private Vector3 vector = new Vector3(0, 0, -1);
+    //private Vector3 vector= new Vector3 (0,0,-1);
 
     SpawnTrigger Spawn;
     private Transform Plateform;
+
     //MovementComponent Follow;
     private void Start()
     {
@@ -25,9 +22,8 @@ public class PlateformMouvementComponent : MonoBehaviour
     }
     void Update()
     {
-
-        if (isMoving)
-            Plateform.position += speed * (vector * Time.deltaTime) * Plateform.rotation.y ; // vector valeur pas bonne (pas de rotation de plateforme)
+        Vector3 vectorBidon= new Vector3 (((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad*Plateform.rotation.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.rotation.y)));
+        Plateform.position += speed * vectorBidon ; // vector valeur pas bonne (pas de rotation de plateforme)
     }
 
     //private void OnCollisionEnter(Collision collision)
