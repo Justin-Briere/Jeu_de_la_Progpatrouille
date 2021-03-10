@@ -14,12 +14,13 @@ public class VisionPolice : MonoBehaviour
     // [SerializeField]
     private float phi = Mathf.PI / 4;
 
-
     private Vector3 positionBandit;
 
     private Vector3 rotationPolice;
 
     private Vector3 fieldOfView;
+
+    private Vector3 positionPolice;
 
     private float x;
     private float y;
@@ -37,6 +38,7 @@ public class VisionPolice : MonoBehaviour
     void Update()
     {
         positionBandit = GameObject.Find("Bandit").transform.position;
+        positionPolice = GetComponentInParent<Transform>().position;
 
         CheckRayon();
         CheckAngleXZ();
@@ -88,7 +90,10 @@ public class VisionPolice : MonoBehaviour
         var d2 = positionBandit.x - xPolice;
         
         var teta1 = Mathf.Atan(d1 / d2);
-        Debug.Log(Vector3.Angle(positionBandit, new Vector3(xPolice + 1, yPolice, zPolice)));
+        Vector3 vecteur = Vector3.right;
+        Vector3 newVecteur = positionBandit - positionPolice;
+        Debug.Log(newVecteur);
+        //Debug.Log(Vector3.Angle(positionBandit, v);
         if (cnt == 0)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
