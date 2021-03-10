@@ -22,7 +22,7 @@ public class PlateformMouvementComponent : MonoBehaviour
     }
     void Update()
     {
-        Vector3 vectorBidon= new Vector3 (((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad*Plateform.rotation.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.rotation.y)));
+        Vector3 vectorBidon= new Vector3 (((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad*Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
         Plateform.position += speed * vectorBidon ; // vector valeur pas bonne (pas de rotation de plateforme)
     }
 
