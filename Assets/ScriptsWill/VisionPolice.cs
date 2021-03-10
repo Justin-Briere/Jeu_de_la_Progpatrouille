@@ -50,7 +50,7 @@ public class VisionPolice : MonoBehaviour
 
         if (distanceRayon <= rayon)
         {
-            Debug.Log("T'eS DAnS lE rAYoN");
+            //Debug.Log("T'eS DAnS lE rAYoN");
         }
 
     }
@@ -60,17 +60,48 @@ public class VisionPolice : MonoBehaviour
         var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
         var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
 
-        var Vpopo = new Vector3(xPolice, 0, zPolice);
-        var Vban = new Vector3(positionBandit.x, 0, positionBandit.z);
+        // var Vpopo = new Vector3(xPolice, 0, zPolice);
+        // var Vban = new Vector3(positionBandit.x, 0, positionBandit.z);
 
-        var Vtot = Vpopo - Vban;
+        //var Vtot = Vpopo - Vban;
 
-        var angle = Mathf.Atan(Vtot.x / Vtot.y);  //DOIT FAIRE ARC TAN 
+        //var angle = Mathf.Atan(Vtot.x / Vtot.y);  
 
-        if(Mathf.Abs(angle) < Mathf.PI/2)
+        //if(Mathf.Abs(angle) < Mathf.PI/2)
+        //{
+        //    Debug.Log("angle is right");
+        //}
+
+        var d1 = positionBandit.z- zPolice ;
+        var d2 = positionBandit.x - xPolice;
+
+        var teta1 = Mathf.Atan(d1 / d2);
+
+        var tetaDeg = teta1 * Mathf.Rad2Deg;
+
+        if(d2 < 0)
+        {
+            tetaDeg += 180;
+        }
+
+
+        var rotPolice = GetComponentInParent<Transform>().eulerAngles.y ;
+
+       // tetaDeg += rotPolice;
+        //tetaDeg + rotation y
+        //Debug.Log("rotPolice :            " + rotPolice);
+
+
+       Debug.Log("angle :            " + tetaDeg);
+
+       
+        if (tetaDeg >= 45 && tetaDeg <= 135)
         {
             Debug.Log("angle is right");
         }
+
+
+       // Vector3 vectorBidon = new Vector3(((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
     }
 
     private void CheckAngleXY()
