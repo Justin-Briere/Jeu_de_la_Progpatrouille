@@ -43,7 +43,7 @@ public class VisionPolice : MonoBehaviour
     }
 
     private void CheckRayon()
-    {  
+    {
 
         //LES 5 PROCHAINE LIGNES SERVENT À DÉTERMINER SI LE JOUEUR EST DANS LE RAYON PRÉDÉFINI DU POLICIER DU POLICIER
         var distanceRayon = Vector3.Distance(GetComponentInParent<Transform>().position, positionBandit);
@@ -54,9 +54,20 @@ public class VisionPolice : MonoBehaviour
         }
 
     }
+    private void OnMouseDown()                          // fonction qui permet de call le start par clicker sur un items.
+    {
+        
+
+    }
+
 
     private void CheckAngleXZ()
     {
+        
+
+
+
+
         var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
         var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
 
@@ -72,36 +83,36 @@ public class VisionPolice : MonoBehaviour
         //    Debug.Log("angle is right");
         //}
 
-        var d1 = positionBandit.z- zPolice ;
+        var d1 = positionBandit.z - zPolice;
         var d2 = positionBandit.x - xPolice;
 
         var teta1 = Mathf.Atan(d1 / d2);
+        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y  -360 );
+        float tetaDeg = 0;
+         tetaDeg = teta1 * Mathf.Rad2Deg;
 
-        var tetaDeg = teta1 * Mathf.Rad2Deg;
-
-        if(d2 < 0)
+        if (d2 < 0)
         {
-            tetaDeg += 180;
+            tetaDeg += (180);
         }
 
 
-        var rotPolice = GetComponentInParent<Transform>().eulerAngles.y ;
 
-       // tetaDeg += rotPolice;
+        // tetaDeg += rotPolice;
         //tetaDeg + rotation y
-        //Debug.Log("rotPolice :            " + rotPolice);
+      //  Debug.Log("rotPolice :            " + rotPolice);
 
 
-       Debug.Log("angle :            " + tetaDeg);
+      //  Debug.Log("angle :            " + tetaDeg);
 
-       
-        if (tetaDeg >= 45 && tetaDeg <= 135)
+
+        if (tetaDeg >= 45+ rotPolice && tetaDeg <= 135+ rotPolice)
         {
             Debug.Log("angle is right");
         }
 
 
-       // Vector3 vectorBidon = new Vector3(((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
+        // Vector3 vectorBidon = new Vector3(((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
     }
 
     private void CheckAngleXY()
@@ -110,6 +121,7 @@ public class VisionPolice : MonoBehaviour
     }
 
 }
+
 
 //var popoX = new Vector3(GetComponentInParent<Transform>().position.x, 0, 0);
 
