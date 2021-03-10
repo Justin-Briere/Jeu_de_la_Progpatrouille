@@ -58,8 +58,6 @@ public class OpenDoorComponents : MonoBehaviour
             for (int i = 0; i <= 2; i++)
             {
 
-                //var Door = GameObject.FindGameObjectWithTag("door");
-               // RotateDoor(Door);
                 GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
                 Destroy(Explosion, 3);
                 Explosé = true;
