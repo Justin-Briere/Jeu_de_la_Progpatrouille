@@ -24,10 +24,11 @@ public class VisionPolice : MonoBehaviour
     private float x;
     private float y;
     private float z;
-
+    int cnt;
 
     void Start()
     {
+         cnt = 0;
         x = 45;
         y = 45;
         z = 45;
@@ -68,9 +69,9 @@ public class VisionPolice : MonoBehaviour
 
 
 
-        var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
-
+        float xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+        float zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+        float yPolice = GetComponentInParent<Transform>().position.y;
         // var Vpopo = new Vector3(xPolice, 0, zPolice);
         // var Vban = new Vector3(positionBandit.x, 0, positionBandit.z);
 
@@ -85,9 +86,17 @@ public class VisionPolice : MonoBehaviour
 
         var d1 = positionBandit.z - zPolice;
         var d2 = positionBandit.x - xPolice;
-
+        
         var teta1 = Mathf.Atan(d1 / d2);
-        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y  -360 );
+        Debug.Log(Vector3.Angle(positionBandit, new Vector3(xPolice + 1, yPolice, zPolice)));
+        if (cnt == 0)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+            cube.transform.position = new Vector3(xPolice + 1, yPolice, zPolice);
+        }
+        cnt = 1;
+        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y   );
         float tetaDeg = 0;
          tetaDeg = teta1 * Mathf.Rad2Deg;
 
