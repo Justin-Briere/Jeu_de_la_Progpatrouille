@@ -22,10 +22,16 @@ public class OpenDoorComponents : MonoBehaviour
     [SerializeField]
     private GameObject ModèleExplosion;
 
+    [SerializeField]
+    GameObject LeftDoor;
+
+    [SerializeField]
+    GameObject RightDoor;
+
     void Start()
     {
         LevelComleted = false;
-         StartCoroutine(StartCountdown());
+        StartCoroutine(StartCountdown());
     }
     void Update()
     {
@@ -37,11 +43,15 @@ public class OpenDoorComponents : MonoBehaviour
         }
         if (timer > 2.901f) cnt = 0;
         Test();
+        if (Explosé== true)
+        {
+            RotateDoorRight();
+        }
     }
 
     void Test()                            // regarde si les tiles sont identique.
     {
-        ListTiles = FindObjectsOfType<TileComponents>();
+        ListTiles = FindObjectsOfType<TileComponents>(); //Voir façon plus rapide
         int cnt = 0;
         foreach (TileComponents Floor in ListTiles)
         {
@@ -57,18 +67,21 @@ public class OpenDoorComponents : MonoBehaviour
         {
             for (int i = 0; i <= 2; i++)
             {
-
                 GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
                 Destroy(Explosion, 3);
-                Explosé = true;
             }
+            Explosé = true;
             LevelComleted = true;
         }
 
     }
-    private void RotateDoor( GameObject Door)
+    private void RotateDoorRight()
     {
-       // Door.transform.RotateAround(Vector3.up, 20 );
+        RightDoor.transform.Rotate(Vector3.up, 20 );
+    }
+    private void RotateDoorLeft()
+    {
+        LeftDoor.transform.Rotate(Vector3.up, 20);
     }
 
     // Update is called once per frame

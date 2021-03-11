@@ -14,20 +14,22 @@ public class VisionPolice : MonoBehaviour
     // [SerializeField]
     private float phi = Mathf.PI / 4;
 
-
     private Vector3 positionBandit;
 
     private Vector3 rotationPolice;
 
     private Vector3 fieldOfView;
 
+    private Vector3 positionPolice;
+
     private float x;
     private float y;
     private float z;
-
+    int cnt;
 
     void Start()
     {
+         cnt = 0;
         x = 45;
         y = 45;
         z = 45;
@@ -36,6 +38,7 @@ public class VisionPolice : MonoBehaviour
     void Update()
     {
         positionBandit = GameObject.Find("Bandit").transform.position;
+        positionPolice = GetComponentInParent<Transform>().position;
 
         CheckRayon();
         CheckAngleXZ();
@@ -43,7 +46,7 @@ public class VisionPolice : MonoBehaviour
     }
 
     private void CheckRayon()
-    {  
+    {
 
         //LES 5 PROCHAINE LIGNES SERVENT À DÉTERMINER SI LE JOUEUR EST DANS LE RAYON PRÉDÉFINI DU POLICIER DU POLICIER
         var distanceRayon = Vector3.Distance(GetComponentInParent<Transform>().position, positionBandit);
@@ -54,12 +57,23 @@ public class VisionPolice : MonoBehaviour
         }
 
     }
+    private void OnMouseDown()                          // fonction qui permet de call le start par clicker sur un items.
+    {
+        
+
+    }
+
 
     private void CheckAngleXZ()
     {
-        var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+        
 
+
+
+
+        float xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+        float zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+        float yPolice = GetComponentInParent<Transform>().position.y;
         // var Vpopo = new Vector3(xPolice, 0, zPolice);
         // var Vban = new Vector3(positionBandit.x, 0, positionBandit.z);
 
@@ -72,36 +86,47 @@ public class VisionPolice : MonoBehaviour
         //    Debug.Log("angle is right");
         //}
 
-        var d1 = positionBandit.z- zPolice ;
+        var d1 = positionBandit.z - zPolice;
         var d2 = positionBandit.x - xPolice;
-
+        
         var teta1 = Mathf.Atan(d1 / d2);
-
-        var tetaDeg = teta1 * Mathf.Rad2Deg;
-
-        if(d2 < 0)
+        Vector3 vecteur = Vector3.right;
+        Vector3 newVecteur = positionBandit - positionPolice;
+        Debug.Log(newVecteur);
+        //Debug.Log(Vector3.Angle(positionBandit, v);
+        if (cnt == 0)
         {
-            tetaDeg += 180;
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+            cube.transform.position = new Vector3(xPolice + 1, yPolice, zPolice);
+        }
+        cnt = 1;
+        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y   );
+        float tetaDeg = 0;
+         tetaDeg = teta1 * Mathf.Rad2Deg;
+
+        if (d2 < 0)
+        {
+            tetaDeg += (180);
         }
 
 
-        var rotPolice = GetComponentInParent<Transform>().eulerAngles.y ;
 
-       // tetaDeg += rotPolice;
+        // tetaDeg += rotPolice;
         //tetaDeg + rotation y
-        //Debug.Log("rotPolice :            " + rotPolice);
+      //  Debug.Log("rotPolice :            " + rotPolice);
 
 
-       Debug.Log("angle :            " + tetaDeg);
+      //  Debug.Log("angle :            " + tetaDeg);
 
-       
-        if (tetaDeg >= 45 && tetaDeg <= 135)
+
+        if (tetaDeg >= 45+ rotPolice && tetaDeg <= 135+ rotPolice)
         {
             Debug.Log("angle is right");
         }
 
 
-       // Vector3 vectorBidon = new Vector3(((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
+        // Vector3 vectorBidon = new Vector3(((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
     }
 
     private void CheckAngleXY()
@@ -110,6 +135,7 @@ public class VisionPolice : MonoBehaviour
     }
 
 }
+
 
 //var popoX = new Vector3(GetComponentInParent<Transform>().position.x, 0, 0);
 
