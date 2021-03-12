@@ -18,9 +18,11 @@ public class VisionPolice : MonoBehaviour
 
     private Vector3 rotationPolice;
 
-    private Vector3 fieldOfView;
-
+    private Vector3 PoliceBandit;
+    private Vector3 VectorPolice;
+    private Vector3 VectorAnglePolice;
     private Transform positionPolice;
+
     GameObject bodyPolice;
     private float x;
     private float y;
@@ -81,8 +83,9 @@ public class VisionPolice : MonoBehaviour
 
         var d1 = positionBandit.z - zPolice;
         var d2 = positionBandit.x - xPolice;
-        
+
         var teta1 = Mathf.Atan(d1 / d2);
+        var theta = positionPolice.rotation.eulerAngles.y;
         Vector3 vecteur = Vector3.right;
         // Vector3 newVecteur = positionBandit - positionPolice;
         //  Debug.Log(newVecteur);
@@ -90,13 +93,21 @@ public class VisionPolice : MonoBehaviour
         //if (cnt =! 0)
         //{
 
-        //    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //    cube.transform.SetParent(positionPolice);
-        //    //cube.transform.position = new Vector3(1, 0, 0);
+        // GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        //cube.transform.SetParent(positionPolice);
+        //  cube.transform.position = new Vector3(transform.localPosition.x +1 , transform.localPosition.y, transform.localPosition.z);
         //}
+        VectorPolice.Set(xPolice, yPolice, zPolice);
+        print(theta);
+        if (theta > 180) print("In");
         rotationPolice.Set(xPolice, yPolice, zPolice);
-        Vector3 test = new Vector3(xPolice - positionBandit.x, yPolice - positionBandit.y, zPolice - positionBandit.z);
-        var angle = Vector3.Angle(test, rotationPolice);
+        var test = (((positionPolice.transform.position) - (positionBandit)));
+        PoliceBandit.Set(test.x, test.y, test.z);
+
+
+
+        var test2 = new Vector3((xPolice +1)- positionBandit.x, (yPolice ) - positionBandit.y, (zPolice) - positionBandit.z);
+      //  print(test2);
         var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y   );
         float tetaDeg = 0;
          tetaDeg = teta1 * Mathf.Rad2Deg;
@@ -105,7 +116,7 @@ public class VisionPolice : MonoBehaviour
         {
             tetaDeg += (180);
         }
-        print(Vector3.Angle(Vector3.up, Vector3.one));
+        print(Vector3.Angle(test2, PoliceBandit));
 
 
         // tetaDeg += rotPolice;
