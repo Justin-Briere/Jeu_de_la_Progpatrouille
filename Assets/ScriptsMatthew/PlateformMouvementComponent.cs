@@ -9,8 +9,13 @@ public class PlateformMouvementComponent : MonoBehaviour
     [SerializeField]
     private float speed = 1.5f;
 
-    //[SerializeField]
-    //private Vector3 vector= new Vector3 (0,0,-1);
+    private float angleX;
+    private float angleY;
+    private float angleZ;
+
+    private float X;
+    private float Y;
+    private float Z;
 
     SpawnTrigger Spawn;
     private Transform Plateform;
