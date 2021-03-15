@@ -108,7 +108,15 @@ public class VisionPolice : MonoBehaviour
 
         var test2 = new Vector3((xPolice +1)- positionBandit.x, (yPolice ) - positionBandit.y, (zPolice) - positionBandit.z);
       //  print(test2);
-        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y   );
+        float rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y   );
+        float fov1 = rotPolice + 45;
+        float fov2 = rotPolice - 45;
+        if (fov1 >= 360)
+            fov1 -= 360;
+        if (fov2 <= 0)
+            fov2 += 360;
+
+
         float tetaDeg = 0;
          tetaDeg = teta1 * Mathf.Rad2Deg;
 
