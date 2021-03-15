@@ -27,16 +27,17 @@ public class PlateformMouvementComponent : MonoBehaviour
     }
     void Update()
     {
-        angleX = Mathf.Deg2Rad * Plateform.eulerAngles.x;
+        angleX =- Mathf.Deg2Rad * Plateform.eulerAngles.x;
         angleY = Mathf.Deg2Rad * Plateform.eulerAngles.y;
         angleZ = Mathf.Deg2Rad * Plateform.eulerAngles.z;
-        X = Mathf.Sin(angleY) + Mathf.Sin(angleZ);
-        Y = Mathf.Cos(angleZ) + Mathf.Sin(angleX);
-        Z = Mathf.Cos(angleY) + Mathf.Cos(angleX);
-        // Vector3 vectorBidon= new Vector3 (((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad*Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
-
-        Vector3 vectorBidon = new Vector3(X*0.01f, Y*0.01f, Z*0.01f);
-        Plateform.position += speed * vectorBidon ; // vector valeur pas bonne (pas de rotation de plateforme)
+        X = Mathf.Sin(angleY) /*+ Mathf.Sin(angleZ)*/;
+        Y = /*Mathf.Cos(angleZ) **/ Mathf.Sin(angleX);
+        Z = Mathf.Cos(angleY) * Mathf.Cos(angleX);
+         //Vector3 vectorBidon= new Vector3 (((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad*Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
+        // Vector3 test =Vector3.Cross( new Vector3(1,1,1).normalized , new Vector3(X, Y, Z).normalized);
+        Vector3 vectorBidon = new Vector3( X+0f, Y+0f ,  Z+0f);
+          Plateform.position +=speed * vectorBidon.normalized* (Time.deltaTime); // vector valeur pas bonne (pas de rotation de plateforme)
+        //Plateform.position += Plateform.forward * (Time.deltaTime);
     }
 
     //private void OnCollisionEnter(Collision collision)
