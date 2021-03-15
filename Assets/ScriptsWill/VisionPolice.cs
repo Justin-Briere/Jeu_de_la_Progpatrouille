@@ -28,9 +28,16 @@ public class VisionPolice : MonoBehaviour
     private float y;
     private float z;
     int cnt;
-
+    float MinValueAngle;
+    float MaxValueAngle;
     void Start()
     {
+        bool EZmode = true;
+        if (EZmode)
+        {
+            MinValueAngle = 45;
+            MaxValueAngle = 315;
+        }
          cnt = 0;
         x = 45;
         y = 45;
@@ -69,82 +76,6 @@ public class VisionPolice : MonoBehaviour
     }
 
 
-    //private void CheckAngleXZ()
-    //{
-
-
-
-    //    //print(bodyPolice.x);
-
-    //    float xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-    //    float zPolice = GetComponentInParent<Transform>().position.z;     //ibid
-    //    float yPolice = GetComponentInParent<Transform>().position.y;
-
-
-    //    var d1 = positionBandit.z - zPolice;
-    //    var d2 = positionBandit.x - xPolice;
-
-    //    var teta1 = Mathf.Atan(d1 / d2);
-    //    var theta = positionPolice.rotation.eulerAngles.y;
-    //    Vector3 vecteur = Vector3.right;
-
-    //    // Vector3 newVecteur = positionBandit - positionPolice;
-    //    //  Debug.Log(newVecteur);
-    //    //Debug.Log(Vector3.Angle(positionBandit, v);
-    //    //if (cnt =! 0)
-    //    //{
-
-    //    // GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-    //    //cube.transform.SetParent(positionPolice);
-    //    //  cube.transform.position = new Vector3(transform.localPosition.x +1 , transform.localPosition.y, transform.localPosition.z);
-    //    //}
-
-    //    VectorPolice.Set(xPolice, yPolice, zPolice);
-    //    print(theta);
-    //    if (theta > 180) print("In");
-    //    rotationPolice.Set(xPolice, yPolice, zPolice);
-    //    var test = (((positionPolice.transform.position) - (positionBandit)));
-    //    PoliceBandit.Set(test.x, test.y, test.z);
-
-
-
-    //    var test2 = new Vector3((xPolice +1)- positionBandit.x, (yPolice ) - positionBandit.y, (zPolice) - positionBandit.z);
-    //  //  print(test2);
-    //    float rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y   );
-    //    float fov1 = rotPolice + 45;
-    //    float fov2 = rotPolice - 45;
-    //    if (fov1 >= 360)
-    //        fov1 -= 360;
-    //    if (fov2 <= 0)
-    //        fov2 += 360;
-
-
-    //    float tetaDeg = 0;
-    //     tetaDeg = teta1 * Mathf.Rad2Deg;
-
-    //    if (d2 < 0)
-    //    {
-    //        tetaDeg += (180);
-    //    }
-    //    print(Vector3.Angle(test2, PoliceBandit));
-
-
-    //    // tetaDeg += rotPolice;
-    //    //tetaDeg + rotation y
-    //  //  Debug.Log("rotPolice :            " + rotPolice);
-
-
-    //  //  Debug.Log("angle :            " + tetaDeg);
-
-
-    //    if (tetaDeg >= 45+ rotPolice && tetaDeg <= 135+ rotPolice)
-    //    {
-    //        Debug.Log("angle is right");
-    //    }
-
-
-    //    // Vector3 vectorBidon = new Vector3(((Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * Plateform.eulerAngles.y)), 0, ((Time.deltaTime) * Mathf.Cos(Mathf.Deg2Rad * Plateform.eulerAngles.y)));
-    //}
 
     private void CheckAngleXZ()
     {
@@ -165,17 +96,18 @@ public class VisionPolice : MonoBehaviour
         var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y);
 
         var rotPolice2 = RightConversion2(rotPolice);
+        var test = tetaDeg2 + rotPolice2;
 
 
 
+        Debug.Log("angle" + test);
 
-        Debug.Log("angle" + rotPolice);
-
-        if (Mathf.Abs(tetaDeg2) < x)
-        {
-            Debug.Log("angle is right");
-        }
-
+        //if (Mathf.Abs(tetaDeg2) < x)
+        //{
+        //    Debug.Log("angle is right");
+        //}
+        if (test < MinValueAngle || test > MaxValueAngle) Debug.Log("angle is right");
+        var IsInVision = (test < MinValueAngle && test > MaxValueAngle) ? true : false;
     }
 
 
@@ -197,7 +129,7 @@ public class VisionPolice : MonoBehaviour
 
     public float RightConversion2(float rotPolice)
     {
-        rotPolice -= 90;
+        
         rotPolice = rotPolice * -1;
         rotPolice += 360;
 
@@ -206,7 +138,7 @@ public class VisionPolice : MonoBehaviour
             rotPolice -= 360;
         }
 
-
+      
         return rotPolice;
     }
 
