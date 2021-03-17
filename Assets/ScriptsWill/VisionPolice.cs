@@ -30,15 +30,24 @@ public class VisionPolice : MonoBehaviour
     int cnt;
     float MinValueAngle;
     float MaxValueAngle;
+    float minMaxAngle ;
+
+    bool rayonBool = false;
+    bool angleXZBool = false;
+    bool angleYZBool = false;
+
     void Start()
     {
-        bool EZmode = true;
-        if (EZmode)
-        {
-            MinValueAngle = 45;
-            MaxValueAngle = 315;
-        }
-         cnt = 0;
+        //bool EZmode = true;
+        //if (EZmode)
+        //{
+        //    MinValueAngle = 45;
+        //    MaxValueAngle = 315;
+        //}
+        minMaxAngle = 45;
+
+
+        cnt = 0;
         x = 45;
         y = 45;
         z = 45;
@@ -54,7 +63,8 @@ public class VisionPolice : MonoBehaviour
 
         CheckRayon();
         CheckAngleXZ();
-        //CheckAngleXY();
+        CheckAngleYZ();
+        ChekAll();
     }
 
     private void CheckRayon()
@@ -66,6 +76,11 @@ public class VisionPolice : MonoBehaviour
         if (distanceRayon <= rayon)
         {
             //Debug.Log("T'eS DAnS lE rAYoN");
+            rayonBool = true;
+        }
+        else
+        {
+            rayonBool = false;
         }
 
     }
@@ -96,18 +111,120 @@ public class VisionPolice : MonoBehaviour
         var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y);
 
         var rotPolice2 = RightConversion2(rotPolice);
-        var test = tetaDeg2 + rotPolice2;
 
 
+        var test = tetaDeg2;
 
-        Debug.Log("angle" + test);
+        var UpAngle = rotPolice2  + minMaxAngle;
+        var DownAngle = rotPolice2 - minMaxAngle;
+
+        if(UpAngle > 360)
+        {
+            UpAngle -= 360;
+        }
+
+        if (DownAngle < 0)
+        {
+            DownAngle += 360;
+        }
+
+        //Debug.Log("angle" + tetaDeg2);
 
         //if (Mathf.Abs(tetaDeg2) < x)
         //{
         //    Debug.Log("angle is right");
         //}
-        if (test < MinValueAngle || test > MaxValueAngle) Debug.Log("angle is right");
-        var IsInVision = (test < MinValueAngle && test > MaxValueAngle) ? true : false;
+        
+
+        if (UpAngle < (2*minMaxAngle) && DownAngle > 360 - (2 * minMaxAngle))
+        {
+            if (test < UpAngle || test > DownAngle)
+            {
+                angleXZBool = true;
+            }
+            else
+            {
+                angleXZBool = false;
+            }
+        }
+        else if (test < UpAngle && test > DownAngle) 
+        {
+            angleXZBool = true;
+
+        }
+        else
+        {
+            angleXZBool = false;
+        }
+        
+        
+        //var IsInVision = (test < MinValueAngle && test > MaxValueAngle) ? true : false;
+    }
+
+
+    private void CheckAngleYZ()
+    {
+        var yPolice = GetComponentInParent<Transform>().position.y;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
+        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+
+        var d1 = positionBandit.z - zPolice;
+        var d2 = positionBandit.y - yPolice;
+
+        var teta1 = Mathf.Atan(d1 / d2);
+
+        var tetaDeg = teta1 * Mathf.Rad2Deg;
+
+
+        var tetaDeg2 = RightConversion(tetaDeg, d1, d2);
+
+        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.x);
+
+        var rotPolice2 = RightConversion2(rotPolice);
+
+
+        var test = tetaDeg2;
+
+        var UpAngle = rotPolice2 + 25;
+        var DownAngle = rotPolice2 - 25;
+
+        if (UpAngle > 360)
+        {
+            UpAngle -= 360;
+        }
+
+        if (DownAngle < 0)
+        {
+            DownAngle += 360;
+        }
+
+        Debug.Log("angle" + rotPolice );
+
+        //if (Mathf.Abs(tetaDeg2) < x)
+        //{
+        //   Debug.Log("angle is right");
+        //}
+
+
+        if (UpAngle < (2 * 25) && DownAngle > 360 - (2 * 25))
+        {
+            if (test < UpAngle || test > DownAngle)
+            {
+                angleYZBool = true;
+            }
+            else
+            {
+                angleYZBool = false;
+            }
+        }
+        else if (test < UpAngle && test > DownAngle)
+        {
+            angleYZBool = true;
+
+        }
+        else
+        {
+            angleYZBool = false;
+        }
     }
 
 
@@ -129,7 +246,8 @@ public class VisionPolice : MonoBehaviour
 
     public float RightConversion2(float rotPolice)
     {
-        
+
+        rotPolice -= 90;
         rotPolice = rotPolice * -1;
         rotPolice += 360;
 
@@ -138,8 +256,16 @@ public class VisionPolice : MonoBehaviour
             rotPolice -= 360;
         }
 
-      
+
         return rotPolice;
+    }
+
+    public void ChekAll()
+    {
+        if(rayonBool && angleXZBool /*&& /*angleYZBool*/)
+        {
+            Debug.Log("I SEE U");
+        }
     }
 
 }
