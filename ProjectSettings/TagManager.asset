@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plateforme
+  - door R
+  - door L
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - 
   - player
   - test
-  - door
-  - 
-  - 
+  - door L
+  - door R
+  - floor
   - 
   - 
   - 
@@ -41,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 3448488027
     locked: 0

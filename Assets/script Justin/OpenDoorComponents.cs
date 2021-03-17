@@ -24,8 +24,9 @@ public class OpenDoorComponents : MonoBehaviour
 
     [SerializeField]
     GameObject LeftDoor;
-
-    [SerializeField]
+        [SerializeField]
+    GameObject floor;
+    //  [SerializeField]
     GameObject RightDoor;
 
     void Start()
@@ -43,10 +44,7 @@ public class OpenDoorComponents : MonoBehaviour
         }
         if (timer > 2.901f) cnt = 0;
         Test();
-        if (Explosé== true)
-        {
-            RotateDoorRight();
-        }
+      
     }
 
     void Test()                            // regarde si les tiles sont identique.
@@ -67,8 +65,15 @@ public class OpenDoorComponents : MonoBehaviour
         {
             for (int i = 0; i <= 2; i++)
             {
+               
+                //RotateDoorRight(); RotateDoorLeft();
                 GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
                 Destroy(Explosion, 3);
+                foreach (TileComponents Floor in ListTiles)
+                {
+                    Destroy(Floor.gameObject);
+                    Destroy(floor);
+                }
             }
             Explosé = true;
             LevelComleted = true;
@@ -77,7 +82,13 @@ public class OpenDoorComponents : MonoBehaviour
     }
     private void RotateDoorRight()
     {
-        RightDoor.transform.Rotate(Vector3.up, 20 );
+
+        var Door = GameObject.FindGameObjectWithTag("door R") ;
+        Door.transform.Rotate(Vector3.up, 95);
+       
+        
+        //while ((RightDoor.transform.rotation.y < 90))
+            RightDoor.transform.Rotate(Vector3.up,95)  ;
     }
     private void RotateDoorLeft()
     {
