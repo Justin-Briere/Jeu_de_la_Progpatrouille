@@ -58,8 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawns: []
-  speed: 1.5
-  vector: {x: 0, y: 0, z: -1}
+  speed: 0
 --- !u!114 &235483480329441311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c2ae705beb5f64d8cc37c129a02826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 1000
+  time: 60
 --- !u!1001 &8258039842307129673
 PrefabInstance:
   m_ObjectHideFlags: 0

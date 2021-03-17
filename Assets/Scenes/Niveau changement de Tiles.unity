@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &56516963 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1637307675490060, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
-  m_PrefabInstance: {fileID: 66319828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &66319828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1259259461502292, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1428611040233594, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_Name
       value: door
@@ -145,27 +144,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1637307675490060, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159449465309958, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159449465309958, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159449465309958, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159449465309958, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159449465309958, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4287252911740324, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.012834285
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4287252911740324, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7069903
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4287252911740324, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7069903
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4287252911740324, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.012834285
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4287252911740324, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.08
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4661655912406918, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2229,11 +2248,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.9990404, z: 0.8}
   m_Center: {x: 0.00000023841858, y: 1.5004798, z: 0}
---- !u!1 &1081656951 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1259259461502292, guid: 2bd73989eed90274f89e5fd847dc8db1, type: 3}
-  m_PrefabInstance: {fileID: 66319828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1147850401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,8 +2661,8 @@ MonoBehaviour:
   ListTiles: []
   LevelComleted: 1
   "Mod\xE8leExplosion": {fileID: 3576924614362489592, guid: 4a919ff208278c347a4582e77e55ed83, type: 3}
-  LeftDoor: {fileID: 1081656951}
-  RightDoor: {fileID: 56516963}
+  LeftDoor: {fileID: 906874017}
+  floor: {fileID: 754995540}
 --- !u!4 &1325538632
 Transform:
   m_ObjectHideFlags: 0
@@ -3110,7 +3124,7 @@ MonoBehaviour:
   LevelComleted: 1
   "Mod\xE8leExplosion": {fileID: 0}
   LeftDoor: {fileID: 0}
-  RightDoor: {fileID: 0}
+  floor: {fileID: 0}
 --- !u!65 &1598194722
 BoxCollider:
   m_ObjectHideFlags: 0
