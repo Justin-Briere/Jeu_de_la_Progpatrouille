@@ -9,13 +9,20 @@ public class SpawnTrigger : MonoBehaviour
 
     //Objet à faire spawner
     public GameObject PlateForm;
-    
-    // Lorsqu'il est trigger, les plate forme commence à spawn
 
+    TimeManager verif;
     // Permet d'activer la première plateforme
+    private void Start()
+    {
+        verif = FindObjectOfType<TimeManager>();
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player") && verif.verification)
+        {
             Instantiate(PlateForm, SpawnPoint.position, SpawnPoint.rotation);
+            verif.Attendre();
+        }
     }
 }
