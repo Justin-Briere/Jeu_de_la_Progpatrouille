@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 89327229, guid: 4d3e173d77fdca94a92424942cde8cdc, type: 3}
+      propertyPath: banditos
+      value: 
+      objectReference: {fileID: 1665130764}
     - target: {fileID: 132615863597954168, guid: 4d3e173d77fdca94a92424942cde8cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.57
@@ -715,6 +719,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1665130764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6135882930086476422, guid: ed44e2a7c78706f41bd0d0a6c120c540, type: 3}
+  m_PrefabInstance: {fileID: 6309462881727580383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1755527608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2194177771570208102, guid: 4d3e173d77fdca94a92424942cde8cdc, type: 3}
+  m_PrefabInstance: {fileID: 385062690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755527609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755527608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ddcb9ce56632945ae1e1fc82dc74c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762310812
 GameObject:
   m_ObjectHideFlags: 0
