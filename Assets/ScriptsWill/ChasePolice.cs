@@ -12,8 +12,8 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
     //float zDiff;
 
     //Vector3 leVecteur = new Vector3();
-
-    private float policeSpeed = 1f;
+    [SerializeField]
+    private float policeSpeed = 3f;
 
     void Start()
     {
@@ -59,7 +59,11 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float xDiff = ( positionInitialeX - positionPoliceX);
         float zDiff = (positionInitialeZ - positionPoliceZ);
 
-        Deplacer(xDiff, zDiff);
+        if(xDiff + zDiff > 0.5)
+        {
+            Deplacer(xDiff, zDiff);
+        }
+
     }
 
     public void Deplacer(float xDiff, float zDiff)

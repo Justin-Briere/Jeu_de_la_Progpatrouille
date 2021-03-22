@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: banditos
       value: 
       objectReference: {fileID: 1665130764}
+    - target: {fileID: 89327229, guid: 4d3e173d77fdca94a92424942cde8cdc, type: 3}
+      propertyPath: rayon
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 132615863597954168, guid: 4d3e173d77fdca94a92424942cde8cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.57
@@ -741,6 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ddcb9ce56632945ae1e1fc82dc74c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  policeSpeed: 3
 --- !u!1 &1762310812
 GameObject:
   m_ObjectHideFlags: 0
