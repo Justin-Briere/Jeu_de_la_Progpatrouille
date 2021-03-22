@@ -5,14 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class EasyLevelComponent : MonoBehaviour
 {
+    public bool DifficultéFacile = false;
+    public bool DifficultéIntermédiaire = false;
+    public bool DifficultéDifficile = false;
 
+    private void DéterminerDifficultéJeu()
+    {
+        if (gameObject.layer == 13)
+            DifficultéFacile = true;
+        else if (gameObject.layer == 14)
+            DifficultéIntermédiaire = true;
+        else if (gameObject.layer == 15)
+            DifficultéDifficile = true;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            DéterminerDifficultéJeu();
             Debug.Log("Collision Detected");
             SceneManager.LoadScene("LVL1");
         }
     }
+
+    
 }

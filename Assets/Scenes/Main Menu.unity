@@ -579,6 +579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Porte gauche
       objectReference: {fileID: 0}
+    - target: {fileID: 416386656469751746, guid: 9175d08a6bdddeb48afa15d1b714d918, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3584228344340138643, guid: 9175d08a6bdddeb48afa15d1b714d918, type: 3}
       propertyPath: m_Constraints
       value: 126
@@ -1133,6 +1137,7 @@ GameObject:
   - component: {fileID: 1136694950}
   - component: {fileID: 1136694949}
   - component: {fileID: 1136694948}
+  - component: {fileID: 1136694951}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1205,6 +1210,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 68.652, y: -90, z: 0}
+--- !u!114 &1136694951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136694947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc83a2127eecd9346816808fae10d8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpForce: 350
+  divisionOfSpeedInAir: 5
 --- !u!1001 &1184315167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1364,6 +1384,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 416386656469751746, guid: 9175d08a6bdddeb48afa15d1b714d918, type: 3}
   m_PrefabInstance: {fileID: 583387536}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1368793003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368792999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4080149, y: 2.2950897, z: 0.2955344}
+  m_Center: {x: 0, y: 1.1481464, z: 0.028115742}
 --- !u!114 &1368793004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,6 +1409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523eb1822bdf0ed459be83441a6e9d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "Difficult\xE9Facile": 0
+  "Difficult\xE9Interm\xE9diaire": 0
+  "Difficult\xE9Difficile": 0
 --- !u!4 &1371609868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7478225697115775088, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
@@ -1442,7 +1478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6295920982192035084, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6605675685186862746, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
       propertyPath: m_RootOrder
@@ -2118,23 +2154,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!1 &1723732160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6229247520373792897, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
-  m_PrefabInstance: {fileID: 881947478}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1723732162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723732160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523eb1822bdf0ed459be83441a6e9d9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1740527675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2221,6 +2240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523eb1822bdf0ed459be83441a6e9d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "Difficult\xE9Facile": 0
+  "Difficult\xE9Interm\xE9diaire": 0
+  "Difficult\xE9Difficile": 0
 --- !u!1 &1954932403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2326,111 @@ Transform:
   m_Father: {fileID: 1371609868}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1974367590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7478225697116208144, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
+  m_PrefabInstance: {fileID: 1428366660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1974367591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974367590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbec697328451e4ca9ca8ae6578487e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationPerSecond: 400
+--- !u!114 &1974367593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974367590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9230a2f766b791d49b05553755c5ff46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nPlayers: 1
+  nMovementKeys: 4
+  nActionKeys: 0
+  keys: 77000000610000007300000064000000
+  movementCommands:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1974367594}
+        m_TargetAssemblyTypeName: MovementComponent, Assembly-CSharp
+        m_MethodName: AddDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1974367591}
+        m_TargetAssemblyTypeName: SpinComponent, Assembly-CSharp
+        m_MethodName: SpinLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1974367594}
+        m_TargetAssemblyTypeName: MovementComponent, Assembly-CSharp
+        m_MethodName: AddDirection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1974367591}
+        m_TargetAssemblyTypeName: SpinComponent, Assembly-CSharp
+        m_MethodName: SpinRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  actionCommands: []
+--- !u!114 &1974367594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974367590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72037a32c6d50fe418c9ffe58caadab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1001 &2001863569
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,16 +27,29 @@ public class OpenDoorComponents : MonoBehaviour
         [SerializeField]
     GameObject floor;
     //  [SerializeField]
-    GameObject RightDoor;
-
+    Camera cam1;
+    Camera cam2;
+     bool DifficultéFacile = false;
+     bool DifficultéIntermédiaire = false;
+     bool DifficultéDifficile = false;
+    EasyLevelComponent Difficulté;
     void Start()
     {
         LevelComleted = false;
         StartCoroutine(StartCountdown());
+        
     }
     void Update()
     {
-        timer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            foreach (TileComponents Floor in ListTiles)
+            {
+                Floor.gameObject.GetComponent<MeshRenderer>().material.color = ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color;
+            }
+
+        }
+            timer += Time.deltaTime;
         if (cnt==0 &&(timeToWait - timer) <= 0.01)
         {
             cnt = 1;
@@ -53,48 +66,33 @@ public class OpenDoorComponents : MonoBehaviour
         int cnt = 0;
         foreach (TileComponents Floor in ListTiles)
         {
+            if(!Explosé)            // test si le niveau est fini
             if (Floor.gameObject.GetComponent<MeshRenderer>().material.color != ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color)
             {
                 LevelComleted = false;
-                Debug.Log("Non");
+                
                 break;
             }
             cnt++;
         }
         if (cnt == ListTiles.Length && !Explosé)      // action lorsque les tuiles sont tous de la mm couleur
-        {
-            for (int i = 0; i <= 2; i++)
-            {
-               
-                //RotateDoorRight(); RotateDoorLeft();
-                GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
+        { 
+            
+            GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
                 Destroy(Explosion, 3);
-                foreach (TileComponents Floor in ListTiles)
-                {
-                    Destroy(Floor.gameObject);
-                    Destroy(floor);
-                }
-            }
-            Explosé = true;
+           
+           foreach (TileComponents Floor in ListTiles)
+           {
+               Destroy(Floor.gameObject);
+               Destroy(floor);
+           }
             LevelComleted = true;
+            Explosé = true;           
+
         }
 
     }
-    private void RotateDoorRight()
-    {
-
-        var Door = GameObject.FindGameObjectWithTag("door R") ;
-        Door.transform.Rotate(Vector3.up, 95);
-       
-        
-        //while ((RightDoor.transform.rotation.y < 90))
-            RightDoor.transform.Rotate(Vector3.up,95)  ;
-    }
-    private void RotateDoorLeft()
-    {
-        LeftDoor.transform.Rotate(Vector3.up, 20);
-    }
-
+   
     // Update is called once per frame
     private void OnMouseDown()                          // fonction qui permet de call le start par clicker sur un items.
     {
@@ -122,6 +120,7 @@ public class OpenDoorComponents : MonoBehaviour
         {
             Test();
             yield return new WaitForSeconds(10f);
+            if (!Explosé)
             ChangeOneTile();
             StartCoroutine(StartCountdown());
         }
