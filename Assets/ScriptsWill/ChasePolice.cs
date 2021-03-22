@@ -59,7 +59,7 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float xDiff = ( positionInitialeX - positionPoliceX);
         float zDiff = (positionInitialeZ - positionPoliceZ);
 
-        if(xDiff + zDiff > 0.5)
+        if(Mathf.Abs(xDiff + zDiff )> 0.5)
         {
             Deplacer(xDiff, zDiff);
         }
