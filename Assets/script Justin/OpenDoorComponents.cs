@@ -29,18 +29,23 @@ public class OpenDoorComponents : MonoBehaviour
     //  [SerializeField]
     Camera cam1;
     Camera cam2;
-     bool DifficultéFacile = false;
-     bool DifficultéIntermédiaire = false;
-     bool DifficultéDifficile = false;
+    bool EasyDifficulty;
     EasyLevelComponent Difficulté;
+    bool MediumMode;
     void Start()
     {
+        var Difficulty = "medium";
+        if (Difficulty == "medium")
+        {
+            MediumMode = true;
+        }
         LevelComleted = false;
         StartCoroutine(StartCountdown());
         
     }
     void Update()
     {
+        EasyDifficulty = FindObjectOfType<DifficultyScript>().EasyDifficulty;
         if (Input.GetKeyDown(KeyCode.Q))
         {
             foreach (TileComponents Floor in ListTiles)
@@ -119,8 +124,8 @@ public class OpenDoorComponents : MonoBehaviour
         if (!LevelComleted)
         {
             Test();
-            yield return new WaitForSeconds(10f);
-            if (!Explosé)
+            yield return new WaitForSeconds(5f);
+            if (!Explosé && !EasyDifficulty)
             ChangeOneTile();
             StartCoroutine(StartCountdown());
         }

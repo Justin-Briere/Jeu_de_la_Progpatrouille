@@ -12,20 +12,22 @@ public class TileComponents : MonoBehaviour
     public MeshRenderer[] ListTiles;
     Material textureBleu;
     GameObject IsFinish;
-    bool EasyMode; 
+
+     bool HardDifficulty = true;
     void Start()
     {
         IsFinish = FindObjectOfType <OpenDoorComponents>().gameObject;
         ListTiles = GetComponentsInChildren<MeshRenderer>();
+
+
     }
     public void OnCollisionEnter()
 
+
     {
-        var Difficulty = "easy"; 
-        if (Difficulty == "easy")
-        {
-            EasyMode = true; 
-        }
+        HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty;
+
+
         var Done = IsFinish.GetComponent<OpenDoorComponents>();
         
         var text = gameObject.GetComponent<Material>();
@@ -33,14 +35,14 @@ public class TileComponents : MonoBehaviour
         {
             foreach (MeshRenderer Floor in ListTiles)
             {
-                Debug.Log("Je passe dans TileComponents");
+               
                 if (Floor.material.color == WhiteMaterial.color)
                 {
                     Floor.material = BlackMaterial;
                 }
                 else 
                 {
-                    if(!EasyMode)
+                    if(HardDifficulty)
                     Floor.material = WhiteMaterial;
                 }
 
@@ -51,7 +53,7 @@ public class TileComponents : MonoBehaviour
     {
         foreach (MeshRenderer Floor in ListTiles)
         {
-            Debug.Log("Je passe dans TileComponents");
+            
             if (Floor.material.color == WhiteMaterial.color)
             {
                 Floor.material = BlackMaterial;

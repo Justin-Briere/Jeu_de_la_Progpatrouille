@@ -8,7 +8,8 @@ public class EasyLevelComponent : MonoBehaviour
     public bool DifficultéFacile = false;
     public bool DifficultéIntermédiaire = false;
     public bool DifficultéDifficile = false;
-
+    [SerializeField]
+    Scene next;
     private void DéterminerDifficultéJeu()
     {
         if (gameObject.layer == 13)
@@ -21,12 +22,13 @@ public class EasyLevelComponent : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            DéterminerDifficultéJeu();
+        
+           
             Debug.Log("Collision Detected");
-            SceneManager.LoadScene("LVL1");
-        }
+            SceneManager.LoadScene("TESTVAISSEAU");
+            
+            
+        
     }
 
     
