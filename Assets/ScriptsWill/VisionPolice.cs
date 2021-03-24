@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.AI;
 
 public class VisionPolice : MonoBehaviour
 {
+
+    [SerializeField]
+    public GameObject banditos;
+
+    public bool topVision;
+
     [SerializeField]
     private float rayon = 10f;
 
@@ -32,6 +39,8 @@ public class VisionPolice : MonoBehaviour
     float MaxValueAngle;
     float minMaxAngleXZ ;
     float minMaxAngleYZ;
+
+    float policierRegarde;
 
     bool rayonBool = false;
     bool angleXZBool = false;
@@ -65,7 +74,10 @@ public class VisionPolice : MonoBehaviour
         CheckRayon();
         CheckAngleXZ();
         CheckAngleYZ();
+        CheckWalls();
         ChekAll();
+
+
     }
 
     private void CheckRayon()
@@ -109,9 +121,14 @@ public class VisionPolice : MonoBehaviour
 
         var tetaDeg2 = RightConversion(tetaDeg,d1,d2);
 
+        policierRegarde = tetaDeg2;
+
         var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y);
 
         var rotPolice2 = RightConversion2(rotPolice);
+
+        //print("policier regarde :  " + rotPolice2);
+        //print("angle entre policier et bandit :  " + tetaDeg2);
 
 
         var test = tetaDeg2;
@@ -198,7 +215,7 @@ public class VisionPolice : MonoBehaviour
             DownAngle += 360;
         }
 
-        Debug.Log("angle" + rotPolice );
+        //Debug.Log("angle" + rotPolice );
 
         //if (Mathf.Abs(tetaDeg2) < x)
         //{
@@ -265,9 +282,37 @@ public class VisionPolice : MonoBehaviour
     {
         if(rayonBool && angleXZBool && angleYZBool)
         {
-            Debug.Log("I SEE U");
+            //Debug.Log("I SEE U");
+            topVision = true;
+            RotatePolice();
         }
+        else
+        {
+            topVision = false;
+        }
+
+        
     }
+
+
+    public void RotatePolice()
+    {
+        // transform.Rotation(0, policierRegarde, 0, Space.World);
+
+        //   transform.rotation = Vector3(0, policierRegarde, 0);
+
+
+        transform.LookAt(banditos.transform); //freokmkogvmkeromgkoremgkogmkerokmgokrew vfkl oargv fkvmreqomverio
+        
+    }
+
+    public void CheckWalls()
+    {
+        if (Physics.Linecast(transform.position, positionBandit, 16))
+        {
+            Debug.Log("aloo0o0oo00ooo");
+        }
+            }
 
 }
 
