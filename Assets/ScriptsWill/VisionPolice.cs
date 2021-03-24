@@ -45,6 +45,7 @@ public class VisionPolice : MonoBehaviour
     bool rayonBool = false;
     bool angleXZBool = false;
     bool angleYZBool = false;
+    bool thereIsNoWalls = false;
 
     void Start()
     {
@@ -74,7 +75,10 @@ public class VisionPolice : MonoBehaviour
         CheckRayon();
         CheckAngleXZ();
         CheckAngleYZ();
+        CheckWalls();
         ChekAll();
+
+
     }
 
     private void CheckRayon()
@@ -277,9 +281,9 @@ public class VisionPolice : MonoBehaviour
 
     public void ChekAll()
     {
-        if(rayonBool && angleXZBool && angleYZBool)
+        if(rayonBool && angleXZBool && angleYZBool && thereIsNoWalls)
         {
-            //Debug.Log("I SEE U");
+           // Debug.Log("I SEE U");
             topVision = true;
             RotatePolice();
         }
@@ -290,6 +294,8 @@ public class VisionPolice : MonoBehaviour
 
         
     }
+
+
     public void RotatePolice()
     {
         // transform.Rotation(0, policierRegarde, 0, Space.World);
@@ -299,6 +305,20 @@ public class VisionPolice : MonoBehaviour
 
         transform.LookAt(banditos.transform); //freokmkogvmkeromgkoremgkogmkerokmgokrew vfkl oargv fkvmreqomverio
         
+    }
+
+    public void CheckWalls()
+    {
+
+        if (!Physics.Linecast(transform.position, positionBandit, LayerMask.GetMask("WallsAI"))) 
+        {
+            thereIsNoWalls = true;
+            //print("pas de mur donc true");
+        }
+        else
+        {
+            thereIsNoWalls = false;
+        }
     }
 
 }
