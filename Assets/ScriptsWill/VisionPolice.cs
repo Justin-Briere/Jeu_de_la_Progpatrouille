@@ -45,6 +45,7 @@ public class VisionPolice : MonoBehaviour
     bool rayonBool = false;
     bool angleXZBool = false;
     bool angleYZBool = false;
+    bool thereIsNoWalls = false;
 
     void Start()
     {
@@ -280,9 +281,9 @@ public class VisionPolice : MonoBehaviour
 
     public void ChekAll()
     {
-        if(rayonBool && angleXZBool && angleYZBool)
+        if(rayonBool && angleXZBool && angleYZBool && thereIsNoWalls)
         {
-            //Debug.Log("I SEE U");
+           // Debug.Log("I SEE U");
             topVision = true;
             RotatePolice();
         }
@@ -308,11 +309,17 @@ public class VisionPolice : MonoBehaviour
 
     public void CheckWalls()
     {
-        if (Physics.Linecast(transform.position, positionBandit, 16))
+
+        if (!Physics.Linecast(transform.position, positionBandit, LayerMask.GetMask("WallsAI"))) 
         {
-            Debug.Log("aloo0o0oo00ooo");
+            thereIsNoWalls = true;
+            //print("pas de mur donc true");
         }
-            }
+        else
+        {
+            thereIsNoWalls = false;
+        }
+    }
 
 }
 
