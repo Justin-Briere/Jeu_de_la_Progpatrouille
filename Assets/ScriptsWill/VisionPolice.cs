@@ -74,7 +74,10 @@ public class VisionPolice : MonoBehaviour
         CheckRayon();
         CheckAngleXZ();
         CheckAngleYZ();
+        CheckWalls();
         ChekAll();
+
+
     }
 
     private void CheckRayon()
@@ -290,6 +293,8 @@ public class VisionPolice : MonoBehaviour
 
         
     }
+
+
     public void RotatePolice()
     {
         // transform.Rotation(0, policierRegarde, 0, Space.World);
@@ -300,6 +305,14 @@ public class VisionPolice : MonoBehaviour
         transform.LookAt(banditos.transform); //freokmkogvmkeromgkoremgkogmkerokmgokrew vfkl oargv fkvmreqomverio
         
     }
+
+    public void CheckWalls()
+    {
+        if (Physics.Linecast(transform.position, positionBandit, 16))
+        {
+            Debug.Log("aloo0o0oo00ooo");
+        }
+            }
 
 }
 
