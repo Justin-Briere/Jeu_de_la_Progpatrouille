@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PushForward : MonoBehaviour
 {
-    private Vector3 positionBandit;
+    private Vector3 positionJoueur;
     private Vector3 positionFan;
     private PushComponent item;
     BoxCollider i;
@@ -26,9 +26,9 @@ public class PushForward : MonoBehaviour
 
     void Update()
     {
-        positionBandit = GameObject.Find("Bandit").transform.position;
+        positionJoueur = GameObject.Find("LeJoueur").transform.position;
         positionFan = GetComponentInParent<Transform>().position;
-        Intensity = 1 / Mathf.Pow(TrouverDistanceBanditFan(positionBandit, positionFan), 2);
+        Intensity = 1 / Mathf.Pow(TrouverDistanceBanditFan(positionJoueur, positionFan), 2);
         if (i.isTrigger)
             PousserAvant();
     }
