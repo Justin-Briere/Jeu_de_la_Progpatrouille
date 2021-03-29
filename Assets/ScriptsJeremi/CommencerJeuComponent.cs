@@ -7,6 +7,6 @@ public class CommencerJeuComponent : MonoBehaviour
 {
     public void CommencerJeu()
     {
-        SceneManager.LoadScene("LVL1");
+        SceneManager.LoadScene("Main Menu");
     }
 }
