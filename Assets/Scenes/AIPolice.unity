@@ -215,6 +215,68 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &508411025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3286562016461069283, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
+  m_PrefabInstance: {fileID: 3801342605178930210}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &508411028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508411025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3af58d1ec76b45499a00c82e69c8d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  banditos: {fileID: 1132424168}
+  topVision: 0
+  rayon: 10
+--- !u!114 &508411029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508411025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ddcb9ce56632945ae1e1fc82dc74c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  policeSpeed: 3
+--- !u!65 &508411030
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508411025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.67017335, y: 1.7800725, z: 0.61104184}
+  m_Center: {x: 0.01545769, y: 0.9112133, z: 0.000071793795}
+--- !u!54 &508411031
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508411025}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &683184860
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,68 +360,6 @@ Transform:
   m_Father: {fileID: 1132424175}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
---- !u!1 &765160176 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3286562016461069283, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
-  m_PrefabInstance: {fileID: 3801342605178930210}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &765160177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765160176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ddcb9ce56632945ae1e1fc82dc74c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  policeSpeed: 1.5
---- !u!114 &765160178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765160176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3af58d1ec76b45499a00c82e69c8d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  banditos: {fileID: 1132424168}
-  topVision: 0
-  rayon: 10
---- !u!65 &765160181
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765160176}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6256347, y: 2.2269936, z: 1.2288427}
-  m_Center: {x: 0.19074225, y: 0.6134968, z: 0.11442137}
---- !u!54 &765160182
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765160176}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!1 &1132424168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3192630840819111927, guid: 29aaeaac2e064ed41b025071ba671304, type: 3}
@@ -794,6 +794,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4762507045869969904, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.34
