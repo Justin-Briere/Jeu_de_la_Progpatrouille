@@ -290,6 +290,7 @@ public class VisionPolice : MonoBehaviour
         else
         {
             topVision = false;
+
         }
 
         
@@ -303,7 +304,7 @@ public class VisionPolice : MonoBehaviour
         //   transform.rotation = Vector3(0, policierRegarde, 0);
 
 
-        transform.LookAt(banditos.transform); //freokmkogvmkeromgkoremgkogmkerokmgokrew vfkl oargv fkvmreqomverio
+        transform.LookAt(banditos.transform); 
         
     }
 

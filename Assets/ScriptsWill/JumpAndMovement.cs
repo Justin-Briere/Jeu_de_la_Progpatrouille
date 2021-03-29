@@ -53,8 +53,12 @@ public class JumpAndMovement : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision) //possibilité de rajouter layer
     {
-        OnGround = true;
-        cst = 1;
+        if(collision.gameObject.layer == 12)
+        {
+            OnGround = true;
+            cst = 1;
+        }
+
     }
 
     public void MakeJump()
