@@ -152,11 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e206b8cf0e43b49b38ee14d6d495d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 14
-  height: 14
+  largeur: 10
+  hauteur: 10
   size: 1
-  wallPrefab: {fileID: 2132096119354643720, guid: 5388d593f4fb3024cbae6f35f03d1346, type: 3}
-  floorPrefab: {fileID: 7908132539052967689, guid: c25a4b85924c07748a127a371ceac502, type: 3}
+  prefabWall: {fileID: 2132096119354643720, guid: 5388d593f4fb3024cbae6f35f03d1346, type: 3}
+  prefabFloor: {fileID: 7908132539052967689, guid: c25a4b85924c07748a127a371ceac502, type: 3}
 --- !u!4 &190385884
 Transform:
   m_ObjectHideFlags: 0
