@@ -39,7 +39,7 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float positionPoliceZ = GetComponentInParent<Transform>().position.z;
 
         //print("chek is :  " +   chek);
-        if(current >= allo.Length)  current = 0;
+        if(current >= 3)  current = 0;
 
 
 
