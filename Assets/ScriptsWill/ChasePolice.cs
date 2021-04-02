@@ -16,7 +16,7 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
 
     public bool chasing ;
 
-    public int current;
+    private int current;
 
     //Vector3 leVecteur = new Vector3();
     [SerializeField]
@@ -39,7 +39,7 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float positionPoliceZ = GetComponentInParent<Transform>().position.z;
 
         //print("chek is :  " +   chek);
-        if(current >= 3)  current = 0;
+       // if(current >= 3)  current = 0;
 
 
 
@@ -49,12 +49,12 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
             float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
             
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            chasing = true;
+            //chasing = true;
         }
         else
         {
             ReturnInitialPosition(positionInitialeX,positionInitialeZ, positionPoliceX, positionPoliceZ);
-            chasing = false;
+            //chasing = false;
 
         }
     }
@@ -64,6 +64,7 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         
         float xDiff = (positionBanditX - positionPoliceX);
         float zDiff = (positionBanditZ - positionPoliceZ);
+
 
         Deplacer(xDiff,zDiff);
     }
@@ -80,9 +81,16 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         if (Mathf.Abs(xDiff + zDiff) > 0.5)
         {
             Deplacer(xDiff, zDiff);
+            transform.LookAt(allo[current]);
         }
-
-        if (positionPoliceX - allo[current].position.x <= 0.5 && positionPoliceZ - allo[current].position.z <= 0.5) current++;
+       else// (Mathf.Abs(positionPoliceX - allo[current-1].position.x) <= 0.5 && Mathf.Abs(positionPoliceZ - allo[current-1].position.z) <= 0.5)
+       {
+            current++;
+            if(current == 3)
+            {
+                current = 0;
+            }
+       }
        
     }
 
