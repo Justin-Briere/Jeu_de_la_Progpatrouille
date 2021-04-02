@@ -7,6 +7,7 @@ TagManager:
   - Plateforme
   - door R
   - door L
+  - button
   layers:
   - Default
   - TransparentFX
