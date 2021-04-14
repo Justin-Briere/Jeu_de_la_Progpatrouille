@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawns: []
-  speed: 0
 --- !u!114 &235483480329441311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +129,10 @@ PrefabInstance:
     - target: {fileID: 5363441349296640081, guid: aa5984caac7647844804cfaa5201781c, type: 3}
       propertyPath: m_Name
       value: PlateForme
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363441349296640081, guid: aa5984caac7647844804cfaa5201781c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5984caac7647844804cfaa5201781c, type: 3}

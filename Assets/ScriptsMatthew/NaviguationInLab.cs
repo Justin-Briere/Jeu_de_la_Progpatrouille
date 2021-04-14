@@ -20,6 +20,8 @@ public class NaviguationInLab : MonoBehaviour
 
     [SerializeField]
     private Transform floorPrefab = null;
+    [SerializeField]
+    private Transform Player = null;
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +81,8 @@ public class NaviguationInLab : MonoBehaviour
             }
 
         }
+        var spawn = new Vector3((-width / 2), 1,( height / 2)-1);
+        Instantiate(Player, spawn, Player.rotation);
 
     }
 }
