@@ -14,7 +14,7 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
     //float xDiff;
     //float zDiff;
 
-    public bool chasing ;
+    private bool chasing;
 
     public int current;
 
@@ -38,34 +38,31 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float positionPoliceX = GetComponentInParent<Transform>().position.x;
         float positionPoliceZ = GetComponentInParent<Transform>().position.z;
 
-        //print("chek is :  " +   chek);
-        if(current >= allo.Length)  current = 0;
-
-
-
+        
         if (chek)
         {
             float positionBanditX = GameObject.Find("Bandit").transform.position.x;
             float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
-            
+            policeSpeed = 7;
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            chasing = true;
+            //chasing = true;
         }
         else
         {
-            ReturnInitialPosition(positionInitialeX,positionInitialeZ, positionPoliceX, positionPoliceZ);
-            chasing = false;
+            policeSpeed = 2;
+            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
+            //chasing = false;
 
         }
     }
 
     public void ChaseBandit(float positionPoliceX, float positionPoliceZ, float positionBanditX, float positionBanditZ)
     {
-        
+
         float xDiff = (positionBanditX - positionPoliceX);
         float zDiff = (positionBanditZ - positionPoliceZ);
-
-        Deplacer(xDiff,zDiff);
+        
+        Deplacer(xDiff, zDiff);
     }
 
     public void ReturnInitialPosition(float positionInitialeX, float positionInitialeZ, float positionPoliceX, float positionPoliceZ)
@@ -77,13 +74,32 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float xDiff = (positionInitialeX - positionPoliceX);
         float zDiff = (positionInitialeZ - positionPoliceZ);
 
-        if (Mathf.Abs(xDiff + zDiff) > 0.5)
+        if (Mathf.Abs(xDiff) <= 0.4 && Mathf.Abs(zDiff) <= 0.4)
         {
-            Deplacer(xDiff, zDiff);
+            current++;
+
+            
+
+            if (current >= allo.Length)
+            {
+                current = 0;
+            }
+            
+        }
+        else
+        {
+            if (allo.Length != 1)
+            {
+                Deplacer(xDiff, zDiff);
+                transform.LookAt(allo[current]);
+            }
         }
 
-        if (positionPoliceX - allo[current].position.x <= 0.5 && positionPoliceZ - allo[current].position.z <= 0.5) current++;
-       
+        //if (positionPoliceX - allo[current].position.x <= 0.5 && positionPoliceZ - allo[current].position.z <= 0.5)
+        //{
+        //    current++;
+        //}
+
     }
 
     public void Deplacer(float xDiff, float zDiff)
