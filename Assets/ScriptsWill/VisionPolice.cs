@@ -56,7 +56,7 @@ public class VisionPolice : MonoBehaviour
         //    MaxValueAngle = 315;
         //}
         minMaxAngleXZ = 45;
-        minMaxAngleYZ = 35;
+        minMaxAngleYZ = 5;
 
         cnt = 0;
         x = 45;
@@ -98,13 +98,7 @@ public class VisionPolice : MonoBehaviour
         }
 
     }
-    private void OnMouseDown()                          // fonction qui permet de call le start par clicker sur un items.
-    {
-        
-
-    }
-
-
+  
 
     private void CheckAngleXZ()
     {
@@ -281,7 +275,12 @@ public class VisionPolice : MonoBehaviour
 
     public void ChekAll()
     {
-        if(rayonBool && angleXZBool && angleYZBool && thereIsNoWalls)
+
+        //print("rayon :" + rayonBool);
+        //print("angledg :" + angleXZBool);
+        //print("anglehauteur :" + angleYZBool);
+        //print("walls :" + thereIsNoWalls);
+        if (rayonBool && angleXZBool /*&& angleYZBool*/ && thereIsNoWalls)
         {
            // Debug.Log("I SEE U");
             topVision = true;
@@ -290,10 +289,9 @@ public class VisionPolice : MonoBehaviour
         else
         {
             topVision = false;
-
         }
-
         
+
     }
 
 
