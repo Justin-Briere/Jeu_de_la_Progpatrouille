@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class RandomButton : MonoBehaviour
 {
     public ClickButton[] buttons;
-    public List<int> ColorList;
+    public List<int> Colors;
 
-    public float viewTime = 0.5f;
+    public float viewTime = 0.1f;
 
-    public float pauseTime = 0.5f;
-    public int level = 2;
+    public float pauseTime = 0.2f;
+    public int level;
     private int currentlvl;
 
     bool generator = false;
@@ -23,7 +23,6 @@ public class RandomButton : MonoBehaviour
     int score;
     private int myRandom;
 
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < buttons.Length; ++i)
@@ -37,7 +36,7 @@ public class RandomButton : MonoBehaviour
     {
         if(player)
         {
-            if(number == ColorList[currentlvl])
+            if(number == Colors[currentlvl])
             {
                 currentlvl++;
                 score++;
@@ -45,7 +44,7 @@ public class RandomButton : MonoBehaviour
             }
             else
             {
-                GameOver();
+                EndGame();
             }
             if(currentlvl == level)
             {
@@ -56,49 +55,56 @@ public class RandomButton : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
     void Update()
     {
+        GameCompleted();
         if (generator)
         {
             generator = false;
-            StartCoroutine(Robot());
+            StartCoroutine(RandomButtons());
         }
     }
-
-    private IEnumerator Robot()
+    private IEnumerator RandomButtons()
     {
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < level; i++)
         {
-            if(ColorList.Count < level)
+            if(Colors.Count < level)
             {
                 myRandom = Random.Range(0, buttons.Length);
-                ColorList.Add(myRandom);
+                Colors.Add(myRandom);
             }
-            buttons[ColorList[i]].SelectedColor();
+            buttons[Colors[i]].SelectedColor();
             yield return new WaitForSeconds(viewTime);
-            buttons[ColorList[i]].UnSelectedColor();
+            buttons[Colors[i]].UnSelectedColor();
             yield return new WaitForSeconds(pauseTime);
         }
         player = true;
     }
     public void StartGame()
     {
-        ColorList.Clear();
+        Colors.Clear();
         generator = true;
         score = 0;
         currentlvl = 0;
-        level = 2;
+        level = 1;
         gameOverText.text = "";
         scoreTexte.text = score.ToString();
         StartButton.interactable = false;
     }
-    void GameOver()
+    void EndGame()
     {
         gameOverText.text = "Game Over";
         StartButton.interactable = true;
         player = false;
-
+    }
+    void GameCompleted()
+    {
+        if (score == 5)
+        {
+            gameOverText.text = "Congratulations!!!";
+            StartButton.interactable = true;
+            player = false;
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - door R
   - door L
   - button
+  - key
   layers:
   - Default
   - TransparentFX
