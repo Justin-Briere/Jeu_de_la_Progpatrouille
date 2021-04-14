@@ -78,13 +78,11 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         {
             current++;
 
-            
-
+   
             if (current >= allo.Length)
             {
                 current = 0;
-            }
-            
+            }          
         }
         else
         {
@@ -94,19 +92,11 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
                 transform.LookAt(allo[current]);
             }
         }
-
-        //if (positionPoliceX - allo[current].position.x <= 0.5 && positionPoliceZ - allo[current].position.z <= 0.5)
-        //{
-        //    current++;
-        //}
-
     }
 
     public void Deplacer(float xDiff, float zDiff)
     {
         Vector3 leVecteur = new Vector3(xDiff, 0, zDiff);
-
         transform.Translate(leVecteur.normalized * (policeSpeed * Time.deltaTime), Space.World);
-
     }
 }
