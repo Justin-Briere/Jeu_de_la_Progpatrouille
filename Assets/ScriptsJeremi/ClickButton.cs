@@ -9,7 +9,7 @@ public class ClickButton : MonoBehaviour
     Renderer zeRenderer;
     Vector3 position;
 
-    public int number = 99;
+    public int number = 1;
     public RandomButton random;
 
     public delegate void PressedEvent(int number);
@@ -20,12 +20,6 @@ public class ClickButton : MonoBehaviour
         zeRenderer = GetComponent<Renderer>();
         zeRenderer.enabled = true;
         position = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnMouseDown()

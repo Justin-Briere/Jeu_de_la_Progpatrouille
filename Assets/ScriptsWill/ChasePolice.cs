@@ -45,13 +45,13 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
             float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
             policeSpeed = 7;
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            chasing = true;
+            //chasing = true;
         }
         else
         {
             policeSpeed = 2;
             ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
-            chasing = false;
+            //chasing = false;
 
         }
     }
@@ -74,37 +74,29 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float xDiff = (positionInitialeX - positionPoliceX);
         float zDiff = (positionInitialeZ - positionPoliceZ);
 
-        if (Mathf.Abs(xDiff) <= 0.1 && Mathf.Abs(zDiff) <= 0.1)
+        if (Mathf.Abs(xDiff) <= 0.4 && Mathf.Abs(zDiff) <= 0.4)
         {
             current++;
 
-            
-
+   
             if (current >= allo.Length)
             {
                 current = 0;
-            }
-            
+            }          
         }
         else
         {
-
-            Deplacer(xDiff, zDiff);
-            transform.LookAt(allo[current]);
+            if (allo.Length != 1)
+            {
+                Deplacer(xDiff, zDiff);
+                transform.LookAt(allo[current]);
+            }
         }
-
-        //if (positionPoliceX - allo[current].position.x <= 0.5 && positionPoliceZ - allo[current].position.z <= 0.5)
-        //{
-        //    current++;
-        //}
-
     }
 
     public void Deplacer(float xDiff, float zDiff)
     {
         Vector3 leVecteur = new Vector3(xDiff, 0, zDiff);
-
         transform.Translate(leVecteur.normalized * (policeSpeed * Time.deltaTime), Space.World);
-
     }
 }
