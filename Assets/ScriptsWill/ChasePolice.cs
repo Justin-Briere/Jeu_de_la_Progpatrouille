@@ -28,8 +28,8 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
     void Start()
     {
         current = 0;
-        //timer = FindObjectOfType<TimeManager>();
-        //timer.verification = true;
+        timer = FindObjectOfType<TimeManager>();
+        timer.verification = true;
         //trouver la position initiale
         positionInitialeX = GetComponentInParent<Transform>().position.x;
         positionInitialeZ = GetComponentInParent<Transform>().position.z;
@@ -52,19 +52,19 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
 
             //Partir timer à 0
-            //timer.Attendre();
+            timer.Attendre();
         }
         else
         {
 
             ////if timer < 0 : chase bandit
-            //if (!timer.verification)
-            //{
-            //    ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            //   // print("gooooooooooo");
-            //}
-            //else
-            
+            if (!timer.verification)
+            {
+                ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
+                // print("gooooooooooo");
+            }
+            else
+
                 policeSpeed = 2;
                 ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
             
