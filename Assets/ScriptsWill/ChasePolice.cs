@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le policier s'il le voit et revenir à sa position initiale dans le cas contraire
 {
     [SerializeField]
     Transform[] allo;
+
+    TimeManager timer;
 
     // Start is called before the first frame update
     float positionInitialeX;
@@ -25,7 +28,8 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
     void Start()
     {
         current = 0;
-
+        //timer = FindObjectOfType<TimeManager>();
+        //timer.verification = true;
         //trouver la position initiale
         positionInitialeX = GetComponentInParent<Transform>().position.x;
         positionInitialeZ = GetComponentInParent<Transform>().position.z;
@@ -38,22 +42,32 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         float positionPoliceX = GetComponentInParent<Transform>().position.x;
         float positionPoliceZ = GetComponentInParent<Transform>().position.z;
 
-        
+
+        float positionBanditX = GameObject.Find("Bandit").transform.position.x;
+        float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
         if (chek)
         {
-            float positionBanditX = GameObject.Find("Bandit").transform.position.x;
-            float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
+
             policeSpeed = 7;
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            
+
             //Partir timer à 0
+            //timer.Attendre();
         }
         else
         {
-            //if timer < 0 : chase bandit
 
-            policeSpeed = 2;
-            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);            
+            ////if timer < 0 : chase bandit
+            //if (!timer.verification)
+            //{
+            //    ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
+            //   // print("gooooooooooo");
+            //}
+            //else
+            
+                policeSpeed = 2;
+                ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
+            
 
         }
     }
