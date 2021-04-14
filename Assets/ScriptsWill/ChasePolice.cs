@@ -45,13 +45,15 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
             float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
             policeSpeed = 7;
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            //chasing = true;
+            
+            //Partir timer à 0
         }
         else
         {
+            //if timer < 0 : chase bandit
+
             policeSpeed = 2;
-            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
-            //chasing = false;
+            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);            
 
         }
     }
