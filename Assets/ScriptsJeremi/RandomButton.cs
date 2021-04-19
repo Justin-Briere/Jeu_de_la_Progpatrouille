@@ -23,6 +23,10 @@ public class RandomButton : MonoBehaviour
     int score;
     private int myRandom;
 
+    int EASY_SCORE = 10;
+    int MEDIUM_SCORE = 15;
+    int HARD_SCORE = 21;
+
     void Start()
     {
         for (int i = 0; i < buttons.Length; ++i)
@@ -100,11 +104,12 @@ public class RandomButton : MonoBehaviour
     }
     void GameCompleted()
     {
-        if (score == 5)
+        if (score == EASY_SCORE)
         {
             gameOverText.text = "Congratulations!!!";
             StartButton.interactable = true;
             player = false;
+            generator = false;
         }
     }
 }
