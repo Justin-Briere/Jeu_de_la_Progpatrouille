@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ClickButton : MonoBehaviour
 {
-    public Material lightMaterial;
     public Material normalMaterial;
+    public Material whiteMaterial;
     Renderer zeRenderer;
     Vector3 position;
 
@@ -40,12 +40,12 @@ public class ClickButton : MonoBehaviour
 
     public void SelectedColor()
     {
-        zeRenderer.sharedMaterial = normalMaterial;
+        zeRenderer.sharedMaterial = whiteMaterial;
     }
 
     public void UnSelectedColor()
     {
-        zeRenderer.sharedMaterial = lightMaterial;
+        zeRenderer.sharedMaterial = normalMaterial;
     }
 
 }
