@@ -25,7 +25,7 @@ public class NaviguationInLab : MonoBehaviour
     private Transform Player = null;
     [SerializeField]
     private Transform item = null;
-    public NavMeshSurface  surface;
+  //  public NavMeshSurface  surface;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +88,6 @@ public class NaviguationInLab : MonoBehaviour
         var spawn2 = new Vector3((0 ), 0.5f, (0) );
         Instantiate(Player, spawn, Player.rotation);
         Instantiate(item, spawn2, Player.rotation);
-        surface.BuildNavMesh();
+      //  surface.BuildNavMesh();
     }
 }
