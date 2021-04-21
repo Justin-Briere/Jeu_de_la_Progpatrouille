@@ -52,18 +52,18 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
 
             //Partir timer à 0
-            timer.Attendre();
+            //timer.Attendre();
         }
         else
         {
 
-            ////if timer < 0 : chase bandit
-            if (!timer.verification)
-            {
-                ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-                // print("gooooooooooo");
-            }
-            else
+            //////if timer < 0 : chase bandit
+            //if (!timer.verification)
+            //{
+            //    ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
+            //    // print("gooooooooooo");
+            //}
+            //else
 
                 policeSpeed = 2;
                 ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
