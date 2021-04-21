@@ -10,24 +10,29 @@ public class showImageScript : MonoBehaviour
     TimeManager verif;
     private void Start()
     {
+        
+        StartCoroutine(Wait());
         Image = GetComponent<RawImage>();
     }
+   
 
     // Update is called once per frame
     void Update()
 
     {
-        
-        if (TryGetComponent<GameObject>(out GameObject clef)) Image.enabled = true ;
+        var test = GameObject.FindGameObjectWithTag("key");
+        if ( test == null) Image.enabled = true;
+        if (!once && TryGetComponent<GameObject>(out GameObject clef)) Image.enabled = true ;
             
 
     }
-    private IEnumerable Wait()
+    public IEnumerator Wait()
     {
         if (once)
         {
             once = false;
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(1f);
         }
     }
+   
 }
