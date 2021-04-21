@@ -3,72 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le policier s'il le voit et revenir à sa position initiale dans le cas contraire
+public class ChasePolice : MonoBehaviour 
 {
     [SerializeField]
-    Transform[] allo;
+    Transform[] allo; //représente la liste de transform à parcourir, changer son nom implique que le tableau dans unity se vident
 
-    TimeManager timer;
-
-    // Start is called before the first frame update
     float positionInitialeX;
     float positionInitialeZ;
-
-    //float xDiff;
-    //float zDiff;
-
-    private bool chasing;
-
-    public int current;
-
-    //Vector3 leVecteur = new Vector3();
-    [SerializeField]
-    private float policeSpeed = 3f;
+    int current;
+    float policeSpeed;
+    float chaseSpeed = 7f;
+    float paturnSpeed = 2f;
 
     void Start()
     {
         current = 0;
-        timer = FindObjectOfType<TimeManager>();
-        timer.verification = true;
-        //trouver la position initiale
+
         positionInitialeX = GetComponentInParent<Transform>().position.x;
         positionInitialeZ = GetComponentInParent<Transform>().position.z;
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool chek = GetComponent<VisionPolice>().topVision;
         float positionPoliceX = GetComponentInParent<Transform>().position.x;
         float positionPoliceZ = GetComponentInParent<Transform>().position.z;
 
-
         float positionBanditX = GameObject.Find("Bandit").transform.position.x;
         float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
+
         if (chek)
         {
-
-            policeSpeed = 7;
+            policeSpeed = chaseSpeed;
             ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-
-            //Partir timer à 0
-            //timer.Attendre();
         }
         else
         {
-
-            //////if timer < 0 : chase bandit
-            //if (!timer.verification)
-            //{
-            //    ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-            //    // print("gooooooooooo");
-            //}
-            //else
-
-                policeSpeed = 2;
-                ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
-            
-
+            policeSpeed = paturnSpeed;
+            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);         
         }
     }
 
@@ -86,7 +58,6 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         positionInitialeX = allo[current].position.x;
         positionInitialeZ = allo[current].position.z;
 
-
         float xDiff = (positionInitialeX - positionPoliceX);
         float zDiff = (positionInitialeZ - positionPoliceZ);
 
@@ -94,7 +65,6 @@ public class ChasePolice : MonoBehaviour //ce script s'occupe de poursuivre le p
         {
             current++;
 
-   
             if (current >= allo.Length)
             {
                 current = 0;
