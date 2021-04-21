@@ -179,64 +179,30 @@ public class VisionPolice : MonoBehaviour
     {
         var yPolice = GetComponentInParent<Transform>().position.y;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
         var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+        var xPolice = GetComponentInParent<Transform>().position.x;
 
-        var d1 =  Mathf.Abs(positionBandit.z - zPolice);
-        var d2 = positionBandit.y - yPolice;
+        var l1 =   Mathf.Sqrt (    Mathf.Pow(positionBandit.z - zPolice,2) + Mathf.Pow(positionBandit.x - xPolice, 2));
+        var l2 = Mathf.Abs(positionBandit.y - yPolice);
 
-        var teta1 = Mathf.Atan(d2 / d1);
+        
 
-        var tetaDeg = teta1 * Mathf.Rad2Deg;
+        var tetaUp = Mathf.Atan(l2 / l1);
 
+        var tetaDegUp = tetaUp * Mathf.Rad2Deg;
 
-        var tetaDeg2 = RightConversion(tetaDeg, d1, d2);
-
-        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.x);
-
-        var rotPolice2 = RightConversion2(rotPolice);
-
-
-        var test = tetaDeg2;
-
-        var UpAngle = rotPolice2 + minMaxAngleYZ;
-        var DownAngle = rotPolice2 - minMaxAngleYZ;
-
-        if (UpAngle > 360)
-        {
-            UpAngle -= 360;
-        }
-
-        if (DownAngle < 0)
-        {
-            DownAngle += 360;
-        }
-
-        //Debug.Log("angle" + rotPolice );
-
-        //if (Mathf.Abs(tetaDeg2) < x)
+        //if (gameObject.name == "Police1Jean")
         //{
-        //   Debug.Log("angle is right");
+        //    print("deg : " + tetaDegUp);
         //}
 
 
-        if (UpAngle < (2 * minMaxAngleYZ) && DownAngle > 360 - (2 * minMaxAngleYZ))
+        if (tetaDegUp < minMaxAngleYZ)
         {
-            if (test < UpAngle || test > DownAngle)
-            {
-                angleYZBool = false;
-            }
-            else
-            {
-                angleYZBool = true;
-            }
-        }
-        else if (test < UpAngle && test > DownAngle)
-        {
-            angleYZBool = false;
-
+            angleYZBool = true;
         }
         else
         {
-            angleYZBool = true;
+            angleYZBool = false;
         }
     }
 
@@ -275,12 +241,17 @@ public class VisionPolice : MonoBehaviour
 
     public void ChekAll()
     {
+        //if (gameObject.name == "police1Jean")
+        //{
+        //    print("rayon :" + rayonBool);
+        //    print("angledg :" + angleXZBool);
+        //    print("anglehauteur :" + angleYZBool);
+        //    print("walls :" + thereIsNoWalls);
+        //}
 
-        //print("rayon :" + rayonBool);
-        //print("angledg :" + angleXZBool);
-        //print("anglehauteur :" + angleYZBool);
-        //print("walls :" + thereIsNoWalls);
-        if (rayonBool && angleXZBool /*&& angleYZBool*/ && thereIsNoWalls)
+
+
+        if (rayonBool && angleXZBool && angleYZBool && thereIsNoWalls)
         {
            // Debug.Log("I SEE U");
             topVision = true;

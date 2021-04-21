@@ -165,8 +165,6 @@ MonoBehaviour:
   - {fileID: 279025602}
   - {fileID: 1620177886}
   - {fileID: 1310081191}
-  current: 0
-  policeSpeed: 3
 --- !u!65 &11827570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -850,8 +848,6 @@ MonoBehaviour:
   - {fileID: 1499130286}
   - {fileID: 1855769113}
   - {fileID: 132961397}
-  current: 0
-  policeSpeed: 3
 --- !u!65 &508411030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -932,8 +928,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allo:
   - {fileID: 1697270513}
-  current: 0
-  policeSpeed: 3
 --- !u!65 &511959423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1362,8 +1356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allo:
   - {fileID: 980012394}
-  current: 0
-  policeSpeed: 3
 --- !u!114 &1002321899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,31 +1665,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.73
+      value: 5.34
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.67
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.006167753
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.94205743
+      value: 0.8845596
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.0032518874
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3354516
+      value: 0.46637535
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_RootOrder
@@ -1709,15 +1701,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 140.8
+      value: 124.4
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461031299, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.799
       objectReference: {fileID: 0}
     - target: {fileID: 3286562016461069283, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
       propertyPath: m_Name
-      value: Police1
+      value: Police1Jean
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad64aa7bc369ea04187782d2678bf38e, type: 3}
@@ -2535,8 +2527,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allo:
   - {fileID: 1897127092}
-  current: 0
-  policeSpeed: 3
 --- !u!65 &1812075748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2883,8 +2873,6 @@ MonoBehaviour:
   - {fileID: 2115147993}
   - {fileID: 1404222944}
   - {fileID: 1339634452}
-  current: 0
-  policeSpeed: 3
 --- !u!114 &2020342411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3047,8 +3035,6 @@ MonoBehaviour:
   - {fileID: 57721733}
   - {fileID: 594297806}
   - {fileID: 507478248}
-  current: 0
-  policeSpeed: 3
 --- !u!114 &2098276700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3144,8 +3130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allo:
   - {fileID: 50403410}
-  current: 0
-  policeSpeed: 3
 --- !u!65 &2111889129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3243,8 +3227,6 @@ MonoBehaviour:
   - {fileID: 850459862}
   - {fileID: 1090331724}
   - {fileID: 1895585919}
-  current: 0
-  policeSpeed: 3
 --- !u!114 &2115703416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3488,6 +3470,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2793588995807784954, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2922482652000639739, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -3684,6 +3670,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6354029840050938439, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6465018624725235301, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -3780,7 +3770,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 8141248153434520612, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8291180017275557482, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355795979459876084, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
