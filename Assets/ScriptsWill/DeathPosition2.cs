@@ -11,7 +11,11 @@ public class DeathPosition2 : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
-            other.gameObject.transform.position =
-                GameManager.Instance.lastCheckPoint.position;
+        {
+            FindObjectOfType<GameOverScript>().StopGame();
+
+            //other.gameObject.transform.position =
+            //    GameManager.Instance.lastCheckPoint.position;
+        }
     }
 }
