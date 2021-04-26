@@ -9,6 +9,9 @@ TagManager:
   - door L
   - button
   - key
+  - PoliceEasy
+  - PoliceMedium
+  - PoliceHard
   layers:
   - Default
   - TransparentFX

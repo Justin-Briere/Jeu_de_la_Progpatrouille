@@ -55,6 +55,9 @@ public class VisionPolice : MonoBehaviour
         //    MinValueAngle = 45;
         //    MaxValueAngle = 315;
         //}
+
+
+
         minMaxAngleXZ = 45;
         minMaxAngleYZ = 5;
 
@@ -89,7 +92,6 @@ public class VisionPolice : MonoBehaviour
 
         if (distanceRayon <= rayon)
         {
-            //Debug.Log("T'eS DAnS lE rAYoN");
             rayonBool = true;
         }
         else
@@ -293,26 +295,3 @@ public class VisionPolice : MonoBehaviour
 
 }
 
-
-//var popoX = new Vector3(GetComponentInParent<Transform>().position.x, 0, 0);
-
-//var banbanX = new Vector3(positionBandit.x, 0, 0);
-
-//var rfnij = Vector3.Angle(popoX, banbanX);
-
-////var testtt2 = Vector3.Angle(GetComponentInParent<Transform>().position, positionBandit);
-
-
-//Debug.Log("angle x :                                          " + rfnij);
-
-//        // if(est dans le bon angle)
-
-
-//var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-//var yPolice = GetComponentInParent<Transform>().position.y;     //ibid
-//var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
-
-
-//x = Mathf.Sin(phi) * Mathf.Cos(teta) ;
-// y = Mathf.Sin(phi) * Mathf.Sin(teta) ;
-// z = Mathf.Cos(phi) ;
