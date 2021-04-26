@@ -185,26 +185,15 @@ public class VisionPolice : MonoBehaviour
 
         var l1 =   Mathf.Sqrt (    Mathf.Pow(positionBandit.z - zPolice,2) + Mathf.Pow(positionBandit.x - xPolice, 2));
         var l2 = Mathf.Abs(positionBandit.y - yPolice);
-
-        
-
+    
         var tetaUp = Mathf.Atan(l2 / l1);
 
         var tetaDegUp = tetaUp * Mathf.Rad2Deg;
 
-        //if (gameObject.name == "Police1Jean")
-        //{
-        //    print("deg : " + tetaDegUp);
-        //}
-
-
+        angleYZBool = false;
         if (tetaDegUp < minMaxAngleYZ)
         {
             angleYZBool = true;
-        }
-        else
-        {
-            angleYZBool = false;
         }
     }
 
