@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RandomButton : MonoBehaviour
 {
@@ -23,9 +24,11 @@ public class RandomButton : MonoBehaviour
     int score;
     private int myRandom;
 
-    int EASY_SCORE = 10;
+    int EASY_SCORE = 1;
     int MEDIUM_SCORE = 15;
     int HARD_SCORE = 21;
+
+    public bool gameCompleted = false;
 
     void Start()
     {
@@ -102,7 +105,7 @@ public class RandomButton : MonoBehaviour
         StartButton.interactable = true;
         player = false;
     }
-    void GameCompleted()
+    public void GameCompleted()
     {
         if (score == EASY_SCORE)
         {
@@ -110,6 +113,23 @@ public class RandomButton : MonoBehaviour
             StartButton.interactable = true;
             player = false;
             generator = false;
+            FinishedGame.JeuRéussi = true;
+            //gameCompleted = true;
+            SceneManager.LoadScene("FinalScene");
         }
     }
+    //public bool GameCompleted()
+    //{
+    //    bool gameCompleted = false;
+    //    if (score == EASY_SCORE)
+    //    {
+    //        gameOverText.text = "Congratulations!!!";
+    //        StartButton.interactable = true;
+    //        player = false;
+    //        generator = false;
+    //        SceneManager.LoadScene("FinalScene");
+    //        gameCompleted = true;
+    //    }
+    //    return gameCompleted;
+    //}
 }

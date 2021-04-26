@@ -9,11 +9,13 @@ TagManager:
   - door L
   - button
   - key
+<<<<<<< Updated upstream
   - PoliceEasy
   - PoliceMedium
   - PoliceHard
-  - bullet
-  - Gun
+=======
+  - DestructibleWall
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

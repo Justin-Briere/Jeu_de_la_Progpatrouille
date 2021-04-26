@@ -444,8 +444,8 @@ GameObject:
   - component: {fileID: 721501394}
   - component: {fileID: 721501396}
   - component: {fileID: 721501395}
-  - component: {fileID: 721501397}
   - component: {fileID: 721501398}
+  - component: {fileID: 721501397}
   m_Layer: 0
   m_Name: Fan
   m_TagString: Untagged

@@ -1090,6 +1090,7 @@ MonoBehaviour:
   StartButton: {fileID: 884885958}
   gameOverText: {fileID: 520261480}
   scoreTexte: {fileID: 1152442743}
+  gameCompleted: 0
 --- !u!1 &1218809192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,8 +1174,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053138908}
-        m_TargetAssemblyTypeName: QuitterApplicationComponent, Assembly-CSharp
-        m_MethodName: Quitter
+        m_TargetAssemblyTypeName: QuitSimon, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1623,7 +1624,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2053138903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0945b6e37a61a643a202bf60023cccf, type: 3}
+  m_Script: {fileID: 11500000, guid: b2faa4ef7ce7e0e4390027a73be65f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2068942338

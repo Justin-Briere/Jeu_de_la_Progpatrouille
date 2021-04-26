@@ -26,7 +26,7 @@ public class PushForward : MonoBehaviour
     }
     void Start()
     {
-        joueur = GameObject.Find("LeJoueur");
+        joueur = GameObject.Find("Voleur");
         item = GetComponent<PushComponent>();
         i = GetComponentInChildren<BoxCollider>();
     }
