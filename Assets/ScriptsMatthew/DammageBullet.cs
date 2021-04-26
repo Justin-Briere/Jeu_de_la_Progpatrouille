@@ -10,18 +10,10 @@ public class DammageBullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.layer == 8)
         {
             other.gameObject.GetComponent<EnnemyHealt>().HurtEnnemy(damage);
             Destroy(Bullets);
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "targets")
-        {
-            Destroy(other.gameObject);
-            Destroy(Bullets);
-        }    
     }
 }
