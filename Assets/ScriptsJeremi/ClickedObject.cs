@@ -12,7 +12,7 @@ public class ClickedObject : MonoBehaviour
     void Start()
     {
         positionCube = GetComponentInParent<Transform>().position;
-        bandit = GameObject.Find("Voleur");
+        bandit = GameObject.FindGameObjectWithTag("Player");
 
     }
 
@@ -37,9 +37,9 @@ public class ClickedObject : MonoBehaviour
 
     public void CurrentClickedGameObject(GameObject gameObject)
     {
-        if (gameObject.tag == "button")
+        if (gameObject.name == "Cube Simon")
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Simon mini game");
         }
     }
     //private void OnMouseDown()
