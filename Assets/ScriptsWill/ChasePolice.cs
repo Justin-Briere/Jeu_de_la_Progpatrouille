@@ -17,6 +17,16 @@ public class ChasePolice : MonoBehaviour
 
     void Start()
     {
+        //if (ezmode)
+        //  paturn speed = 1
+        //if (ezmode)
+        //  paturn speed = 2
+        //if (ezmode)
+        //  paturn speed = 3
+
+
+
+
         current = 0;
 
         positionInitialeX = GetComponentInParent<Transform>().position.x;
