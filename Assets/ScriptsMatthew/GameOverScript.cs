@@ -11,8 +11,10 @@ public class GameOverScript : MonoBehaviour
     [SerializeField]
     GameObject mort;
 
+    GameObject player;
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         mort.SetActive(false);
     }
 
@@ -22,12 +24,23 @@ public class GameOverScript : MonoBehaviour
         {
             gameEnd = true;
             mort.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            player.GetComponent<CameraCurseur>().enabled = false;
+            mort.SetActive(true);
+            Time.timeScale = 0f;
+            gameEnd = true;
         }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        gameEnd = false;
+        player.GetComponent<CameraCurseur>().enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void QuitterPartie()
