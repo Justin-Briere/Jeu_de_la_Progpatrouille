@@ -20,7 +20,7 @@ public class ClickedObject : MonoBehaviour
     void Update()
     {
         //Check for mouse click 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit raycastHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,6 +40,9 @@ public class ClickedObject : MonoBehaviour
         if (gameObject.name == "Cube Simon")
         {
             SceneManager.LoadScene("Simon mini game");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            bandit.GetComponent<CameraCurseur>().enabled = false;
         }
     }
     //private void OnMouseDown()
