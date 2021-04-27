@@ -818,10 +818,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
-    m_HighlightedColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
-    m_PressedColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
-    m_SelectedColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
-    m_DisabledColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
+    m_HighlightedColor: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 1}
+    m_PressedColor: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 1}
+    m_SelectedColor: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 1}
+    m_DisabledColor: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1406,11 +1406,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.38679248, g: 0.2203449, b: 0.19522074, a: 1}
-    m_HighlightedColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
-    m_PressedColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
-    m_SelectedColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
-    m_DisabledColor: {r: 0.08627451, g: 0.1254902, b: 0.20784314, a: 1}
+    m_NormalColor: {r: 0.4811321, g: 0.15205589, b: 0.15205589, a: 1}
+    m_HighlightedColor: {r: 0.48235294, g: 0.15294118, b: 0.15294118, a: 1}
+    m_PressedColor: {r: 0.48235294, g: 0.15294118, b: 0.15294118, a: 1}
+    m_SelectedColor: {r: 0.48235294, g: 0.15294118, b: 0.15294118, a: 1}
+    m_DisabledColor: {r: 0.48235294, g: 0.15294118, b: 0.15294118, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1951,7 +1951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 156.6
+      value: 151.7
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalRotation.x
