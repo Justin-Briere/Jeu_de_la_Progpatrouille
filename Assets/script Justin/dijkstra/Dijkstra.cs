@@ -21,8 +21,8 @@ public class Dijkstra : MonoBehaviour
         char[,] CarteAffiché;
         int distanceMax;
         int valeurDéplacement = 1;
-
-        public Dijkstra(Carte maCarte)
+    public  char[,] MapFinal;
+        public  Dijkstra(Carte maCarte)
         {
             Stopwatch chronomètre = new Stopwatch();
             LargeurCarte = maCarte.LargeurCarte;
@@ -30,22 +30,23 @@ public class Dijkstra : MonoBehaviour
             distanceMax = LargeurCarte * HauteurCarte;
             Noeuds[,] tabNoeuds = new Noeuds[HauteurCarte, LargeurCarte];
             CarteAffiché = new char[HauteurCarte, LargeurCarte];
-
+             MapFinal = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
             //ÉTAPE #1 :    CRÉER LE TABLEAU CONTENANT LES MUR... UN TABLEAU DE "NOEUDS", 
             //              CONTENANT FALSE SI IL Y A UN MUR ET TRUE DANS LE CAS CONTRAIRE
-            tabNoeuds = CreerTableau(tabNoeuds, maCarte);
+        tabNoeuds = CreerTableau(tabNoeuds, maCarte);
             chronomètre.Start();
 
             //ÉTAPE #2 :    CHERCHER LE TRAJET POUR SE RENDRE DE LA SOURCE JUSQU'À LA DESTINATION
             var file = ChercheDestination(maCarte, tabNoeuds);
             chronomètre.Stop();
 
-            //ÉTAPE #3 :    AFFICHER LE TABLEAU, AVEC LES MURS, LES POINT DISPONIBLE, AINSI QUE LES TRAJET
-            //              QUE NOUS AVONS TROUVÉ À L'ÉTAPE #2
-            if (file[maCarte.PositionDestination.Y, maCarte.PositionDestination.X].Précurseur != null)
-                AfficherMatrice(maCarte, file, chronomètre);
-            else
-                Console.WriteLine("Il y a aucune solution trouvé  ");
+        //ÉTAPE #3 :    AFFICHER LE TABLEAU, AVEC LES MURS, LES POINT DISPONIBLE, AINSI QUE LES TRAJET
+        //              QUE NOUS AVONS TROUVÉ À L'ÉTAPE #2
+        if (file[maCarte.PositionDestination.Y, maCarte.PositionDestination.X].Précurseur != null)
+            MapFinal = AfficherMatrice(maCarte, file, chronomètre);
+        else
+            Console.WriteLine("Il y a aucune solution trouvé  ");
+         // return MapFinal;
         }
 
         /// <summary>
@@ -132,12 +133,13 @@ public class Dijkstra : MonoBehaviour
         /// <returns></returns>
         public Noeuds[,] CreerTableau(Noeuds[,] tabNoeuds, Carte maCarte)
         {
-
+   
             for (int i = 0; i < maCarte.HauteurCarte; ++i)
             {
                 for (int j = 0; j < maCarte.LargeurCarte; ++j)
                 {
-                    tabNoeuds[i, j] = new Noeuds(j, i, maCarte[i, j], distanceMax);
+                
+                    tabNoeuds[i, j] = new Noeuds(j, i, maCarte.DataCarte[i, j], distanceMax);
                 }
             }
             return tabNoeuds;
@@ -150,7 +152,7 @@ public class Dijkstra : MonoBehaviour
         /// <param name="maCarte"></param>
         /// <param name="file"></param>
         /// <param name="chronomètre"></param>
-        public void AfficherMatrice(Carte maCarte, Noeuds[,] file, Stopwatch chronomètre)
+        public char [,] AfficherMatrice(Carte maCarte, Noeuds[,] file, Stopwatch chronomètre)
         {
             var chemin = ConstruireChemin(maCarte, file);
             var distance = chemin.Count;
@@ -158,10 +160,11 @@ public class Dijkstra : MonoBehaviour
             CarteAffiché[maCarte.PositionSource.Y, maCarte.PositionSource.X] += 'S';
             CarteAffiché[maCarte.PositionDestination.Y, maCarte.PositionDestination.X] += 'D';
             Noeuds points = null;
-            var Nmap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
-            string a = new string('=', 50);
-            Console.WriteLine(a);
-            Console.WriteLine($"Dijkstra map : {maCarte}");
+        var Nmap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
+        var FinalMap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
+        string a = new string('=', 50);
+        //    Console.WriteLine(a);
+      //      Console.WriteLine($"Dijkstra map : {maCarte}");
             for (int i = 0; i < maCarte.HauteurCarte * 2 + 1; ++i)
             {
                 for (int j = 0; j < maCarte.LargeurCarte * 2 + 1; ++j)
@@ -203,15 +206,16 @@ public class Dijkstra : MonoBehaviour
                     
                         if ((i == 3 && j == 3) || (i == 39 && j == 35))
                             test = 'D';
-
-                    Console.Write(test);
+                     FinalMap[i, j] = test; 
+       //             Console.Write(test);
                 }
 
-                Console.WriteLine();
+     //           Console.WriteLine();
             }
-            Console.WriteLine($"Temps d'exécution : {chronomètre.Elapsed.TotalMilliseconds} millisecondes");
-            Console.WriteLine($"la Distance est de : {distance + 1 }");
-            Console.WriteLine($"Le nombre de noeuds visité est de : {NoeudsVérifiés - 1}");
+        return FinalMap;
+        //    Console.WriteLine($"Temps d'exécution : {chronomètre.Elapsed.TotalMilliseconds} millisecondes");
+        //    Console.WriteLine($"la Distance est de : {distance + 1 }");
+        //    Console.WriteLine($"Le nombre de noeuds visité est de : {NoeudsVérifiés - 1}");
         }
 
         /// <summary>

@@ -7,8 +7,8 @@ using System.IO;
 
 public class Carte : MonoBehaviour
 {
-    
-        const string CheminAccès = "../../../Cartes/";
+    //"../../../Cartes/";
+    const string CheminAccès = "C:/Users/Justin Briere/Desktop/Jeu_de_la_Progpatrouille/Assets/script Justin/dijkstra/Cartes/"; 
         const char Source = 'S';
         const char Destination = 'D';
         const char Accessible = '.';
@@ -19,7 +19,7 @@ public class Carte : MonoBehaviour
         public Point2D PositionSource { get; private set; }
         public Point2D PositionDestination { get; private set; }
 
-        bool[,] DataCarte;
+        public bool[,] DataCarte;
 
         public bool this[int y, int x]
         {
