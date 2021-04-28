@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Point2D : MonoBehaviour
+public class Point2D 
 {
     //struct Point2D
     //{

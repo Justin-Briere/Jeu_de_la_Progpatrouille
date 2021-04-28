@@ -5,10 +5,10 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 
-public class Carte : MonoBehaviour
+public class Carte 
 {
     //"../../../Cartes/";
-    const string CheminAccès = "C:/Users/Justin Briere/Desktop/Jeu_de_la_Progpatrouille/Assets/script Justin/dijkstra/Cartes/"; 
+    const string CheminAccès = "C:/Users/Willm/OneDrive/Bureau/Prog pfi v3/Jeu_de_la_Progpatrouille/Assets/script Justin/dijkstra/Cartes/"; 
         const char Source = 'S';
         const char Destination = 'D';
         const char Accessible = '.';

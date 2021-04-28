@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-public class Noeuds : MonoBehaviour
+public class Noeuds 
 {
     public bool EstAccessible { get; private set; }
 

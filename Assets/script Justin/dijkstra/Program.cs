@@ -14,19 +14,19 @@ namespace TP3
        
       private static void RunTest(string nomCarte)
       {
-            Console.WriteLine(new string('=', 50));
-            Console.WriteLine(new string('=', 50));
-            Console.WriteLine(nomCarte);
-            Console.WriteLine(new string('=', 50));
-            Carte maCarte = new Carte(nomCarte);
+            //Console.WriteLine(new string('=', 50));
+            //Console.WriteLine(new string('=', 50));
+            //Console.WriteLine(nomCarte);
+            //Console.WriteLine(new string('=', 50));
+            //Carte maCarte = new Carte(nomCarte);
 
            // BreadthFirstSearch AlgoBFS = new BreadthFirstSearch(maCarte);
             // AlgoBFS.TrouverChemin();
             // //   AlgoBFS.ÉcrireChemin();
-            Dijkstra AlgoDijkstra = new Dijkstra(maCarte);
-            Dijkstra AlgoDijkstra1 = new Dijkstra(maCarte);
-            Dijkstra AlgoDijkstra2 = new Dijkstra(maCarte);
-            Dijkstra AlgoDijkstra3 = new Dijkstra(maCarte);
+            //Dijkstra AlgoDijkstra = new Dijkstra(maCarte);
+            //Dijkstra AlgoDijkstra1 = new Dijkstra(maCarte);
+            //Dijkstra AlgoDijkstra2 = new Dijkstra(maCarte);
+            //Dijkstra AlgoDijkstra3 = new Dijkstra(maCarte);
             //AlgoDijkstra.TrouverChemin();
             //AlgoDijkstra.ÉcrireChemin();
         //    Astar Astar = new Astar(maCarte);
