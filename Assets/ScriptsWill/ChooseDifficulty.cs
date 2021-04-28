@@ -11,13 +11,13 @@ public class ChooseDifficulty : MonoBehaviour
         print("efweffwfew");
         if (porte.gameObject.tag == "easy")
         {
-            difficulty = 1;
+            KeepOverTimeComponent.difficulty = 1;
             print("diff choisie est ez");
         }
             
         if (porte.gameObject.tag == "Medium")
-            difficulty = 2;
+            KeepOverTimeComponent.difficulty = 2;
         if (porte.gameObject.tag == "Hard")
-            difficulty = 3;
+            KeepOverTimeComponent.difficulty = 3;
     }
 }
