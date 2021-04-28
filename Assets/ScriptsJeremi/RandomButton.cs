@@ -24,7 +24,7 @@ public class RandomButton : MonoBehaviour
     int score;
     private int myRandom;
 
-    int EASY_SCORE = 1;
+    int EASY_SCORE = 10;
     int MEDIUM_SCORE = 15;
     int HARD_SCORE = 21;
 
