@@ -113,7 +113,7 @@ public class RandomButton : MonoBehaviour
             StartButton.interactable = true;
             player = false;
             generator = false;
-            FinishedGame.JeuRéussi = true;
+            KeepOverTimeComponent.JeuRéussi = true;
             //gameCompleted = true;
             SceneManager.LoadScene("FinalScene");
         }

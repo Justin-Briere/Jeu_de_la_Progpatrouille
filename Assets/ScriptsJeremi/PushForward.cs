@@ -47,7 +47,8 @@ public class PushForward : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        vérif = true;   
+        if(other.gameObject.tag=="Player")
+            vérif = true;   
     }
     private void OnTriggerExit(Collider other)
     {
