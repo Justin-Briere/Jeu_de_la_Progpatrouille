@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Diagnostics;
 using System.Threading;
-public class Dijkstra : MonoBehaviour
+public class Dijkstra 
 {
     /// <summary>
     /// CETTE CLASSE RESSEMBLE BEAUCOUP À BFS. L'UNIQUE DIFFÉRENCE EST LA FACON DONT NOUS VÉRIFIONS LES POINTS
@@ -139,7 +139,8 @@ public class Dijkstra : MonoBehaviour
                 for (int j = 0; j < maCarte.LargeurCarte; ++j)
                 {
                 
-                    tabNoeuds[i, j] = new Noeuds(j, i, maCarte.DataCarte[i, j], distanceMax);
+                
+                    tabNoeuds[i, j] = new Noeuds(j, i, maCarte[i, j], distanceMax);
                 }
             }
             return tabNoeuds;
