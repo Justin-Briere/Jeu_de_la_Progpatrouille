@@ -5,6 +5,7 @@ using UnityEngine;
 public class DammageBullet : MonoBehaviour
 {
     int damage = 10;
+
     [SerializeField]
     GameObject Bullets;
 

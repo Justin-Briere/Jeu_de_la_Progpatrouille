@@ -34,9 +34,9 @@ public class PickDropScript: MonoBehaviour
 
                 hit.collider.gameObject.SetActive(true);
 
-                hit.transform.parent = hand;
                 hit.transform.position = hand.position;
                 hit.transform.rotation = hand.rotation;
+                hit.transform.parent = hand;
             }
         }
 

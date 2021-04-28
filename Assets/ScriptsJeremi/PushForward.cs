@@ -26,14 +26,13 @@ public class PushForward : MonoBehaviour
     }
     void Start()
     {
-        joueur = GameObject.Find("Bandit Variant");
+        joueur = GameObject.Find("Voleur");
         item = GetComponent<PushComponent>();
         i = GetComponentInChildren<BoxCollider>();
     }
 
     void Update()
     {
-
         if (vérif)
         {
             positionJoueur = joueur.transform.position;
@@ -41,23 +40,14 @@ public class PushForward : MonoBehaviour
             Intensity = Mathf.Pow(Mathf.Log(TrouverDistanceBanditFan(positionJoueur, positionFan)), -1);
             PousserAvant();
         }
-
     }
     public float TrouverDistanceBanditFan(Vector3 positionBandit, Vector3 positionFan)
-    {
-
+    { 
         return Vector3.Distance(positionBandit, positionFan);
     }
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.isTrigger)
-
-        //positionJoueur = joueur.transform.position;
-        //positionFan = GetComponentInParent<Transform>().position;
-        //Intensity = Mathf.Pow(Mathf.Log(TrouverDistanceBanditFan(positionJoueur, positionFan)), -1);
-        //PousserAvant();
-        vérif = true;
-        
+        vérif = true;   
     }
     private void OnTriggerExit(Collider other)
     {
