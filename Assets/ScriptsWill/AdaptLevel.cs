@@ -14,25 +14,24 @@ public class AdaptLevel : MonoBehaviour
 
     void Start()
     {
-        //if (KeepOverTimeComponent.difficulty == 1)
-        //{
-        //    Police2 = GameObject.FindGameObjectsWithTag("PoliceMedium");
-        //    Police3 = GameObject.FindGameObjectsWithTag("PoliceHard");
-        //    Police = Police2.Concat(Police3).ToArray();
-        //}
+        if (KeepOverTimeComponent.difficulty == 1)
+        {
+            Police2 = GameObject.FindGameObjectsWithTag("PoliceMedium");
+            Police3 = GameObject.FindGameObjectsWithTag("PoliceHard");
+            Police = Police2.Concat(Police3).ToArray();
+        }
+        else if (KeepOverTimeComponent.difficulty == 2)
+        {
+            Police = GameObject.FindGameObjectsWithTag("PoliceHard");
+        }
 
-        //if (KeepOverTimeComponent.difficulty == 2)
-        //{
-        //    Police = GameObject.FindGameObjectsWithTag("PoliceHard");
-        //}
 
+        //HardMode do nothing
 
-        ////HardMode do nothing
-
-        //foreach (GameObject policier in Police)
-        //{
-        //    Destroy(policier);
-        //}
+        foreach (GameObject policier in Police)
+        {
+            Destroy(policier);
+        }
 
 
     }

@@ -33,29 +33,25 @@ public class VisionPolice : MonoBehaviour
 
     void Start()
     {
-        //if (KeepOverTimeComponent.difficulty == 1)
-        //{
-        //    minMaxAngleXZ = 40;
-        //    minMaxAngleYZ = 40;
-        //      rayon = 10;
+        if (KeepOverTimeComponent.difficulty == 1)
+        {
+            minMaxAngleXZ = 40;
+            minMaxAngleYZ = 5;
+            rayon = 10;
 
-        //}
-        //if (KeepOverTimeComponent.difficulty == 2)
-        //{
-        //    minMaxAngleXZ = 45;
-        //    minMaxAngleYZ = 45;
-        //      rayon = 15;
-        //}
-        //else
-        //{
-        //    minMaxAngleXZ = 50;
-        //    minMaxAngleYZ = 50;
-        //      rayon = 20;
-        //}
-
-
-        minMaxAngleXZ = 45;
-        minMaxAngleYZ = 45;
+        }
+        if (KeepOverTimeComponent.difficulty == 2)
+        {
+            minMaxAngleXZ = 45;
+            minMaxAngleYZ = 10;
+            rayon = 15;
+        }
+        else
+        {
+            minMaxAngleXZ = 50;
+            minMaxAngleYZ = 15;
+            rayon = 20;
+        }
 
     }
 
