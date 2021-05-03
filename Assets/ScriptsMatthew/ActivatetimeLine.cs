@@ -14,14 +14,25 @@ public class ActivatetimeLine : MonoBehaviour
     [SerializeField]
     GameObject timelinePlayer;
 
+    GameObject music;
+    AudioSource musicSound;
+
+    AudioSource finalMusic;
+
     private void Start()
     {
         timeline = GetComponent<PlayableDirector>();
+        finalMusic = GetComponent<AudioSource>();
+
+        music = GameObject.Find("Music");
+        musicSound = music.GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     { 
         if (other.gameObject.CompareTag("Player"))
         {
+            musicSound.Stop();
+            finalMusic.Play();
             timeline.gameObject.SetActive(true);
             timeline.Play();
             player.SetActive(false);
