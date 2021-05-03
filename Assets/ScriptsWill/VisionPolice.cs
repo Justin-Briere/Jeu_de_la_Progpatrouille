@@ -65,6 +65,7 @@ public class VisionPolice : MonoBehaviour
         CheckAngleXZ();
         CheckAngleYZ();
         CheckWalls();
+
         ChekAll();
 
 
@@ -92,37 +93,28 @@ public class VisionPolice : MonoBehaviour
         var d1 = positionBandit.z - zPolice;
         var d2 = positionBandit.x - xPolice;
 
+        //Les prochaines manipulations ont pour but de changer les angles de facon à ce quelle soit bien comparable. 
+        //Les angles dans unity ne font pas l'affaire. Aussi, 
+
         var teta1 = Mathf.Atan(d1 / d2);
-
         var tetaDeg = teta1 * Mathf.Rad2Deg;
-
-
         var tetaDeg2 = RightConversion(tetaDeg,d1,d2);
-
         policierRegarde = tetaDeg2;
-
         var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y);
-
         var rotPolice2 = RightConversion2(rotPolice);
-
-        //print("policier regarde :  " + rotPolice2);
-        //print("angle entre policier et bandit :  " + tetaDeg2);
-
 
         var test = tetaDeg2;
 
         var UpAngle = rotPolice2  + minMaxAngleXZ;
         var DownAngle = rotPolice2 - minMaxAngleXZ;
 
-        if(UpAngle > 360)
-        {
+        if(UpAngle > 360)      
             UpAngle -= 360;
-        }
+        
 
-        if (DownAngle < 0)
-        {
+        if (DownAngle < 0)    
             DownAngle += 360;
-        }
+        
 
 
         angleXZBool = false;
@@ -132,10 +124,7 @@ public class VisionPolice : MonoBehaviour
               
         else if (test < UpAngle && test > DownAngle) 
             angleXZBool = true;
-        
-
-        
-
+             
     }
 
 
@@ -163,15 +152,11 @@ public class VisionPolice : MonoBehaviour
     public float RightConversion(float tetaDeg,float d1,float d2)
     {
 
-        if (d2 < 0)
-        {
+        if (d2 < 0)      
             tetaDeg += 180;
-        }
-        else if (d1 < 0)
-        {
+        
+        else if (d1 < 0)        
             tetaDeg += 360;
-
-        }
 
         return tetaDeg;
     }
@@ -183,10 +168,9 @@ public class VisionPolice : MonoBehaviour
         rotPolice = rotPolice * -1;
         rotPolice += 360;
 
-        if (rotPolice >= 360)
-        {
+        if (rotPolice >= 360)     
             rotPolice -= 360;
-        }
+        
 
 
         return rotPolice;
