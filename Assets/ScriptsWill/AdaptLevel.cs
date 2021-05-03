@@ -10,24 +10,28 @@ public class AdaptLevel : MonoBehaviour
    // public GameObject PolicePrefab;
     public GameObject[] Police2;
     public GameObject[] Police3;
+    public GameObject[] Police;
 
     void Start()
     {
-        //if (/*EZ MODE*/)
-        //Police2 = GameObject.FindGameObjectsWithTag("PoliceMedium" );
-        //Police3 =  GameObject.FindGameObjectsWithTag("PoliceHard");
-        //var Police = Police2.Concat(Police3).ToArray();
-
-        //if (/* MED MODE*/)
-       //  Police = GameObject.FindGameObjectsWithTag("PoliceHard");
+        if (KeepOverTimeComponent.difficulty == 1)
+        {
+            Police2 = GameObject.FindGameObjectsWithTag("PoliceMedium");
+            Police3 = GameObject.FindGameObjectsWithTag("PoliceHard");
+            Police = Police2.Concat(Police3).ToArray();
+        }
+        else if (KeepOverTimeComponent.difficulty == 2)
+        {
+            Police = GameObject.FindGameObjectsWithTag("PoliceHard");
+        }
 
 
         //HardMode do nothing
 
-        //foreach (GameObject policier in Police)
-        //{
-        //    Destroy(policier);
-        //}
+        foreach (GameObject policier in Police)
+        {
+            Destroy(policier);
+        }
 
 
     }

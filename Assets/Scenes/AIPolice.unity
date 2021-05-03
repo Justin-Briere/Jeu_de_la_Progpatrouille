@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Police2: []
   Police3: []
+  Police: []
 --- !u!4 &609312538
 Transform:
   m_ObjectHideFlags: 0
@@ -588,6 +589,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1952343009912418356, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1979824325250610416, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -964,6 +969,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.72
       objectReference: {fileID: 0}
+    - target: {fileID: 7211246284869301505, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7280269693736835550, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -1087,6 +1096,10 @@ PrefabInstance:
     - target: {fileID: 8994934588517686132, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994934588517686132, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
+      propertyPath: m_Name
+      value: BigBigFloor
       objectReference: {fileID: 0}
     - target: {fileID: 9147427655258881676, guid: 6e6008124861f5846888e33d2c7d6d6e, type: 3}
       propertyPath: m_AnchorMax.y

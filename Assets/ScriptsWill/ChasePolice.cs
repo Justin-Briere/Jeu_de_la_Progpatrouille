@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ChasePolice : MonoBehaviour 
+public class ChasePolice : MonoBehaviour
 {
     [SerializeField]
     Transform[] allo; //représente la liste de transform à parcourir, changer son nom implique que le tableau dans unity se vident
@@ -17,15 +17,20 @@ public class ChasePolice : MonoBehaviour
 
     void Start()
     {
-        //if (ezmode)
-        //  paturn speed = 1
-        //if (ezmode)
-        //  paturn speed = 2
-        //if (ezmode)
-        //  paturn speed = 3
+        //if (KeepOverTimeComponent.difficulty == 1)
+        //{
+        //    paturnSpeed = 1;
+        //}
+        //if (KeepOverTimeComponent.difficulty == 1)
+        //{
+        //    paturnSpeed = 2;
+        //}
+        //else
+        //{
+        //    paturnSpeed = 3;
+        //}
 
-
-
+        paturnSpeed = 3;
 
         current = 0;
 
@@ -50,16 +55,14 @@ public class ChasePolice : MonoBehaviour
         else
         {
             policeSpeed = paturnSpeed;
-            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);         
+            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
         }
     }
 
     public void ChaseBandit(float positionPoliceX, float positionPoliceZ, float positionBanditX, float positionBanditZ)
     {
-
         float xDiff = (positionBanditX - positionPoliceX);
         float zDiff = (positionBanditZ - positionPoliceZ);
-        
         Deplacer(xDiff, zDiff);
     }
 
@@ -74,19 +77,15 @@ public class ChasePolice : MonoBehaviour
         if (Mathf.Abs(xDiff) <= 0.4 && Mathf.Abs(zDiff) <= 0.4)
         {
             current++;
-
             if (current >= allo.Length)
             {
                 current = 0;
-            }          
-        }
-        else
-        {
-            if (allo.Length != 1)
-            {
-                Deplacer(xDiff, zDiff);
-                transform.LookAt(allo[current]);
             }
+        }
+        else if (allo.Length != 1)
+        {
+            Deplacer(xDiff, zDiff);
+            transform.LookAt(allo[current]);
         }
     }
 

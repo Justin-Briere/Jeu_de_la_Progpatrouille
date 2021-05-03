@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - button
   - DestructibleWall
+  - Easy
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,8 @@ TagManager:
   - 
   - 
   - Enemy
-  - 
-  - 
+  - Door
+  - WallsAI
   - 
   - Floor
   - 

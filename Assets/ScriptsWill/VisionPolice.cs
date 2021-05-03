@@ -6,37 +6,19 @@ using UnityEngine.AI;
 
 public class VisionPolice : MonoBehaviour
 {
-
     [SerializeField]
     public GameObject banditos;
 
-    public bool topVision;
+    
 
-    [SerializeField]
-    private float rayon = 10f;
-
-    //[SerializeField]
-    private float teta = Mathf.PI / 4;
-
-    // [SerializeField]
-    private float phi = Mathf.PI / 4;
+    
+   
 
     private Vector3 positionBandit;
 
-    private Vector3 rotationPolice;
-
-    private Vector3 PoliceBandit;
-    private Vector3 VectorPolice;
-    private Vector3 VectorAnglePolice;
     private Transform positionPolice;
 
-    GameObject bodyPolice;
-    private float x;
-    private float y;
-    private float z;
-    int cnt;
-    float MinValueAngle;
-    float MaxValueAngle;
+    private float rayon = 10f;
     float minMaxAngleXZ ;
     float minMaxAngleYZ;
 
@@ -47,25 +29,29 @@ public class VisionPolice : MonoBehaviour
     bool angleYZBool = false;
     bool thereIsNoWalls = false;
 
+    public bool topVision;
+
     void Start()
     {
-        //bool EZmode = true;
-        //if (EZmode)
-        //{
-        //    MinValueAngle = 45;
-        //    MaxValueAngle = 315;
-        //}
+        if (KeepOverTimeComponent.difficulty == 1)
+        {
+            minMaxAngleXZ = 40;
+            minMaxAngleYZ = 5;
+            rayon = 10;
 
-
-
-        minMaxAngleXZ = 45;
-        minMaxAngleYZ = 5;
-
-        cnt = 0;
-        x = 45;
-        y = 45;
-        z = 45;
-         bodyPolice = GameObject.Find("Body");
+        }
+        if (KeepOverTimeComponent.difficulty == 2)
+        {
+            minMaxAngleXZ = 45;
+            minMaxAngleYZ = 10;
+            rayon = 15;
+        }
+        else
+        {
+            minMaxAngleXZ = 50;
+            minMaxAngleYZ = 15;
+            rayon = 20;
+        }
 
     }
 
@@ -86,19 +72,14 @@ public class VisionPolice : MonoBehaviour
 
     private void CheckRayon()
     {
-
         //LES 5 PROCHAINE LIGNES SERVENT À DÉTERMINER SI LE JOUEUR EST DANS LE RAYON PRÉDÉFINI DU POLICIER DU POLICIER
         var distanceRayon = Vector3.Distance(GetComponentInParent<Transform>().position, positionBandit);
 
+        rayonBool = false;
         if (distanceRayon <= rayon)
         {
             rayonBool = true;
         }
-        else
-        {
-            rayonBool = false;
-        }
-
     }
   
 
