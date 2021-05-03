@@ -270,17 +270,11 @@ public class VisionPolice : MonoBehaviour
 
     public void CheckWalls()
     {
-
+        thereIsNoWalls = false;
         if (!Physics.Linecast(transform.position, positionBandit, LayerMask.GetMask("WallsAI"))) 
         {
             thereIsNoWalls = true;
-            //print("pas de mur donc true");
-        }
-        else
-        {
-            thereIsNoWalls = false;
         }
     }
-
 }
 
