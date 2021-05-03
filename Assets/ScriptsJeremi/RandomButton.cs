@@ -115,7 +115,7 @@ public class RandomButton : MonoBehaviour
             generator = false;
             KeepOverTimeComponent.JeuRéussi = true;
             //gameCompleted = true;
-            SceneManager.LoadScene("FinalScene");
+            //SceneManager.LoadScene("FinalScene");
         }
     }
     //public bool GameCompleted()
