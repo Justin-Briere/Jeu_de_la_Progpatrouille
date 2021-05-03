@@ -25,11 +25,11 @@ public class TileComponents : MonoBehaviour
 
 
     {
-        HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty;
-
-
-        var Done = IsFinish.GetComponent<OpenDoorComponents>();
+         HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty; 
+       
         
+        var Done = IsFinish.GetComponent<OpenDoorComponents>();
+       
         var text = gameObject.GetComponent<Material>();
         if (!Done.LevelComleted)
         {
@@ -42,6 +42,7 @@ public class TileComponents : MonoBehaviour
                 }
                 else 
                 {
+                    print(HardDifficulty);
                     if(HardDifficulty)
                     Floor.material = WhiteMaterial;
                 }
