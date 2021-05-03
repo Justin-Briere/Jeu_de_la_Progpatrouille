@@ -35,20 +35,20 @@ public class VisionPolice : MonoBehaviour
     {
         if (KeepOverTimeComponent.difficulty == 1)
         {
-            minMaxAngleXZ = 40;
+            minMaxAngleXZ = 35;
             minMaxAngleYZ = 5;
             rayon = 10;
 
         }
         if (KeepOverTimeComponent.difficulty == 2)
         {
-            minMaxAngleXZ = 45;
+            minMaxAngleXZ = 40;
             minMaxAngleYZ = 10;
             rayon = 15;
         }
         else
         {
-            minMaxAngleXZ = 50;
+            minMaxAngleXZ = 45;
             minMaxAngleYZ = 15;
             rayon = 20;
         }
@@ -124,37 +124,18 @@ public class VisionPolice : MonoBehaviour
             DownAngle += 360;
         }
 
-        //Debug.Log("angle" + tetaDeg2);
 
-        //if (Mathf.Abs(tetaDeg2) < x)
-        //{
-        //    Debug.Log("angle is right");
-        //}
-        
+        angleXZBool = false;
 
-        if (UpAngle < (2*minMaxAngleXZ) && DownAngle > 360 - (2 * minMaxAngleXZ))
-        {
-            if (test < UpAngle || test > DownAngle)
-            {
-                angleXZBool = true;
-            }
-            else
-            {
-                angleXZBool = false;
-            }
-        }
-        else if (test < UpAngle && test > DownAngle) 
-        {
+        if ((UpAngle < (2*minMaxAngleXZ) && DownAngle > 360 - (2 * minMaxAngleXZ)) && (test < UpAngle || test > DownAngle))
             angleXZBool = true;
+              
+        else if (test < UpAngle && test > DownAngle) 
+            angleXZBool = true;
+        
 
-        }
-        else
-        {
-            angleXZBool = false;
-        }
         
-        
-        //var IsInVision = (test < MinValueAngle && test > MaxValueAngle) ? true : false;
+
     }
 
 
