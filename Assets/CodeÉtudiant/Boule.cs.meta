@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 768b317addc374e4f84becf2a9c29752
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - "Mat\xE9riauBoule": {fileID: 2100000, guid: 8e1a4bd6c5795b74bb3799e18ae6796b,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

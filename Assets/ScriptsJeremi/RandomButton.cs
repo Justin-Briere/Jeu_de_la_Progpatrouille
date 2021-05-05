@@ -9,9 +9,9 @@ public class RandomButton : MonoBehaviour
     public ClickButton[] buttons;
     public List<int> Colors;
 
-    public float viewTime = 0.1f;
+    float viewTime = 1f;
 
-    public float pauseTime = 0.2f;
+    float pauseTime = 100000000000f;
     public int level;
     private int currentlvl;
 
