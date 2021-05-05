@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 5d7f05a0b7183f74eb58ef0eb41b7067
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - "Mat\xE9riauTore": {fileID: 2100000, guid: 86772253624ae334cb69fc1ee752e7c2, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

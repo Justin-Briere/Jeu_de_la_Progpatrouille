@@ -1018,8 +1018,6 @@ MonoBehaviour:
   - {fileID: 146341414}
   - {fileID: 125596825}
   Colors: 
-  viewTime: 0.5
-  pauseTime: 0.5
   level: 2
   player: 0
   StartButton: {fileID: 884885958}
