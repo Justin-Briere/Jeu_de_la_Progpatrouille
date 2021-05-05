@@ -8,7 +8,14 @@ using System.IO;
 public class Carte
 {
     //"../../../Cartes/";
-    const string CheminAccès = "/.../.../.../../.../Jeu_de_la_Progpatrouille/Assets/script Justin/dijkstra/Cartes/";
+   // const string CheminAccès = "/.../.../.../../.../Jeu_de_la_Progpatrouille/Assets/script Justin/dijkstra/Cartes/";
+
+    private string CheminAccès = Application.dataPath + "/Ressource/Cartes/";
+
+    //Load a text file (Assets/Resources/Text/textFile01.txt)
+    //var textFile = Resources.Load<TextAsset>("Cartes/Map0");
+
+
     const char Source = 'S';
     const char Destination = 'D';
     const char Accessible = '.';
@@ -31,13 +38,6 @@ public class Carte
 
     public Carte(string nomFichier)
     {
-       // idk();
-
-
-
-
-
-
 
         PositionSource = new Point2D(-1, -1);
         PositionDestination = new Point2D(-1, -1);
@@ -91,18 +91,5 @@ public class Carte
         }
         return symbole != Inaccessible;
     }
-
-    //public string idk()
-    //{
-    //    string[] res = System.IO.Directory.GetFiles(Application.dataPath, "YourEitorScript.cs", SearchOption.AllDirectories);
-    //    if (res.Length == 0)
-    //    {
-    //        Debug.LogError("error message ....");
-    //        return null;
-    //    }
-    //    string path = res[0].Replace("HierarchyCustomiserEd.cs", "").Replace("\\", "/");
-    //    Debug.Log(path);
-    //    return path;
-    //}
 }
 
