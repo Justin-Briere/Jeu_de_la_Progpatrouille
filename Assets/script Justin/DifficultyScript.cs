@@ -11,10 +11,7 @@ public class DifficultyScript : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
        // print(other.gameObject.name);
-        if ((other.gameObject.name == "EzWall"))
-        {
-            EazyMode();
-        }
+        if ((other.gameObject.name == "EzWall"))EazyMode();
         if ((other.gameObject.name == "MedWall")) MediumMode();
         if ((other.gameObject.name == "HardWall")) HardMode();
     }
