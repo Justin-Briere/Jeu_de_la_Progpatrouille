@@ -2044,7 +2044,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453682492}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &453682495
 Camera:
   m_ObjectHideFlags: 0
@@ -3272,7 +3272,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735113425}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &735113428
 Camera:
   m_ObjectHideFlags: 0
@@ -4529,7 +4529,7 @@ GameObject:
   - component: {fileID: 952592604}
   - component: {fileID: 952592603}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Cube Galaga
   m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4618,7 +4618,7 @@ Transform:
   m_GameObject: {fileID: 952592602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.42, y: 1.61, z: 4.04}
-  m_LocalScale: {x: 1.5910054, y: 1.670723, z: 0.49992242}
+  m_LocalScale: {x: 1.5910054, y: 1.670723, z: 0.71563894}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -4933,7 +4933,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 85173643a2c303d4a9767a57b96be50f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -9205,7 +9205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.003244
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9257,23 +9257,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed1c4f263c98a964384d22179637c953, type: 3}
---- !u!1 &2017947276 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6229247520373792897, guid: ed1c4f263c98a964384d22179637c953, type: 3}
-  m_PrefabInstance: {fileID: 2017947275}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2017947277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017947276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7108b849137bfce41bef909fb44ca205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2017947281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}

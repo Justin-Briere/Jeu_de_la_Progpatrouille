@@ -9,9 +9,11 @@ public class RandomButton : MonoBehaviour
     public ClickButton[] buttons;
     public List<int> Colors;
 
-    float viewTime = 1f;
+    float deltaTime = 0.5f;
+    float MEDIUM_DELTA_TIME = 0.25f;
+    float HARD_DELTA_TIME = 0.1f;
 
-    float pauseTime = 100000000000f;
+
     public int level;
     private int currentlvl;
 
@@ -24,14 +26,30 @@ public class RandomButton : MonoBehaviour
     int score;
     private int myRandom;
 
-    int EASY_SCORE = 10;
     int MEDIUM_SCORE = 15;
     int HARD_SCORE = 21;
+    int completedScore = 10;
+
+    public void AdjustDifficulty()
+    {
+        if (KeepOverTimeComponent.difficulty == 2)
+        {
+            completedScore = MEDIUM_SCORE;
+            deltaTime = MEDIUM_DELTA_TIME;
+
+        }
+        if (KeepOverTimeComponent.difficulty == 3)
+        {
+            completedScore = HARD_SCORE;
+            deltaTime = HARD_DELTA_TIME;
+        }
+    }
 
     public bool gameCompleted = false;
 
     void Start()
     {
+        AdjustDifficulty();
         for (int i = 0; i < buttons.Length; ++i)
         {
             buttons[i].onClick += ButtonPressed;
@@ -82,9 +100,9 @@ public class RandomButton : MonoBehaviour
                 Colors.Add(myRandom);
             }
             buttons[Colors[i]].SelectedColor();
-            yield return new WaitForSeconds(viewTime);
+            yield return new WaitForSeconds(deltaTime);
             buttons[Colors[i]].UnSelectedColor();
-            yield return new WaitForSeconds(pauseTime);
+            yield return new WaitForSeconds(deltaTime);
         }
         player = true;
     }
@@ -107,15 +125,15 @@ public class RandomButton : MonoBehaviour
     }
     public void GameCompleted()
     {
-        if (score == EASY_SCORE)
+        if (score == completedScore)
         {
             gameOverText.text = "Congratulations!!!";
             StartButton.interactable = true;
             player = false;
             generator = false;
-            KeepOverTimeComponent.JeuRéussi = true;
+            KeepOverTimeComponent.SimonRéussi = true;
             //gameCompleted = true;
-            //SceneManager.LoadScene("FinalScene");
+            SceneManager.LoadScene("FinalScene");
         }
     }
     //public bool GameCompleted()

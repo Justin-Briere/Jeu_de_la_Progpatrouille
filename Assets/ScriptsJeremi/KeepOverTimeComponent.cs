@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class KeepOverTimeComponent
 {
-    public static bool JeuRéussi = false;
+    public static bool SimonRéussi = false;
+    public static bool GalagaRéussi = false;
     public static int difficulty = 0;
 }

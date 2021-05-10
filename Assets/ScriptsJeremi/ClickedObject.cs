@@ -44,6 +44,13 @@ public class ClickedObject : MonoBehaviour
             Cursor.visible = true;
             bandit.GetComponent<CameraCurseur>().enabled = false;
         }
+        if (gameObject.name == "Cube Galaga")
+        {
+            SceneManager.LoadScene("ScèneTitreGalaga");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            bandit.GetComponent<CameraCurseur>().enabled = false;
+        }
     }
     //private void OnMouseDown()
     //{
