@@ -15,7 +15,7 @@ public class GameCompleted : MonoBehaviour
     
     void Update()
     {
-        if(KeepOverTimeComponent.JeuRéussi == true /*&&*/)
+        if(KeepOverTimeComponent.SimonRéussi == true && KeepOverTimeComponent.GalagaRéussi)
         {
             
             Destroy(destructibleWall);
