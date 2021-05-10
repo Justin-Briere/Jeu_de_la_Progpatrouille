@@ -23,6 +23,8 @@ public class ActivatetimeLine : MonoBehaviour
     {
         timeline = GetComponent<PlayableDirector>();
         finalMusic = GetComponent<AudioSource>();
+        finalMusic.Play();
+        finalMusic.Pause();
 
         music = GameObject.Find("Music");
         musicSound = music.GetComponent<AudioSource>();
@@ -32,6 +34,7 @@ public class ActivatetimeLine : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             musicSound.Stop();
+            finalMusic.time = 3f;
             finalMusic.Play();
             timeline.gameObject.SetActive(true);
             timeline.Play();
