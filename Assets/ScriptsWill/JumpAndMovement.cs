@@ -68,7 +68,7 @@ public class JumpAndMovement : MonoBehaviour
         OnGround = false;
     }
     public void AddDirection(int directionIndex) => direction += directions[directionIndex];
-    private void Move(Vector3 direction) => transform.Translate(direction * (speed/cst * Time.deltaTime));
+    public void Move(Vector3 direction) => transform.Translate(direction * (speed/cst * Time.deltaTime));
 }
 
 

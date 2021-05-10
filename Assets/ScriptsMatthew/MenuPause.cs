@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuPause : MonoBehaviour
 {
     public static bool IsJeuxArret = false;
-
+    public bool Usecursor;
     public GameObject arretMenu;
 
     GameObject player;
@@ -29,15 +29,19 @@ public class MenuPause : MonoBehaviour
         arretMenu.SetActive(false);
         Time.timeScale = 1f;
         IsJeuxArret = false;
-        player.GetComponent<CameraCurseur>().enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (Usecursor)
+        {
+            player.GetComponent<CameraCurseur>().enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         Cursor.visible = false;
     }
     public void StopGame()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        player.GetComponent<CameraCurseur>().enabled = false;
+        if (Usecursor)
+            player.GetComponent<CameraCurseur>().enabled = false;
         arretMenu.SetActive(true);
         Time.timeScale = 0f;
         IsJeuxArret = true;
