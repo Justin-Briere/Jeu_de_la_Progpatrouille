@@ -15,7 +15,7 @@ public class ChooseDifficulty : MonoBehaviour
                 KeepOverTimeComponent.difficulty = 2;
             if (porte.gameObject.name == "Porte difficile")
                 KeepOverTimeComponent.difficulty = 3;
-            SceneManager.LoadScene("AIPolice");//AIPolice
+            SceneManager.LoadScene("FinalScene");//AIPolice
         }
 
     }
