@@ -19,32 +19,29 @@ public class MenuPause : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(player == null)
-                player = GameObject.FindGameObjectWithTag("Player");
             StopGame();
         }
     }
     public void Restart()
     {
-        arretMenu.SetActive(false);
-        Time.timeScale = 1f;
-        IsJeuxArret = false;
-        if (Usecursor)
-        {
-            player.GetComponent<CameraCurseur>().enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        Cursor.visible = false;
+        player.GetComponent<CameraCurseur>().enabled = Usecursor ? true : false;
+        Cursor.lockState = Usecursor ? CursorLockMode.None : CursorLockMode.Locked;
+
+        NouvelleFonction(false);
     }
     public void StopGame()
     {
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        if (Usecursor)
-            player.GetComponent<CameraCurseur>().enabled = false;
-        arretMenu.SetActive(true);
-        Time.timeScale = 0f;
-        IsJeuxArret = true;
+        player.GetComponent<CameraCurseur>().enabled = false;
+
+        NouvelleFonction(true);
+    }
+    private void NouvelleFonction(bool isActive)
+    {
+        Cursor.visible = isActive;
+        arretMenu.SetActive(isActive); 
+        Time.timeScale = isActive? 0f : 1f;
+        IsJeuxArret = isActive;
     }
     public void QuitterPartie()
     {

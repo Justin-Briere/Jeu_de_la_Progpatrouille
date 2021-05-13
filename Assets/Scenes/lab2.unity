@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6639201796964344935, guid: 29aaeaac2e064ed41b025071ba671304, type: 3}
+      propertyPath: ShowCursor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29aaeaac2e064ed41b025071ba671304, type: 3}
 --- !u!1 &488105720
@@ -459,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1600391988}
+  minimap: {fileID: 0}
 --- !u!1 &510160604
 GameObject:
   m_ObjectHideFlags: 0

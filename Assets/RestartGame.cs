@@ -5,15 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
+    [SerializeField]
+    Camera lastCam;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && lastCam.isActiveAndEnabled)
         {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene("MenuBouton");
         }
+        //        if(Input.GetKeyDown(KeyCode.P)&&lastCam.isActiveAndEnabled)
+        //        {
+        //#if UNITY_EDITOR
+        //        UnityEditor.EditorApplication.isPlaying = false;
+        //#else
+        //            Application.Quit();
+        //#endif
+        //        }
     }
 }

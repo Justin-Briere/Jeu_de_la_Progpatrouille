@@ -683,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55f1b511291ae54aae40c92ea04c2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCam: {fileID: 308521416}
 --- !u!4 &151387860
 Transform:
   m_ObjectHideFlags: 0
@@ -9205,7 +9206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.z
