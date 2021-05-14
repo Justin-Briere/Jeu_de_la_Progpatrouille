@@ -12,7 +12,6 @@ public class DeathPositionComponent : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.transform.position = GameManager.Instance.lastCheckPoint.position; // ligne base
             FindObjectOfType<GameOverScript>().StopGame();
         }
     }

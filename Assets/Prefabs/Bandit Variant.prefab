@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowCursor: 1
   Sensitivity: 2
+  player: {fileID: 3192630840819111927}
 --- !u!1001 &5443020661053582311
 PrefabInstance:
   m_ObjectHideFlags: 0
