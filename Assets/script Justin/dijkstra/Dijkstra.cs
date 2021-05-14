@@ -62,21 +62,17 @@ public class Dijkstra
             var rng = new System.Random(/*seed*/);
 
             Noeuds positionActuelle = TabNoeuds[maCarte.PositionSource.Y, maCarte.PositionSource.X];
-            positionActuelle.distance = 0;
-         
+            positionActuelle.distance = 0;         
             positionActuelle.Visitée = true;   
-            file.Enqueue(positionActuelle);
-            //int i = 0;
+            file.Enqueue(positionActuelle);          
             while (file.Count > 0)
-            {
-                
+            {                
                 var current = file.Dequeue();
                 current.Visitée = true;
                 var ListeVoisins = TrouverVoisins(current, TabNoeuds);
                 if (ListeVoisins.Count > 0)
                 {
                     file.Enqueue(current);
-
                     var randIndex = rng.Next(0, ListeVoisins.Count);
                     var randomNeighbour = ListeVoisins[randIndex];
                     randomNeighbour.Précurseur = current;
@@ -104,9 +100,9 @@ public class Dijkstra
             int y = pts.ValeurPosition.Y;
             if (dansLaCarte(x, y - 1) && !tabNoeuds[y - 1, x].Visitée && tabNoeuds[y - 1, x].EstAccessible)
                 ListV.Add(tabNoeuds[y - 1, x]);
-            if (dansLaCarte(x + 1, y) && !tabNoeuds[y, x + 1].Visitée && tabNoeuds[y, x + 1].EstAccessible )
+             if (dansLaCarte(x + 1, y) && !tabNoeuds[y, x + 1].Visitée && tabNoeuds[y, x + 1].EstAccessible )
                 ListV.Add(tabNoeuds[y, x + 1]);
-            if (dansLaCarte(x, y + 1) && !tabNoeuds[y + 1, x].Visitée && tabNoeuds[y + 1, x].EstAccessible )
+             if (dansLaCarte(x, y + 1) && !tabNoeuds[y + 1, x].Visitée && tabNoeuds[y + 1, x].EstAccessible )
                 ListV.Add(tabNoeuds[y + 1, x]);
             if (dansLaCarte(x - 1, y) && !tabNoeuds[y, x - 1].Visitée && tabNoeuds[y, x - 1].EstAccessible)
                 ListV.Add(tabNoeuds[y, x - 1]);
@@ -137,10 +133,8 @@ public class Dijkstra
             for (int i = 0; i < maCarte.HauteurCarte; ++i)
             {
                 for (int j = 0; j < maCarte.LargeurCarte; ++j)
-                {
-                
-                
-                    tabNoeuds[i, j] = new Noeuds(j, i, maCarte[i, j], distanceMax);
+                {              
+                 tabNoeuds[i, j] = new Noeuds(j, i, maCarte[i, j], distanceMax);
                 }
             }
             return tabNoeuds;
@@ -164,17 +158,25 @@ public class Dijkstra
         var Nmap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
         var FinalMap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
         string a = new string('=', 50);
-        //    Console.WriteLine(a);
-      //      Console.WriteLine($"Dijkstra map : {maCarte}");
-            for (int i = 0; i < maCarte.HauteurCarte * 2 + 1; ++i)
+        for (int i = 0; i < maCarte.HauteurCarte * 2 + 1; ++i)
+        {
+            for (int j = 0; j < maCarte.LargeurCarte * 2 + 1; ++j)
             {
-                for (int j = 0; j < maCarte.LargeurCarte * 2 + 1; ++j)
-                {
-                   Nmap[j,i] += '#';
+                Nmap[j, i] += '#';
 
-                }
             }
-            for (int i = 0; i < maCarte.HauteurCarte; ++i)
+        }
+
+        /// à partir de chacun des points, on crée un chemin jusqu'au points initiale. 
+        /// Ensuite on fait la moyenne de chaque points et de son précurseur. Ce nouveau points est un espace libre dans le lab
+        /// exemple: P1: [4,6] et P2 [4,7] la moyenne est P3: [((4+4)/2) *2 + 1 , ((6+7)/2) *2 + 1 ] = [9, 14]
+        /// Alors, les points P1*2 +1,  et P3 sont libre dans la nouvelle map
+        ///                   [9,13] et  [9,14] 
+        ///                   
+        /// son précurseur devient P1.  
+
+
+        for (int i = 0; i < maCarte.HauteurCarte; ++i)
             {
                 for (int j = 0; j < maCarte.LargeurCarte; ++j)
                 {
@@ -185,38 +187,28 @@ public class Dijkstra
                         if (Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] != 'o')
                             Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] += 'o';
                         if (dansLaCarte(i, j) && !(file[j,i].Précurseur == null))
-                        {
-                         
+                        {                         
                             var X = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
                             var Y = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
                             if (Nmap[(int)Y, (int)X] != 'o')
                             Nmap[(int)Y, (int)X] += 'o'; 
                             ++NoeudsVérifiés;
-
                         }
                     }
                 }
             }
-            /// Print la MAP
+            /// forme la la MAP
             for (int i = 1; i < maCarte.HauteurCarte * 2 + 1; ++i)
             {
                 for (int j = 1; j < maCarte.LargeurCarte * 2 + 1; ++j)
                 {
-                  
                     var test = Nmap[j, i] == '#' ? '*' : 'o';
-                    
                         if ((i == 3 && j == 3) || (i == 39 && j == 35))
                             test = 'D';
                      FinalMap[i, j] = test; 
-       //             Console.Write(test);
                 }
-
-     //           Console.WriteLine();
             }
         return FinalMap;
-        //    Console.WriteLine($"Temps d'exécution : {chronomètre.Elapsed.TotalMilliseconds} millisecondes");
-        //    Console.WriteLine($"la Distance est de : {distance + 1 }");
-        //    Console.WriteLine($"Le nombre de noeuds visité est de : {NoeudsVérifiés - 1}");
         }
 
         /// <summary>
