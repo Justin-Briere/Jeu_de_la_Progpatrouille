@@ -6,33 +6,33 @@ using UnityEngine.AI;
 
 public class VisionPolice : MonoBehaviour
 {
+    /// <summary>
+    /// Script de la vision de la police.
+    /// Celle-ci a pour but d'immiter la vision d'un être humain si s'apparente à une partie de sphère
+    /// Pour ce faire, j'ai décidé d'utiliser les coordonnées sphériques 
+    /// </summary>
+
     [SerializeField]
-    public GameObject banditos;
-
-    
-
-    
-   
-
+    public GameObject banditos;         //utile au policier afin de lui faire regarder le joueur
     private Vector3 positionBandit;
-
     private Transform positionPolice;
 
-    private float rayon = 10f;
-    float minMaxAngleXZ ;
-    float minMaxAngleYZ;
-
-    float policierRegarde;
+    private float rayon;    //La distance radiale, équivalent de Rhô, dans les coordonnés sphériques
+    float minMaxAngleXZ ;   //Équivalent de thêta, dans les coordonnés sphériques
+    float minMaxAngleYZ;    //Équivalent de Phi, dans les coordonnés sphériques
 
     bool rayonBool = false;
     bool angleXZBool = false;
     bool angleYZBool = false;
     bool thereIsNoWalls = false;
 
-    public bool topVision;
+    public bool topVision;      //Varianle la plus importante du scipt. Elle est vrai si le 
+                                //policier regarde le joueur et fausse dans le cas contraire
 
     void Start()
     {
+
+        //Permet d'ajuster le niveau de difficulté choisit au jeu
         if (KeepOverTimeComponent.difficulty == 1)
         {
             minMaxAngleXZ = 35;
@@ -60,21 +60,21 @@ public class VisionPolice : MonoBehaviour
         positionBandit = GameObject.Find("Bandit").transform.position;
         positionPolice = GetComponentInParent<Transform>();
          
-
+        //On regarde 1 à 1 les conditions à respecter afin de voir le joueur
         CheckRayon();
         CheckAngleXZ();
         CheckAngleYZ();
         CheckWalls();
 
+        //Si les conditions sont respecté, cette fonction s'occupera du reste
         ChekAll();
-
 
     }
 
     private void CheckRayon()
     {
         //LES 5 PROCHAINE LIGNES SERVENT À DÉTERMINER SI LE JOUEUR EST DANS LE RAYON PRÉDÉFINI DU POLICIER DU POLICIER
-        var distanceRayon = Vector3.Distance(GetComponentInParent<Transform>().position, positionBandit);
+        var distanceRayon = Vector3.Distance(positionPolice.position, positionBandit);
 
         rayonBool = false;
         if (distanceRayon <= rayon)
@@ -83,25 +83,29 @@ public class VisionPolice : MonoBehaviour
         }
     }
   
-
+    /// <summary>
+    /// Vérification la plus lourde : celle de thêta
+    /// En effet, celle-ci doit tenir compte de la rotation de la police. 
+    /// Aussi, en raison de la facon dont unity illustre ses composantes d'angle, de nombreuses manipulation sont nécéssaire
+    /// </summary>
     private void CheckAngleXZ()
     {
-
-        var xPolice = GetComponentInParent<Transform>().position.x;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
+        
+        var xPolice = positionPolice.position.x;     
+        var zPolice = positionPolice.position.z;     
 
         var d1 = positionBandit.z - zPolice;
         var d2 = positionBandit.x - xPolice;
 
-        //Les prochaines manipulations ont pour but de changer les angles de facon à ce quelle soit bien comparable. 
-        //Les angles dans unity ne font pas l'affaire. Aussi, 
+        //Les prochaines manipulations ont pour but de changer les angles de facon à ce qu'elles soit bien comparable. 
+        //Les angles dans unity ne font pas l'affaire. Une fois les manipulations terminés, il sera BEAUCOUP plus 
+        //  simple d'éffectuer les comparaisons requise 
 
         var teta1 = Mathf.Atan(d1 / d2);
         var tetaDeg = teta1 * Mathf.Rad2Deg;
-        var tetaDeg2 = RightConversion(tetaDeg,d1,d2);
-        policierRegarde = tetaDeg2;
-        var rotPolice = Mathf.Abs(GetComponentInParent<Transform>().eulerAngles.y);
-        var rotPolice2 = RightConversion2(rotPolice);
+        var tetaDeg2 = RightConversion(tetaDeg,d1,d2);      //fonction facilitant la conversion   
+        var rotPolice = Mathf.Abs(positionPolice.eulerAngles.y);
+        var rotPolice2 = RightConversion2(rotPolice);       //fonction facilitant la conversion
 
         var test = tetaDeg2;
 
@@ -109,13 +113,12 @@ public class VisionPolice : MonoBehaviour
         var DownAngle = rotPolice2 - minMaxAngleXZ;
 
         if(UpAngle > 360)      
-            UpAngle -= 360;
-        
+            UpAngle -= 360;        
 
         if (DownAngle < 0)    
             DownAngle += 360;
         
-
+        //Les prochaines lignes s'occuppent de la vérifiation, si oui ou non l'angle Thêta entre joueur et policier est respecté
 
         angleXZBool = false;
 
@@ -127,12 +130,14 @@ public class VisionPolice : MonoBehaviour
              
     }
 
-
+    /// <summary>
+    /// Similaire à la fonction précédente, celle permet une vérification d'un angle Phi : l'angle asocié à la hauteur
+    /// </summary>
     private void CheckAngleYZ()
     {
-        var yPolice = GetComponentInParent<Transform>().position.y;     //Prends la composante du la position du policier et l'additione à la composante correspondanted du vecteur de sa vision
-        var zPolice = GetComponentInParent<Transform>().position.z;     //ibid
-        var xPolice = GetComponentInParent<Transform>().position.x;
+        var yPolice = positionPolice.position.y;     
+        var zPolice = positionPolice.position.z;     
+        var xPolice = positionPolice.position.x;
 
         var l1 =   Mathf.Sqrt (    Mathf.Pow(positionBandit.z - zPolice,2) + Mathf.Pow(positionBandit.x - xPolice, 2));
         var l2 = Mathf.Abs(positionBandit.y - yPolice);
@@ -148,7 +153,13 @@ public class VisionPolice : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Fonction utile à la vérification de l'angle thêta ,afin de ne pas trop alourdir la fonction CheckAngleXZ
+    /// </summary>
+    /// <param name="tetaDeg"></param>
+    /// <param name="d1"></param>
+    /// <param name="d2"></param>
+    /// <returns></returns>
     public float RightConversion(float tetaDeg,float d1,float d2)
     {
 
@@ -161,6 +172,11 @@ public class VisionPolice : MonoBehaviour
         return tetaDeg;
     }
 
+    /// <summary>
+    /// Fonction utile à la vérification de l'angle thêta ,afin de ne pas trop alourdir la fonction CheckAngleXZ
+    /// </summary>
+    /// <param name="rotPolice"></param>
+    /// <returns></returns>
     public float RightConversion2(float rotPolice)
     {
 
@@ -170,15 +186,17 @@ public class VisionPolice : MonoBehaviour
 
         if (rotPolice >= 360)     
             rotPolice -= 360;
-        
-
 
         return rotPolice;
     }
 
+    /// <summary>
+    /// Vérifie chacune des conditions
+    /// </summary>
     public void ChekAll()
     {
-        //if (gameObject.name == "police1Jean")
+        // Débugage
+        //if (gameObject.name == "police1Jean") 
         //{
         //    print("rayon :" + rayonBool);
         //    print("angledg :" + angleXZBool);
@@ -186,41 +204,26 @@ public class VisionPolice : MonoBehaviour
         //    print("walls :" + thereIsNoWalls);
         //}
 
-
-
         if (rayonBool && angleXZBool && angleYZBool && thereIsNoWalls)
         {
-           // Debug.Log("I SEE U");
             topVision = true;
-            RotatePolice();
+            transform.LookAt(banditos.transform);       //Fonction permettant d'de rotater un gameobject vers un autre
         }
-        else
-        {
+        else      
             topVision = false;
-        }
-        
-
-    }
-
-
-    public void RotatePolice()
-    {
-        // transform.Rotation(0, policierRegarde, 0, Space.World);
-
-        //   transform.rotation = Vector3(0, policierRegarde, 0);
-
-
-        transform.LookAt(banditos.transform); 
         
     }
 
+
+    /// <summary>
+    /// Fonction s'occupant d'observer s'il y a présence de mur entre le joueur et le policier
+    /// </summary>
     public void CheckWalls()
     {
         thereIsNoWalls = false;
-        if (!Physics.Linecast(transform.position, positionBandit, LayerMask.GetMask("WallsAI"))) 
-        {
+        if (!Physics.Linecast(transform.position, positionBandit, LayerMask.GetMask("WallsAI")))    
             thereIsNoWalls = true;
-        }
+        
     }
 }
 
