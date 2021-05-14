@@ -8,11 +8,12 @@ public class MenuPause : MonoBehaviour
     public bool Usecursor;
     public GameObject arretMenu;
 
-    GameObject player;
+    CameraCurseur curseur;
     void Start()
     {
+        curseur = FindObjectOfType<CameraCurseur>();
+
         arretMenu.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -24,19 +25,18 @@ public class MenuPause : MonoBehaviour
     }
     public void Restart()
     {
-        player.GetComponent<CameraCurseur>().enabled = Usecursor ? true : false;
+        curseur.enabled = Usecursor;
         Cursor.lockState = Usecursor ? CursorLockMode.None : CursorLockMode.Locked;
 
-        NouvelleFonction(false);
+        ChooseFunction(false);
     }
     public void StopGame()
     {
-        Cursor.lockState = CursorLockMode.None;
-        player.GetComponent<CameraCurseur>().enabled = false;
+        curseur.PauseGame();
 
-        NouvelleFonction(true);
+        ChooseFunction(true);
     }
-    private void NouvelleFonction(bool isActive)
+    private void ChooseFunction(bool isActive)
     {
         Cursor.visible = isActive;
         arretMenu.SetActive(isActive); 

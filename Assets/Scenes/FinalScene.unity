@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowCursor: 0
   Sensitivity: 2
+  player: {fileID: 41037742}
 --- !u!4 &73985825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8717893220990095113, guid: e52c9859edc1fdf46858254ab351e4ca, type: 3}

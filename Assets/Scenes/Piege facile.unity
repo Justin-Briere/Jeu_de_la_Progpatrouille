@@ -3659,6 +3659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1487561370518431373, guid: 5bd321dbe9627a54ca0d0cb9f5368258, type: 3}
+      propertyPath: deathPanel
+      value: 
+      objectReference: {fileID: 1537266437}
     m_RemovedComponents:
     - {fileID: 2263336280221695406, guid: 5bd321dbe9627a54ca0d0cb9f5368258, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bd321dbe9627a54ca0d0cb9f5368258, type: 3}
@@ -10965,6 +10969,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6639201796964344935, guid: 29aaeaac2e064ed41b025071ba671304, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1587010221}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29aaeaac2e064ed41b025071ba671304, type: 3}
 --- !u!4 &1308500146 stripped
@@ -13186,6 +13194,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
   m_PrefabInstance: {fileID: 688400963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1537266437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1487561369852808446, guid: 5bd321dbe9627a54ca0d0cb9f5368258, type: 3}
+  m_PrefabInstance: {fileID: 462431121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1537703037
 GameObject:
   m_ObjectHideFlags: 0
@@ -13498,6 +13511,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
   m_PrefabInstance: {fileID: 68826238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1587010221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3192630840819111927, guid: 29aaeaac2e064ed41b025071ba671304, type: 3}
+  m_PrefabInstance: {fileID: 1307140884}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1592389796 stripped
 Transform:

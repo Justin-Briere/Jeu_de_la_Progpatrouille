@@ -6,7 +6,7 @@ public class PickDropScript: MonoBehaviour
 {
     public KeyCode pickupKey = KeyCode.F;
     public KeyCode dropKey = KeyCode.G;
-    string weaponTag = "Gun";
+    const string WEAPONTAG = "Gun";
 
     public List<GameObject> weapons;
 
@@ -26,10 +26,9 @@ public class PickDropScript: MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(cam.position, cam.forward);
 
-        //Pickup
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.CompareTag(weaponTag) && Input.GetKeyDown(pickupKey))
+            if (hit.transform.CompareTag(WEAPONTAG) && Input.GetKeyDown(pickupKey))
             {
 
                 hit.collider.gameObject.SetActive(true);
@@ -39,16 +38,12 @@ public class PickDropScript: MonoBehaviour
                 hit.transform.parent = hand;
             }
         }
-
-        // DROP WEAPONS
         
         if (Input.GetKeyDown(dropKey) && currentWeapon != null)
         {
-
             currentWeapon.transform.parent = null;
 
             currentWeapon.transform.position = dropPoint.position;
-            //currentWeapon = null;
         }
     }
 }

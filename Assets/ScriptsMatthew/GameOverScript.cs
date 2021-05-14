@@ -9,40 +9,43 @@ public class GameOverScript : MonoBehaviour
     bool gameEnd = false;
 
     [SerializeField]
-    GameObject mort;
+    GameObject deathPanel;
 
-    GameObject player;
+    CameraCurseur curseur;
+
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        mort.SetActive(false);
+        curseur = FindObjectOfType<CameraCurseur>();
+
+        deathPanel.SetActive(false);
     }
 
     public void StopGame()
     {
-        if (gameEnd == false)
+        if (!gameEnd)
         {
-            gameEnd = true;
-            mort.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            player.GetComponent<CameraCurseur>().enabled = false;
-            mort.SetActive(true);
-            Time.timeScale = 0f;
-            gameEnd = true;
+            deathPanel.SetActive(true);
+
+            curseur.PauseGame();
+
+            ChooseFunction(true);
         }
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1f;
-        gameEnd = false;
-        player.GetComponent<CameraCurseur>().enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
+        curseur.Reload();
 
+        Cursor.lockState = CursorLockMode.Locked;
+
+        ChooseFunction(false);
+    }
+    private void ChooseFunction(bool isActive)
+    {
+        Cursor.visible = isActive;
+        Time.timeScale = isActive ? 0f : 1f;
+        gameEnd = isActive;
+    }
     public void QuitterPartie()
     {
     #if UNITY_EDITOR
