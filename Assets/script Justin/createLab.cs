@@ -7,6 +7,8 @@ public class createLab : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     GameObject wall;
+    [SerializeField]
+    GameObject Key;
     char[,] Map;
    
     Dijkstra AlgoDijkstra { get; set; }
@@ -20,6 +22,8 @@ public class createLab : MonoBehaviour
         Map = AlgoDijkstra.MapFinal;
 
         Create();
+       
+       // Instantiate(Key, new Vector3(10.1f , 0, 5.5f), new Quaternion(0, 0, 0, 0));
     }
 
     private void Create()
@@ -32,7 +36,7 @@ public class createLab : MonoBehaviour
 
             }
         }
-
+        
     }
     public void create(int i, int j)
     {
