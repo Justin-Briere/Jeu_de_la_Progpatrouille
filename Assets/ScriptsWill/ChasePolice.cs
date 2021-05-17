@@ -6,92 +6,74 @@ using UnityEngine;
 public class ChasePolice : MonoBehaviour
 {
     [SerializeField]
-    Transform[] allo; //représente la liste de transform à parcourir, changer son nom implique que le tableau dans unity se vident
+    Transform[] allo; //représente la liste de transform à parcourir, changer son nom implique que le tableau ed chaque police dans unity se vide :(
 
-    float positionInitialeX;
-    float positionInitialeZ;
+    Transform positionPolice;
+    Transform positionBandit;
+
     int current;
-    float policeSpeed;
-    float chaseSpeed = 7f;
-    float paturnSpeed = 2f;
+    float chaseSpeed;
+    float paturnSpeed;
 
     void Start()
     {
-        //if (KeepOverTimeComponent.difficulty == 1)
-        //{
-        //    paturnSpeed = 1;
-        //}
-        //if (KeepOverTimeComponent.difficulty == 1)
-        //{
-        //    paturnSpeed = 2;
-        //}
-        //else
-        //{
-        //    paturnSpeed = 3;
-        //}
-
-        paturnSpeed = 3;
+        if (KeepOverTimeComponent.difficulty == 1)
+        {
+            paturnSpeed = 1;
+            chaseSpeed = 3;
+        }
+        if (KeepOverTimeComponent.difficulty == 2)
+        {
+            paturnSpeed = 2;
+            chaseSpeed = 5;
+        }
+        else
+        {
+            paturnSpeed = 3;
+            chaseSpeed = 7;
+        }
 
         current = 0;
-
-        positionInitialeX = GetComponentInParent<Transform>().position.x;
-        positionInitialeZ = GetComponentInParent<Transform>().position.z;
     }
 
     void Update()
     {
-        bool chek = GetComponent<VisionPolice>().topVision;
-        float positionPoliceX = GetComponentInParent<Transform>().position.x;
-        float positionPoliceZ = GetComponentInParent<Transform>().position.z;
+        bool chekVision = GetComponent<VisionPolice>().vueSurBandit;
 
-        float positionBanditX = GameObject.Find("Bandit").transform.position.x;
-        float positionBanditZ = GameObject.Find("Bandit").transform.position.z;
+        positionPolice = GetComponentInParent<Transform>();
+        positionBandit = GameObject.Find("Bandit").transform;
 
-        if (chek)
-        {
-            policeSpeed = chaseSpeed;
-            ChaseBandit(positionPoliceX, positionPoliceZ, positionBanditX, positionBanditZ);
-        }
-        else
-        {
-            policeSpeed = paturnSpeed;
-            ReturnInitialPosition(positionInitialeX, positionInitialeZ, positionPoliceX, positionPoliceZ);
-        }
+        if (chekVision)    
+            Deplacer((positionBandit.position.x - positionPolice.position.x), (positionBandit.position.z - positionPolice.position.z), chaseSpeed);
+        else           
+            FollowPaturn();
+        
     }
 
-    public void ChaseBandit(float positionPoliceX, float positionPoliceZ, float positionBanditX, float positionBanditZ)
-    {
-        float xDiff = (positionBanditX - positionPoliceX);
-        float zDiff = (positionBanditZ - positionPoliceZ);
-        Deplacer(xDiff, zDiff);
-    }
 
-    public void ReturnInitialPosition(float positionInitialeX, float positionInitialeZ, float positionPoliceX, float positionPoliceZ)
+    public void FollowPaturn()
     {
-        positionInitialeX = allo[current].position.x;
-        positionInitialeZ = allo[current].position.z;
 
-        float xDiff = (positionInitialeX - positionPoliceX);
-        float zDiff = (positionInitialeZ - positionPoliceZ);
+        float xDiff = (allo[current].position.x - positionPolice.position.x);
+        float zDiff = (allo[current].position.z - positionPolice.position.z);
 
         if (Mathf.Abs(xDiff) <= 0.4 && Mathf.Abs(zDiff) <= 0.4)
         {
             current++;
-            if (current >= allo.Length)
-            {
+            if (current >= allo.Length)          
                 current = 0;
-            }
+            
         }
         else if (allo.Length != 1)
         {
-            Deplacer(xDiff, zDiff);
+            Deplacer(xDiff, zDiff, paturnSpeed);
             transform.LookAt(allo[current]);
         }
     }
 
-    public void Deplacer(float xDiff, float zDiff)
+    public void Deplacer(float xDiff, float zDiff, float vitesse)
     {
         Vector3 leVecteur = new Vector3(xDiff, 0, zDiff);
-        transform.Translate(leVecteur.normalized * (policeSpeed * Time.deltaTime), Space.World);
+        transform.Translate(leVecteur.normalized * (vitesse * Time.deltaTime), Space.World);
     }
 }
