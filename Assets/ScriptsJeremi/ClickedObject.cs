@@ -6,20 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class ClickedObject : MonoBehaviour
 {
-    private Vector3 positionCube;
+    private Vector3 cubePosition;
     GameObject bandit;
     Vector3 positionBandit;
     void Start()
     {
-        positionCube = GetComponentInParent<Transform>().position;
+        cubePosition = GetComponentInParent<Transform>().position;
         bandit = GameObject.FindGameObjectWithTag("Player");
 
     }
-
-    // Update is called once per frame
-    void Update()
+    void Update()  // code inspiré de Ingens https://answers.unity.com/questions/294310/button-on-wall.html
     {
-        //Check for mouse click 
         if (Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit raycastHit;
@@ -27,8 +24,7 @@ public class ClickedObject : MonoBehaviour
             if (Physics.Raycast(ray, out raycastHit, 100f))
             {
                 if (raycastHit.transform != null)
-                {
-                    //Our custom method. 
+                { 
                     CurrentClickedGameObject(raycastHit.transform.gameObject);
                 }
             }
@@ -52,11 +48,6 @@ public class ClickedObject : MonoBehaviour
             bandit.GetComponent<CameraCurseur>().enabled = false;
         }
     }
-    //private void OnMouseDown()
-    //{
-    //    //Instantiate(SceneManager.LoadScene("Main Menu", LoadSceneMode ));
-    //    SceneManager.LoadScene("Main Menu");
-    //}
 }
 
   

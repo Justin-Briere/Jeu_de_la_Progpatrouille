@@ -2,40 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickButton : MonoBehaviour
+public class ClickButton : MonoBehaviour  //Script inspiré de Yasil : https://www.youtube.com/watch?v=OmynDREHO_8
 {
-    public Material normalMaterial;
+    public Material colorMaterial;
     public Material whiteMaterial;
     Renderer zeRenderer;
-    Vector3 position;
+    float PressedHeight = 0.1f; 
+    Vector3 buttonPosition;
 
-    public int number = 1;
+    public int numberPosition;
     public RandomButton random;
 
     public delegate void PressedEvent(int number);
 
-    public event PressedEvent onClick;
+    public event PressedEvent OnClick;
     void Awake()
     {
         zeRenderer = GetComponent<Renderer>();
-        zeRenderer.enabled = true;
-        position = transform.position;
+        //zeRenderer.enabled = true;
+        buttonPosition = transform.position;
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         if (random.player)
         {
+            transform.position = new Vector3(buttonPosition.x, -PressedHeight, buttonPosition.z);
             SelectedColor();
-            transform.position = new Vector3(position.x, -0.1f, position.z);
-            onClick.Invoke(number);
+            OnClick.Invoke(numberPosition);
         }
     }
 
-    private void OnMouseUp()
+    void OnMouseUp()
     {
         UnSelectedColor();
-        transform.position = new Vector3(position.x, position.y, position.z);
+        transform.position = new Vector3(buttonPosition.x, buttonPosition.y, buttonPosition.z);
     }
 
     public void SelectedColor()
@@ -45,7 +46,7 @@ public class ClickButton : MonoBehaviour
 
     public void UnSelectedColor()
     {
-        zeRenderer.sharedMaterial = normalMaterial;
+        zeRenderer.sharedMaterial = colorMaterial;
     }
 
 }

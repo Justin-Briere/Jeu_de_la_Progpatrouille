@@ -52,8 +52,8 @@ public class RandomButton : MonoBehaviour
         AdjustDifficulty();
         for (int i = 0; i < buttons.Length; ++i)
         {
-            buttons[i].onClick += ButtonPressed;
-            buttons[i].number = i;
+            buttons[i].OnClick += ButtonPressed;
+            buttons[i].numberPosition = i;
         }
     }
 
@@ -136,18 +136,4 @@ public class RandomButton : MonoBehaviour
             SceneManager.LoadScene("FinalScene");
         }
     }
-    //public bool GameCompleted()
-    //{
-    //    bool gameCompleted = false;
-    //    if (score == EASY_SCORE)
-    //    {
-    //        gameOverText.text = "Congratulations!!!";
-    //        StartButton.interactable = true;
-    //        player = false;
-    //        generator = false;
-    //        SceneManager.LoadScene("FinalScene");
-    //        gameCompleted = true;
-    //    }
-    //    return gameCompleted;
-    //}
 }

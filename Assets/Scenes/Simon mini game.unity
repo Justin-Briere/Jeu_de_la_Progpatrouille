@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c982e54d06660d54bb4914c4be62f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMaterial: {fileID: 2100000, guid: 320c71f2857e43347b275958dde1a1dc, type: 2}
+  colorMaterial: {fileID: 2100000, guid: 320c71f2857e43347b275958dde1a1dc, type: 2}
   whiteMaterial: {fileID: 2100000, guid: e2c9e00133cd4324e81ce82dfde55b4a, type: 2}
-  number: 1
+  numberPosition: 0
   random: {fileID: 1172454738}
 --- !u!65 &125596826
 BoxCollider:
@@ -193,9 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c982e54d06660d54bb4914c4be62f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMaterial: {fileID: 2100000, guid: 664b5d4a9b6066d4ea8f1f5d7a44e54e, type: 2}
+  colorMaterial: {fileID: 2100000, guid: 664b5d4a9b6066d4ea8f1f5d7a44e54e, type: 2}
   whiteMaterial: {fileID: 2100000, guid: e2c9e00133cd4324e81ce82dfde55b4a, type: 2}
-  number: 1
+  numberPosition: 1
   random: {fileID: 1172454738}
 --- !u!95 &146341415
 Animator:
@@ -421,9 +421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c982e54d06660d54bb4914c4be62f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMaterial: {fileID: 2100000, guid: c887d5298633b9b4fb26ea3c78fb1226, type: 2}
+  colorMaterial: {fileID: 2100000, guid: c887d5298633b9b4fb26ea3c78fb1226, type: 2}
   whiteMaterial: {fileID: 2100000, guid: e2c9e00133cd4324e81ce82dfde55b4a, type: 2}
-  number: 1
+  numberPosition: 3
   random: {fileID: 1172454738}
 --- !u!95 &518139316
 Animator:
@@ -1242,9 +1242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c982e54d06660d54bb4914c4be62f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMaterial: {fileID: 2100000, guid: a16de759247245d4a96e1038e1d76e74, type: 2}
+  colorMaterial: {fileID: 2100000, guid: a16de759247245d4a96e1038e1d76e74, type: 2}
   whiteMaterial: {fileID: 2100000, guid: e2c9e00133cd4324e81ce82dfde55b4a, type: 2}
-  number: 1
+  numberPosition: 2
   random: {fileID: 1172454738}
 --- !u!95 &1632866676
 Animator:

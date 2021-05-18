@@ -7,8 +7,8 @@ public class PushForward : MonoBehaviour
     private Vector3 positionJoueur;
     private Vector3 positionFan;
     private GameObject joueur;
-    private PushComponent item;
-    BoxCollider i;
+    //private PushComponent item;
+    //BoxCollider i;
     private bool vérif;
 
     [SerializeField]
@@ -27,8 +27,8 @@ public class PushForward : MonoBehaviour
     void Start()
     {
         joueur = GameObject.Find("Voleur");
-        item = GetComponent<PushComponent>();
-        i = GetComponentInChildren<BoxCollider>();
+        //item = GetComponent<PushComponent>();
+        //i = GetComponentInChildren<BoxCollider>();
     }
 
     void Update()
