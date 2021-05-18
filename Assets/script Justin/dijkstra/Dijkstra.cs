@@ -203,7 +203,7 @@ public class Dijkstra
                 for (int j = 1; j < maCarte.LargeurCarte * 2 + 1; ++j)
                 {
                     var test = Nmap[j, i] == '#' ? '*' : 'o';
-                        if ((i == 3 && j == 3) || (i == 39 && j == 35))
+                        if ((i == 3 && j == 3) || (i == 37 && j == 37))
                             test = 'D';
                      FinalMap[i, j] = test; 
                 }
