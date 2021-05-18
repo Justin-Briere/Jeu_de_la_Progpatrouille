@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e7967932c547e44b6ec3af73419974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mort: {fileID: 1487561369852808446}
+  deathPanel: {fileID: 1487561369852808446}
 --- !u!1 &1487561370593703961
 GameObject:
   m_ObjectHideFlags: 0
