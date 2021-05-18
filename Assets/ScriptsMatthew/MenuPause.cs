@@ -5,42 +5,43 @@ using UnityEngine;
 public class MenuPause : MonoBehaviour
 {
     public static bool IsJeuxArret = false;
-
+    public bool Usecursor;
     public GameObject arretMenu;
 
-    GameObject player;
+    CameraCurseur curseur;
     void Start()
     {
+        curseur = FindObjectOfType<CameraCurseur>();
+
         arretMenu.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(player == null)
-                player = GameObject.FindGameObjectWithTag("Player");
             StopGame();
         }
     }
     public void Restart()
     {
-        arretMenu.SetActive(false);
-        Time.timeScale = 1f;
-        IsJeuxArret = false;
-        player.GetComponent<CameraCurseur>().enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        curseur.enabled = Usecursor;
+        Cursor.lockState = Usecursor ? CursorLockMode.None : CursorLockMode.Locked;
+
+        ChooseFunction(false);
     }
     public void StopGame()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        player.GetComponent<CameraCurseur>().enabled = false;
-        arretMenu.SetActive(true);
-        Time.timeScale = 0f;
-        IsJeuxArret = true;
+        curseur.PauseGame();
+
+        ChooseFunction(true);
+    }
+    private void ChooseFunction(bool isActive)
+    {
+        Cursor.visible = isActive;
+        arretMenu.SetActive(isActive); 
+        Time.timeScale = isActive? 0f : 1f;
+        IsJeuxArret = isActive;
     }
     public void QuitterPartie()
     {

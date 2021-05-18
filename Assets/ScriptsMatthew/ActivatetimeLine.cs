@@ -14,6 +14,8 @@ public class ActivatetimeLine : MonoBehaviour
     [SerializeField]
     GameObject timelinePlayer;
 
+    GameObject menuPause;
+
     GameObject music;
     AudioSource musicSound;
 
@@ -26,6 +28,8 @@ public class ActivatetimeLine : MonoBehaviour
         finalMusic.Play();
         finalMusic.Pause();
 
+        menuPause = GameObject.Find("MenuPause");
+
         music = GameObject.Find("Music");
         musicSound = music.GetComponent<AudioSource>();
     }
@@ -34,6 +38,7 @@ public class ActivatetimeLine : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             musicSound.Stop();
+            menuPause.SetActive(false);
             finalMusic.time = 3f;
             finalMusic.Play();
             timeline.gameObject.SetActive(true);

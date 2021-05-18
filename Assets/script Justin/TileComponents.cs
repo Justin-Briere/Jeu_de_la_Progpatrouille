@@ -12,18 +12,13 @@ public class TileComponents : MonoBehaviour
     public MeshRenderer[] ListTiles;
     Material textureBleu;
     GameObject IsFinish;
-
      bool HardDifficulty = true;
     void Start()
     {
         IsFinish = FindObjectOfType <OpenDoorComponents>().gameObject;
         ListTiles = GetComponentsInChildren<MeshRenderer>();
-
-
     }
     public void OnCollisionEnter()
-
-
     {
          HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty; 
        
@@ -31,24 +26,20 @@ public class TileComponents : MonoBehaviour
         var Done = IsFinish.GetComponent<OpenDoorComponents>();
        
         var text = gameObject.GetComponent<Material>();
-        if (!Done.LevelComleted)
-        {
+        if (!Done.LevelComleted)       
             foreach (MeshRenderer Floor in ListTiles)
             {
-               
+              
                 if (Floor.material.color == WhiteMaterial.color)
                 {
                     Floor.material = BlackMaterial;
                 }
                 else 
-                {
-                    print(HardDifficulty);
+                {                   
                     if(HardDifficulty)
                     Floor.material = WhiteMaterial;
                 }
-
-            }
-        }
+            }        
     }
     private void OnMouseDown()
     {
