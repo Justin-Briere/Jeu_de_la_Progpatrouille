@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ClickedObject : MonoBehaviour
 {
-    private Vector3 cubePosition;
     GameObject bandit;
-    Vector3 positionBandit;
     void Start()
     {
-        cubePosition = GetComponentInParent<Transform>().position;
+        //cubePosition = GetComponentInParent<Transform>().position;
         bandit = GameObject.FindGameObjectWithTag("Player");
 
     }

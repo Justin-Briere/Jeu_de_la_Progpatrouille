@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class RandomButton : MonoBehaviour
+public class RandomButton : MonoBehaviour //Script inspiré de Yasil : https://www.youtube.com/watch?v=OmynDREHO_8
 {
     public ClickButton[] buttons;
     public List<int> Colors;
@@ -132,7 +132,6 @@ public class RandomButton : MonoBehaviour
             player = false;
             generator = false;
             KeepOverTimeComponent.SimonRéussi = true;
-            //gameCompleted = true;
             SceneManager.LoadScene("FinalScene");
         }
     }
