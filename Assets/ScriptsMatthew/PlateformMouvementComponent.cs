@@ -18,13 +18,13 @@ public class PlateformMouvementComponent : MonoBehaviour
 
     private void Start()
     {
-        Plateform = GetComponentInChildren<Transform>();
+        Plateform = gameObject.transform;
     }
 
     // Permet aux plateformes de bouger selon angles Euler et fonction trigonométriques
     void Update()
     {
-        angleX =- Mathf.Deg2Rad * Plateform.eulerAngles.x;
+        angleX = -(Mathf.Deg2Rad * Plateform.eulerAngles.x);
         angleY = Mathf.Deg2Rad * Plateform.eulerAngles.y;
         angleZ = Mathf.Deg2Rad * Plateform.eulerAngles.z;
 
@@ -32,7 +32,7 @@ public class PlateformMouvementComponent : MonoBehaviour
         Y = Mathf.Sin(angleX);
         Z = Mathf.Cos(angleY) * Mathf.Cos(angleX);
 
-        Vector3 vectorBidon = new Vector3(X+0f,Y+0f,Z+0f);
-        Plateform.position += speed * vectorBidon.normalized * (Time.deltaTime); 
+        Vector3 vectorBidon = new Vector3(X, Y, Z);
+        Plateform.position += speed * vectorBidon.normalized * Time.deltaTime; 
     }
 }
