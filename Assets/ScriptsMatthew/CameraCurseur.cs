@@ -14,7 +14,7 @@ public class CameraCurseur : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (ShowCursor == false)
+        if (!ShowCursor)
             Cursor.visible = false;
     }
 
@@ -26,12 +26,14 @@ public class CameraCurseur : MonoBehaviour
         gameObject.transform.localEulerAngles = new Vector3(newRotationX, newRotationY,0);
     }
 
+    // Fonction qui permet au joueur de Réapparaître
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         player.GetComponent<CameraCurseur>().enabled = true;
     }
 
+    // Fonction utilisée dans plusieurs scripts utilisant CameraCurseur (arrête le jeu)
     public void PauseGame()
     {
         Cursor.lockState = CursorLockMode.None;

@@ -20,6 +20,7 @@ public class GameOverScript : MonoBehaviour
         deathPanel.SetActive(false);
     }
 
+    // Met le jeu sur pause et offre deux options au joueur lorsque le joueur meurt
     public void StopGame()
     {
         if (!gameEnd)
@@ -32,6 +33,7 @@ public class GameOverScript : MonoBehaviour
         }
     }
 
+    // Permet au joueur de réapparaître
     public void Restart()
     {
         curseur.Reload();
@@ -40,12 +42,16 @@ public class GameOverScript : MonoBehaviour
 
         ChooseFunction(false);
     }
+
+    // Fonction générale qui est présente dans l'arrêt de jeux (Restart = false / StopGame = true)
     private void ChooseFunction(bool isActive)
     {
         Cursor.visible = isActive;
         Time.timeScale = isActive ? 0f : 1f;
         gameEnd = isActive;
     }
+
+    // Fontion qui permet au joueur de quitter
     public void QuitterPartie()
     {
     #if UNITY_EDITOR

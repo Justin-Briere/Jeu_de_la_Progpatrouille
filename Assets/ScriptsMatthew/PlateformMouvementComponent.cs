@@ -16,11 +16,12 @@ public class PlateformMouvementComponent : MonoBehaviour
 
     private Transform Plateform;
 
-    //MovementComponent Follow;
     private void Start()
     {
         Plateform = GetComponentInChildren<Transform>();
     }
+
+    // Permet aux plateformes de bouger selon angles Euler et fonction trigonométriques
     void Update()
     {
         angleX =- Mathf.Deg2Rad * Plateform.eulerAngles.x;

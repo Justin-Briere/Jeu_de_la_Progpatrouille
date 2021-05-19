@@ -26,6 +26,7 @@ public class PickDropScript: MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(cam.position, cam.forward);
 
+        // Fonction qui, selon un rayon, permet au joueur de prendre un fusil
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.transform.CompareTag(WEAPONTAG) && Input.GetKeyDown(pickupKey))
@@ -39,6 +40,7 @@ public class PickDropScript: MonoBehaviour
             }
         }
         
+        // Fonction qui laisse le fusil tomber
         if (Input.GetKeyDown(dropKey) && currentWeapon != null)
         {
             currentWeapon.transform.parent = null;
