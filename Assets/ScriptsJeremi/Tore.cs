@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class Tore : MonoBehaviour
+public sealed class Tore : MonoBehaviour  //Script de la dernière session.
 {
     const int TILES_TRIANGLE = 2;
     const int APEX_TRIANGLE = 3;
