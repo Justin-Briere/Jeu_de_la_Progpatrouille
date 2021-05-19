@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class QuitSimon : MonoBehaviour
 {
-    public void Quit()  //Script dernière session
-    { 
+    public void Quit() 
+    {
         SceneManager.LoadScene("FinalScene");
     }
 }

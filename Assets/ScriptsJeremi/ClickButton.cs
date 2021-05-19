@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickButton : MonoBehaviour  //Script inspiré de Yasil : https://www.youtube.com/watch?v=OmynDREHO_8
+public class ClickButton : MonoBehaviour  
 {
     public Material colorMaterial;
     public Material whiteMaterial;

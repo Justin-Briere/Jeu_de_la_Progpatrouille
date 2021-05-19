@@ -17,9 +17,6 @@ public class PushForward : MonoBehaviour
     //[SerializeField]
     private float Intensity;
 
-    [SerializeField]
-    float puissanceFan;
-
     public void AdjustDifficulty()
     {
         if (KeepOverTimeComponent.difficulty == 2)
@@ -32,17 +29,14 @@ public class PushForward : MonoBehaviour
             power = HARD_POWER;
         }
     }
-    public void PousserAvant()
+    public void PushPlayer()
     {
-        //joueur.transform.(transform.forward * (Intensity) * 50);
         player.GetComponent<Rigidbody>().velocity = transform.forward * Intensity * power;
     }
     void Start()
     {
         player = GameObject.Find("Voleur");
         AdjustDifficulty();
-        //item = GetComponent<PushComponent>();
-        //i = GetComponentInChildren<BoxCollider>();
     }
 
     void Update()
@@ -51,11 +45,11 @@ public class PushForward : MonoBehaviour
         {
             playerPosition = player.transform.position;
             fanPosition = GetComponentInParent<Transform>().position;
-            Intensity = Mathf.Pow(Mathf.Log(TrouverDistanceBanditFan(playerPosition, fanPosition)), -1);
-            PousserAvant();
+            Intensity = Mathf.Pow(Mathf.Log(FindDistancePlayerFan(playerPosition, fanPosition)), -1);
+            PushPlayer();
         }
     }
-    public float TrouverDistanceBanditFan(Vector3 positionBandit, Vector3 positionFan)
+    public float FindDistancePlayerFan(Vector3 positionBandit, Vector3 positionFan)
     { 
         return Vector3.Distance(positionBandit, positionFan);
     }
