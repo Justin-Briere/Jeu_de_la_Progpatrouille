@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ChasePolice : MonoBehaviour
+public class ChasePolice : MonoBehaviour //Le but de ce script est de gérer le comportement des policiers
 {
     [SerializeField]
-    Transform[] allo; //représente la liste de transform à parcourir, changer son nom implique que le tableau ed chaque police dans unity se vide :(
+    Transform[] allo; //représente la liste de transform à parcourir, changer son nom implique que le tableau ed chaque police dans unity se vide :(. Il meilleur nom serait :TabParcours
 
     Transform positionPolice;
     Transform positionBandit;
@@ -17,6 +17,7 @@ public class ChasePolice : MonoBehaviour
 
     void Start()
     {
+        //Permet d'ajuster le niveau de difficulté choisit au jeu
         if (KeepOverTimeComponent.difficulty == 1)
         {
             paturnSpeed = 1;
@@ -38,7 +39,7 @@ public class ChasePolice : MonoBehaviour
 
     void Update()
     {
-        bool chekVision = GetComponent<VisionPolice>().vueSurBandit;
+        bool chekVision = GetComponent<VisionPolice>().vueSurBandit;    //Vrais si le policier le voit le bandit et faux dans le cas contraire
 
         positionPolice = GetComponentInParent<Transform>();
         positionBandit = GameObject.Find("Bandit").transform;
@@ -50,7 +51,9 @@ public class ChasePolice : MonoBehaviour
         
     }
 
-
+    /// <summary>
+    /// Fonction qui s'occuppe des déplacement du policier en mode patrouillage
+    /// </summary>
     public void FollowPaturn()
     {
 
@@ -70,7 +73,12 @@ public class ChasePolice : MonoBehaviour
             transform.LookAt(allo[current]);
         }
     }
-
+    /// <summary>
+    /// Fonction s'occupent de faire bouger le policier
+    /// </summary>
+    /// <param name="xDiff"></param>
+    /// <param name="zDiff"></param>
+    /// <param name="vitesse"></param>
     public void Deplacer(float xDiff, float zDiff, float vitesse)
     {
         Vector3 leVecteur = new Vector3(xDiff, 0, zDiff);

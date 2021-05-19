@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileComponents : MonoBehaviour
+public class TileComponents : MonoBehaviour //Classe ayant pour but de donner une couleur aux les tuiles touchés tout dépendant la difficulté
 {
     [SerializeField]
     public Material BlackMaterial;
@@ -10,7 +10,7 @@ public class TileComponents : MonoBehaviour
     public Material WhiteMaterial;
     private ChangeTile test;
     public MeshRenderer[] ListTiles;
-    Material textureBleu;
+    //Material textureBleu;
     GameObject IsFinish;
      bool HardDifficulty = true;
     void Start()
@@ -18,15 +18,16 @@ public class TileComponents : MonoBehaviour
         IsFinish = FindObjectOfType <OpenDoorComponents>().gameObject;
         ListTiles = GetComponentsInChildren<MeshRenderer>();
     }
+
+    /// <summary>
+    /// Lors d'une collision avec le joueur, la tuile change de couleur 
+    /// </summary>
     public void OnCollisionEnter()
     {
-         HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty; 
+        HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty;  
+        var done = IsFinish.GetComponent<OpenDoorComponents>();
        
-        
-        var Done = IsFinish.GetComponent<OpenDoorComponents>();
-       
-        var text = gameObject.GetComponent<Material>();
-        if (!Done.LevelComleted)       
+        if (!done.LevelComleted)       
             foreach (MeshRenderer Floor in ListTiles)
             {
               
@@ -41,20 +42,4 @@ public class TileComponents : MonoBehaviour
                 }
             }        
     }
-    private void OnMouseDown()
-    {
-        foreach (MeshRenderer Floor in ListTiles)
-        {
-            
-            if (Floor.material.color == WhiteMaterial.color)
-            {
-                Floor.material = BlackMaterial;
-            }
-            else { Floor.material = WhiteMaterial; }
-        }
-
-    }
-
-
-
 }
