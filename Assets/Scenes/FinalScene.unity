@@ -1953,6 +1953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 692caad80ebb4d64db721cae796e1784, type: 3}
+--- !u!1 &385718027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4126787296422229500, guid: 692caad80ebb4d64db721cae796e1784, type: 3}
+  m_PrefabInstance: {fileID: 385718026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &422787070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5006,6 +5011,7 @@ MonoBehaviour:
   timeline: {fileID: 1023311180}
   player: {fileID: 41037742}
   timelinePlayer: {fileID: 1613702257}
+  menuPause: {fileID: 385718027}
 --- !u!65 &1023311183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9384,7 +9390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 3.99
       objectReference: {fileID: 0}
     - target: {fileID: 4733772755456769034, guid: ed1c4f263c98a964384d22179637c953, type: 3}
       propertyPath: m_LocalPosition.z

@@ -27,11 +27,11 @@ public class PlateformMouvementComponent : MonoBehaviour
         angleY = Mathf.Deg2Rad * Plateform.eulerAngles.y;
         angleZ = Mathf.Deg2Rad * Plateform.eulerAngles.z;
 
-        X = Mathf.Sin(angleY) ;
+        X = Mathf.Sin(angleY);
         Y = Mathf.Sin(angleX);
         Z = Mathf.Cos(angleY) * Mathf.Cos(angleX);
 
-        Vector3 vectorBidon = new Vector3( X+0f, Y+0f ,  Z+0f);
+        Vector3 vectorBidon = new Vector3(X+0f,Y+0f,Z+0f);
         Plateform.position += speed * vectorBidon.normalized * (Time.deltaTime); 
     }
 }

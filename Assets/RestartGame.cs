@@ -15,13 +15,5 @@ public class RestartGame : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene("MenuBouton");
         }
-        //        if(Input.GetKeyDown(KeyCode.P)&&lastCam.isActiveAndEnabled)
-        //        {
-        //#if UNITY_EDITOR
-        //        UnityEditor.EditorApplication.isPlaying = false;
-        //#else
-        //            Application.Quit();
-        //#endif
-        //        }
     }
 }
