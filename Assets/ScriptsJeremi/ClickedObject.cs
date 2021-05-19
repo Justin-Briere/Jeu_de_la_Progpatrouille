@@ -9,7 +9,6 @@ public class ClickedObject : MonoBehaviour
     GameObject bandit;
     void Start()
     {
-        //cubePosition = GetComponentInParent<Transform>().position;
         bandit = GameObject.FindGameObjectWithTag("Player");
 
     }

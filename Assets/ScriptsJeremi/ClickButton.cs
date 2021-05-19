@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickButton : MonoBehaviour  
+public class ClickButton : MonoBehaviour  // Classe servant à faire descendre et à rendre le bouton blanc lorsqu'il est cliqué.
 {
     public Material colorMaterial;
     public Material whiteMaterial;
@@ -22,7 +22,7 @@ public class ClickButton : MonoBehaviour
         buttonPosition = transform.position;
     }
 
-    void OnMouseDown()
+    void OnMouseDown() //bouton descend lorsqu'il est appuyé.
     {
         if (random.player)
         {
@@ -32,12 +32,12 @@ public class ClickButton : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    void OnMouseUp() //bouton remontre après avoir descendu.
     {
         UnSelectedColor();
         transform.position = new Vector3(buttonPosition.x, buttonPosition.y, buttonPosition.z);
     }
-
+    // Les deux prochaines fonctions servent à faire le changement de couleur du bouton.
     public void SelectedColor()
     {
         zeRenderer.sharedMaterial = whiteMaterial;
@@ -47,5 +47,4 @@ public class ClickButton : MonoBehaviour
     {
         zeRenderer.sharedMaterial = colorMaterial;
     }
-
 }

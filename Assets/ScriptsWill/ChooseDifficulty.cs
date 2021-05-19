@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChooseDifficulty : MonoBehaviour
+public class ChooseDifficulty : MonoBehaviour //Cette classe sert à déterminé la difficulté du jeu selon la porte choisie par le joueur.
 {
     private void OnCollisionEnter(Collision porte)
     {
