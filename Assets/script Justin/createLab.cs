@@ -10,19 +10,25 @@ public class createLab : MonoBehaviour
     [SerializeField]
     GameObject Key;
     char[,] Map;
-   
+    GameObject EndPoint;
+    GameObject Player;
+    GameObject Clef;
     Dijkstra AlgoDijkstra { get; set; }
     Carte maCarte { get; set; }
-    int index = 0;
-
+   
+    
     void Start()
     {
         maCarte = new Carte("Map0.txt");
         AlgoDijkstra = new Dijkstra(maCarte);
         Map = AlgoDijkstra.MapFinal;
+        EndPoint = GameObject.Find("ENDPOINT").gameObject;
+        Player = GameObject.Find("Bandit Variant").gameObject;
+        Clef = GameObject.Find("clef").gameObject;
+        //FindObjectOfType < GameObject.Find("ENDPOINT") > ();
 
         Create();
-       
+      
        // Instantiate(Key, new Vector3(10.1f , 0, 5.5f), new Quaternion(0, 0, 0, 0));
     }
 
@@ -33,6 +39,13 @@ public class createLab : MonoBehaviour
             for (int j = 0; j < Map.GetLength(1); ++j)
             {
                  if( (Map[j, i]== '*') || (i == 0 || j == 0))  create(i, j) ;
+                if ((Map[j, i] == 'D')) EndPoint.transform.position = new Vector3(wall.transform.localScale.x * j, 0, wall.transform.localScale.y * i);
+                if ((Map[j, i] == 'I'))
+                {
+                    Clef.transform.position = new Vector3(wall.transform.localScale.x * j , 0, wall.transform.localScale.y * i +2);
+                    Player.transform.position = new Vector3(wall.transform.localScale.x * j, 0, wall.transform.localScale.y * i);
+                }
+
 
             }
         }

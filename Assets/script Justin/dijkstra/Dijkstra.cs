@@ -153,8 +153,10 @@ public class Dijkstra
             var distance = chemin.Count;
             int NoeudsVérifiés = 0;
             CarteAffiché[maCarte.PositionSource.Y, maCarte.PositionSource.X] += 'S';
-            CarteAffiché[maCarte.PositionDestination.Y, maCarte.PositionDestination.X] += 'D';
-            Noeuds points = null;
+        CarteAffiché[maCarte.PositionDestination.Y, maCarte.PositionDestination.X] += 'D';
+        var valeurXFinale = maCarte.PositionDestination.X * 2 +1 ;
+        var valeurYFinale = maCarte.PositionDestination.Y * 2 + 1;
+        Noeuds points = null;
         var Nmap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
         var FinalMap = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
         string a = new string('=', 50);
@@ -184,28 +186,87 @@ public class Dijkstra
                     while (chemin2.Count != 0)
                     {
                         points = chemin2.Pop();
-                        if (Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] != 'o')
-                            Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] += 'o';
-                        if (dansLaCarte(i, j) && !(file[j,i].Précurseur == null))
-                        {                         
-                            var X = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
-                            var Y = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
-                            if (Nmap[(int)Y, (int)X] != 'o')
+                    if (Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] != 'o')
+                        Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] += 'o';
+                        //if (Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] != 'o')
+                        //Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] += 'o';
+                    if (dansLaCarte(i, j) && !(file[j,i].Précurseur == null))
+                        {
+                        if (valeurYFinale == points.ValeurPosition.Y * 2 + 1 &&
+                           valeurXFinale == points.ValeurPosition.X * 2 + 1)
+                        {
+                            //if (Nmap[valeurYFinale, valeurXFinale] != 'o')
+                            //    Nmap[valeurYFinale, valeurXFinale] += 'o';
+
+                            //var Xtest = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                            //var Ytest = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
+                            //if (Nmap[(int)Ytest, (int)Xtest] != 'o')
+                            //    Nmap[(int)Ytest, (int)Xtest] += 'o';
+
+                            //if (Nmap[valeurYFinale + 1, valeurXFinale] != 'o')
+                            //    Nmap[valeurYFinale + 1, valeurXFinale] += 'o';
+                            //var Xtest1 = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                            //var Ytest1 = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
+                            //if (Nmap[(int)Ytest1, (int)Xtest1] != 'o')
+                            //    Nmap[(int)Ytest1, (int)Xtest1] += 'o';
+
+                            //if (Nmap[valeurYFinale - 1, valeurXFinale] != 'o')
+                            //    Nmap[valeurYFinale - 1, valeurXFinale] += 'o';
+
+                            //var Xtest2 = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                            //var Ytest2 = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
+                            //if (Nmap[(int)Ytest2, (int)Xtest2] != 'o')
+                            //    Nmap[(int)Ytest2, (int)Xtest2] += 'o';
+
+                            //if (Nmap[valeurYFinale, valeurXFinale - 1] != 'o')
+                            //    Nmap[valeurYFinale, valeurXFinale - 1] += 'o';
+
+                            //var Xtest3 = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                            //var Ytest3 = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
+                            //if (Nmap[(int)Ytest3, (int)Xtest3] != 'o')
+                            //    Nmap[(int)Ytest3, (int)Xtest3] += 'o';
+                            if (Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] != 'o')
+                                Nmap[points.Précurseur.ValeurPosition.Y * 2 + 1, points.Précurseur.ValeurPosition.X * 2 + 1] += 'o';
+                            var Xtest = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                            var Ytest = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
+                            if (Nmap[(int)Ytest, (int)Xtest] != 'o')
+                                Nmap[(int)Ytest, (int)Xtest] += 'o';
+
+                        }
+
+                        var X = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                             var Y = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
+                        //if (Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] != 'o')
+                        //    Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] += 'o';
+                        if (Nmap[(int)Y, (int)X] != 'o')
                             Nmap[(int)Y, (int)X] += 'o'; 
                             ++NoeudsVérifiés;
                         }
                     }
                 }
-            }
-            /// forme la la MAP
-            for (int i = 1; i < maCarte.HauteurCarte * 2 + 1; ++i)
+        }
+        var PSourceX = maCarte.PositionSource.X * 2 + 1;
+        var PSourceY = maCarte.PositionSource.Y * 2 + 1;
+        /// forme la la MAP
+        for (int i = 1; i < maCarte.HauteurCarte * 2 + 1; ++i)
             {
                 for (int j = 1; j < maCarte.LargeurCarte * 2 + 1; ++j)
                 {
-                    var test = Nmap[j, i] == '#' ? '*' : 'o';
-                        if ((i == 3 && j == 3) || (i == 37 && j == 37))
-                            test = 'D';
-                     FinalMap[i, j] = test; 
+                    var value = Nmap[j, i] == '#' ? '*' : 'o';
+                if ((i == valeurXFinale && j == valeurYFinale ))
+                    value = 'D';
+                if ((i == 3 && j == 3) )
+                    value = 'I'; 
+                if ((i == valeurXFinale - 1 && j == valeurYFinale))
+                    value = 'o';
+                if ((i == valeurXFinale + 1 && j == valeurYFinale))
+                    value = 'o';
+                if ((i == valeurXFinale && j == valeurYFinale - 1))
+                    value = 'o';
+                if ((i == valeurXFinale && j == valeurYFinale + 1))
+                    value = 'o';
+
+                FinalMap[i, j] = value; 
                 }
             }
         return FinalMap;
