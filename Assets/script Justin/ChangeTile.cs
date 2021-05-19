@@ -1,12 +1,5 @@
-﻿/// Fonction qui permet de mettre toutes les tiles d'une couleurs différente
+﻿/// Fonction qui permet de mettre aléatoirement toutes les tuiles d'une couleur.
 /// 
-
-
-
-
-
-
-
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,17 +7,11 @@ using UnityEngine;
 
 public class ChangeTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-   
-    private int NbTiles = 49;
-    
     public MeshRenderer[] ListTiles;
     [SerializeField]
     public Material BlackMaterial;
     [SerializeField]
     public Material WhiteMaterial;
-
-    TileComponents textureBleu;
     void Start()
     {       
         ListTiles = GetComponentsInChildren<MeshRenderer>();

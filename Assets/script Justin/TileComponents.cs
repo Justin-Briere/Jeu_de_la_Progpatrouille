@@ -2,44 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileComponents : MonoBehaviour //Classe ayant pour but de donner une couleur aux les tuiles touchés tout dépendant la difficulté
+public class TileComponents : MonoBehaviour //Classe ayant pour but de changer les couleurs des  tuiles touchées,  SI la difficulté est à "Hard" 
 {
     [SerializeField]
     public Material BlackMaterial;
     [SerializeField]
     public Material WhiteMaterial;
-    private ChangeTile test;
-    public MeshRenderer[] ListTiles;
-    //Material textureBleu;
-    GameObject IsFinish;
+    public MeshRenderer ListTiles;
      bool HardDifficulty = true;
-    void Start()
-    {
-        IsFinish = FindObjectOfType <OpenDoorComponents>().gameObject;
-        ListTiles = GetComponentsInChildren<MeshRenderer>();
-    }
+    void Start()=>ListTiles = GetComponentInChildren<MeshRenderer>();
+
 
     /// <summary>
-    /// Lors d'une collision avec le joueur, la tuile change de couleur 
+    ///Lors d'une collision entre une tuile et le joueur : la tuile change de couleur SI la difficulté est à "Hard" 
     /// </summary>
     public void OnCollisionEnter()
     {
-        HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty;  
-        var done = IsFinish.GetComponent<OpenDoorComponents>();
-       
-        if (!done.LevelComleted)       
-            foreach (MeshRenderer Floor in ListTiles)
+        HardDifficulty = FindObjectOfType<DifficultyScript>().HardDifficulty;
+            if (ListTiles.material.color == WhiteMaterial.color)
+                ListTiles.material = BlackMaterial;
+            else
             {
-              
-                if (Floor.material.color == WhiteMaterial.color)
-                {
-                    Floor.material = BlackMaterial;
-                }
-                else 
-                {                   
-                    if(HardDifficulty)
-                    Floor.material = WhiteMaterial;
-                }
-            }        
+                 if (HardDifficulty)
+                    ListTiles.material = WhiteMaterial;
+            }
     }
+
 }

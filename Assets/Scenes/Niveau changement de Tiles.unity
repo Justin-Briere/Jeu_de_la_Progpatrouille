@@ -1622,7 +1622,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754995540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3167,7 +3167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListTiles: []
-  LevelComleted: 1
+  LevelComleted: 0
+  timeToWait: 3
   "Mod\xE8leExplosion": {fileID: 3576924614362489592, guid: 4a919ff208278c347a4582e77e55ed83, type: 3}
   LeftDoor: {fileID: 906874017}
   floor: {fileID: 754995540}

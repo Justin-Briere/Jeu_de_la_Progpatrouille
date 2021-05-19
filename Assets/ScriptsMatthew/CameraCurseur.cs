@@ -21,9 +21,9 @@ public class CameraCurseur : MonoBehaviour
     void Update()
     {
         float newRotationY = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * Sensitivity;
-        float newRotationX = transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * Sensitivity;
+   //     float newRotationX = transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * Sensitivity;
 
-        gameObject.transform.localEulerAngles = new Vector3(newRotationX, newRotationY,0);
+        gameObject.transform.localEulerAngles = new Vector3(0, newRotationY,0);
     }
 
     // Fonction qui permet au joueur de Réapparaître

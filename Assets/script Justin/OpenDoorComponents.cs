@@ -12,37 +12,16 @@ using UnityEngine;
 public class OpenDoorComponents : MonoBehaviour
 {
     public TileComponents[] ListTiles;
-    public bool LevelComleted = false;
-    bool Explosé = false;
-    private static System.Timers.Timer aTimer;
-    int cnt = 0;
-    float timeToWait = 3;
-    float timer = 0;
-    float currCountdownValue;
-    [SerializeField]
+     public bool LevelComleted ;
+    public float timeToWait = 5;
+       [SerializeField]
     private GameObject ModèleExplosion;
-
     [SerializeField]
     GameObject LeftDoor;
         [SerializeField]
     GameObject floor;
-    //  [SerializeField]
-    Camera cam1;
-    Camera cam2;
     bool EasyDifficulty;
-    EasyLevelComponent Difficulté;
-    bool MediumMode;
-    void Start()
-    {
-        var Difficulty = "medium";
-        if (Difficulty == "medium")
-        {
-            MediumMode = true;
-        }
-        LevelComleted = false;
-        StartCoroutine(StartCountdown());
-        
-    }
+    void Start()=> StartCoroutine(StartCountdown());
     void Update()
     {
         EasyDifficulty = FindObjectOfType<DifficultyScript>().EasyDifficulty;
@@ -54,79 +33,59 @@ public class OpenDoorComponents : MonoBehaviour
             }
 
         }
-            timer += Time.deltaTime;
-        if (cnt==0 &&(timeToWait - timer) <= 0.01)
-        {
-            cnt = 1;
-            timer = timer - timer;
-        }
-        if (timer > 2.901f) cnt = 0;
         Test();
-      
-    }
 
-    void Test()                            // regarde si les tiles sont identique.
+    }
+    /// <summary>
+    /// Regarde si les tuiles sont identiques.
+    /// Utilise un compteur puisque dans une foreach c'est très difficile de connaitre le nombre d'itération.
+    /// Alors, j'ai décidé d'aller le chercher moi-même!
+    /// </summary>
+    void Test()
     {
         ListTiles = FindObjectsOfType<TileComponents>(); //Voir façon plus rapide
-        int cnt = 0;
+        var cnt = 0;
         foreach (TileComponents Floor in ListTiles)
         {
-            if(!Explosé)            // test si le niveau est fini
-            if (Floor.gameObject.GetComponent<MeshRenderer>().material.color != ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color)
-            {
-                LevelComleted = false;
-                
-                break;
-            }
+            // test si le niveau est fini
             cnt++;
+            if (Floor.gameObject.GetComponent<MeshRenderer>().material.color != ListTiles[0].gameObject.GetComponent<MeshRenderer>().material.color && !LevelComleted)
+                break;
         }
-        if (cnt == ListTiles.Length && !Explosé)      // action lorsque les tuiles sont tous de la mm couleur
-        { 
-            
-            GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);
-                Destroy(Explosion, 3);
-           
-           foreach (TileComponents Floor in ListTiles)
-           {
-               Destroy(Floor.gameObject);
-               Destroy(floor);
-           }
-            LevelComleted = true;
-            Explosé = true;           
-
-        }
-
-    }
-   
-    // Update is called once per frame
-    private void OnMouseDown()                          // fonction qui permet de call le start par clicker sur un items.
-    {
-        if (gameObject.layer == 9)
+        if (cnt == ListTiles.Length) LevelComleted = true;
+        if (LevelComleted && cnt != 0)      // action lorsque les tuiles sont tous de la mm couleur
         {
-            Test();
+            GameObject Explosion = Instantiate(ModèleExplosion, transform.position, ModèleExplosion.transform.rotation);    // feux d'artifice! :o
+            Destroy(Explosion, 3);
+            foreach (TileComponents Floor in ListTiles)
+                Destroy(Floor.gameObject);
+            Destroy(GameObject.Find("floor collider").gameObject);
         }
     }
-
+    /// <summary>
+    /// Change une Tuile au hasard de couleurs
+    /// </summary>
     private void ChangeOneTile()
     {
-        timer = 0;
         TileComponents[] List = FindObjectsOfType<TileComponents>();
         var value = Random.Range(0, List.Length);
-        if (List[value].gameObject.GetComponent<MeshRenderer>().material.color == List[1].BlackMaterial.color && !LevelComleted)
-            List[value].gameObject.GetComponent<MeshRenderer>().material = List[1].WhiteMaterial;
-        else
-        {
-            List[value].gameObject.GetComponent<MeshRenderer>().material = List[1].BlackMaterial;
-        }
+        var Initial = List[value].gameObject.GetComponent<MeshRenderer>().material.color;
+        List[value].gameObject.GetComponent<MeshRenderer>().material = (Initial == List[1].BlackMaterial.color) ? List[1].WhiteMaterial : List[1].BlackMaterial;
     }
-    public IEnumerator StartCountdown(float countdownValue = 3) // code inspiré d'internet
+    /// <summary>
+    /// Ici, on décide le nombre de secondes pour qu'une tuile au hasard change.
+    ///Par défaut j'ai mis 5 secondes pour raccourcir le temps d'attente entre deux changements.
+    /// Comme ça on peut bien voir tous les changements. 
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator StartCountdown() 
     {
         if (!LevelComleted)
         {
+            yield return new WaitForSeconds(timeToWait);
+            if (!LevelComleted && !EasyDifficulty)
+            ChangeOneTile(); 
             Test();
-            yield return new WaitForSeconds(5f);
-            if (!Explosé && !EasyDifficulty)
-            ChangeOneTile();
             StartCoroutine(StartCountdown());
         }
     }

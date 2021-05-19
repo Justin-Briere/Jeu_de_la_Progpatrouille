@@ -25,11 +25,7 @@ public class createLab : MonoBehaviour
         EndPoint = GameObject.Find("ENDPOINT").gameObject;
         Player = GameObject.Find("Bandit Variant").gameObject;
         Clef = GameObject.Find("clef").gameObject;
-        //FindObjectOfType < GameObject.Find("ENDPOINT") > ();
-
         Create();
-      
-       // Instantiate(Key, new Vector3(10.1f , 0, 5.5f), new Quaternion(0, 0, 0, 0));
     }
 
     private void Create()

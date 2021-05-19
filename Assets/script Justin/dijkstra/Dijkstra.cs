@@ -1,4 +1,23 @@
-﻿using System.Collections;
+﻿///Cette classe est adaptée de notre algorithme Dijksta de la session dernière.
+///Contrairement à Dijkstra original, celle-ci va chercher des voisins au hasard. 
+///Ce qui rend beaucoup plus différents les chemins.
+///Finalement cette classe vérifie la plupart des endroits disponibles de la matrice.
+///Ainsi, il semble avoir beaucoup de chemin possible!
+/// 
+///
+///PS Certaines class et variables n'ont pas été réutilisées, 
+///mais par précaution j'ai décidé de les laisser par peur de créer plus de mal que de bien. 
+///
+///
+///
+///
+
+
+
+
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -10,11 +29,7 @@ using System.Diagnostics;
 using System.Threading;
 public class Dijkstra 
 {
-    /// <summary>
-    /// CETTE CLASSE RESSEMBLE BEAUCOUP À BFS. L'UNIQUE DIFFÉRENCE EST LA FACON DONT NOUS VÉRIFIONS LES POINTS
-    /// EN EFFET, AU LIEU D'OBSERVER SI CELLE-CI A DÉJÀ ÉTÉ VÉRIFIER, NOUS COMPARONS LA DISTANCE POUR SE RENDRE À UN MÊME POINT
-    /// ET REJETTONS CELUI-CI SI LA DISTANCE EST PLUS GRANDE QU'UNE PRÉCEDEMMENT TROUVÉ
-    /// </summary>
+   
     
         int LargeurCarte;
         int HauteurCarte;
@@ -22,8 +37,18 @@ public class Dijkstra
         int distanceMax;
         int valeurDéplacement = 1;
     public  char[,] MapFinal;
-        public  Dijkstra(Carte maCarte)
+    /// <summary>
+    /// ÉTAPE #1 && ÉTAPE #2 :
+    /// 
+    /// Prends la "Map0" qui est vide.  
+    /// Créer des chemins aléatoires.
+    /// 
+    /// </summary>
+    /// <param name="maCarte"></param>
+    public Dijkstra(Carte maCarte)
         {
+
+
             Stopwatch chronomètre = new Stopwatch();
             LargeurCarte = maCarte.LargeurCarte;
             HauteurCarte = maCarte.HauteurCarte;
@@ -31,27 +56,24 @@ public class Dijkstra
             Noeuds[,] tabNoeuds = new Noeuds[HauteurCarte, LargeurCarte];
             CarteAffiché = new char[HauteurCarte, LargeurCarte];
              MapFinal = new char[maCarte.HauteurCarte * 2 + 1, maCarte.LargeurCarte * 2 + 1];
-            //ÉTAPE #1 :    CRÉER LE TABLEAU CONTENANT LES MUR... UN TABLEAU DE "NOEUDS", 
-            //              CONTENANT FALSE SI IL Y A UN MUR ET TRUE DANS LE CAS CONTRAIRE
+            //ÉTAPE #1 :  
         tabNoeuds = CreerTableau(tabNoeuds, maCarte);
             chronomètre.Start();
 
-            //ÉTAPE #2 :    CHERCHER LE TRAJET POUR SE RENDRE DE LA SOURCE JUSQU'À LA DESTINATION
+            //ÉTAPE #2 :  
             var file = ChercheDestination(maCarte, tabNoeuds);
             chronomètre.Stop();
 
-        //ÉTAPE #3 :    AFFICHER LE TABLEAU, AVEC LES MURS, LES POINT DISPONIBLE, AINSI QUE LES TRAJET
-        //              QUE NOUS AVONS TROUVÉ À L'ÉTAPE #2
         if (file[maCarte.PositionDestination.Y, maCarte.PositionDestination.X].Précurseur != null)
             MapFinal = AfficherMatrice(maCarte, file, chronomètre);
         else
             Console.WriteLine("Il y a aucune solution trouvé  ");
-         // return MapFinal;
+       
         }
 
         /// <summary>
-        /// CETTE FONCTION RECOIT LA CARTE DONNÉ, AINSI QUE CELLE RETOUCHÉ À L'ÉTAPE #1
-        /// ELLE SERT À TROUVER LE CHEMIN, ET "BREAK" DÈS QU'ELLE EN TROUVE UN. CELA NOUS DONNE DONC LE CHEMIN LE PLUS COURT
+        /// CETTE FONCTION RECOIT LA CARTE DONNÉ, 
+        /// et créer des chemins. 
         /// </summary>
         /// <param name="maCarte"></param>
         /// <param name="TabNoeuds"></param>
@@ -121,8 +143,7 @@ public class Dijkstra
         }
 
         /// <summary>
-        /// C'EST L'ÉTAPE #1 : ON CREER UN TABLEAU SEMBLABLE À CELUI RECU PAR LA CLASSE CARTE, MAIS ON L'ADAPTE UN PEU
-        /// NOTAMENT EN CREEANT UN TABLEAU DE "NOEUDS"
+        /// C'EST L'ÉTAPE #1
         /// </summary>
         /// <param name="tabNoeuds"></param>
         /// <param name="maCarte"></param>
@@ -141,8 +162,7 @@ public class Dijkstra
         }
 
         /// <summary>
-        /// L'ÉTAPE #3 : ON AFFICHE LA CARTE AVEC LE CHEMIN QUE NOUS AVONS EMPRUNTÉ POUR SE RENDRE À LA DESTINATION
-        /// AUSSI, LA FONCTION S'OCCUPE D'AFFICHER QUELQUES STATISTIQUES, COMME LE TEMPS, LA DISTANCE ET LE NOMBRE DE NOEUDS VÉRIFIÉ
+        /// L'ÉTAPE #3 : ON AFFICHE LA CARTE AVEC LES CHEMINS 
         /// </summary>
         /// <param name="maCarte"></param>
         /// <param name="file"></param>
@@ -169,7 +189,7 @@ public class Dijkstra
             }
         }
 
-        /// à partir de chacun des points, on crée un chemin jusqu'au points initiale. 
+        /// À partir de chacun des points, on crée un chemin jusqu'au points initiale. 
         /// Ensuite on fait la moyenne de chaque points et de son précurseur. Ce nouveau points est un espace libre dans le lab
         /// exemple: P1: [4,6] et P2 [4,7] la moyenne est P3: [((4+4)/2) *2 + 1 , ((6+7)/2) *2 + 1 ] = [9, 14]
         /// Alors, les points P1*2 +1,  et P3 sont libre dans la nouvelle map
@@ -188,56 +208,20 @@ public class Dijkstra
                         points = chemin2.Pop();
                     if (Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] != 'o')
                         Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] += 'o';
-                        //if (Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] != 'o')
-                        //Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] += 'o';
                     if (dansLaCarte(i, j) && !(file[j,i].Précurseur == null))
                         {
                         if (valeurYFinale == points.ValeurPosition.Y * 2 + 1 &&
                            valeurXFinale == points.ValeurPosition.X * 2 + 1)
                         {
-                            //if (Nmap[valeurYFinale, valeurXFinale] != 'o')
-                            //    Nmap[valeurYFinale, valeurXFinale] += 'o';
-
-                            //var Xtest = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
-                            //var Ytest = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
-                            //if (Nmap[(int)Ytest, (int)Xtest] != 'o')
-                            //    Nmap[(int)Ytest, (int)Xtest] += 'o';
-
-                            //if (Nmap[valeurYFinale + 1, valeurXFinale] != 'o')
-                            //    Nmap[valeurYFinale + 1, valeurXFinale] += 'o';
-                            //var Xtest1 = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
-                            //var Ytest1 = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
-                            //if (Nmap[(int)Ytest1, (int)Xtest1] != 'o')
-                            //    Nmap[(int)Ytest1, (int)Xtest1] += 'o';
-
-                            //if (Nmap[valeurYFinale - 1, valeurXFinale] != 'o')
-                            //    Nmap[valeurYFinale - 1, valeurXFinale] += 'o';
-
-                            //var Xtest2 = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
-                            //var Ytest2 = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
-                            //if (Nmap[(int)Ytest2, (int)Xtest2] != 'o')
-                            //    Nmap[(int)Ytest2, (int)Xtest2] += 'o';
-
-                            //if (Nmap[valeurYFinale, valeurXFinale - 1] != 'o')
-                            //    Nmap[valeurYFinale, valeurXFinale - 1] += 'o';
-
-                            //var Xtest3 = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
-                            //var Ytest3 = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
-                            //if (Nmap[(int)Ytest3, (int)Xtest3] != 'o')
-                            //    Nmap[(int)Ytest3, (int)Xtest3] += 'o';
                             if (Nmap[points.ValeurPosition.Y * 2 + 1, points.ValeurPosition.X * 2 + 1] != 'o')
                                 Nmap[points.Précurseur.ValeurPosition.Y * 2 + 1, points.Précurseur.ValeurPosition.X * 2 + 1] += 'o';
                             var Xtest = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
                             var Ytest = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
                             if (Nmap[(int)Ytest, (int)Xtest] != 'o')
                                 Nmap[(int)Ytest, (int)Xtest] += 'o';
-
                         }
-
-                        var X = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
+                             var X = Average(points.Précurseur.ValeurPosition.X, points.ValeurPosition.X) * 2 + 1;
                              var Y = Average(points.Précurseur.ValeurPosition.Y, points.ValeurPosition.Y) * 2 + 1;
-                        //if (Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] != 'o')
-                        //    Nmap[points.Précurseur.ValeurPosition.Y, points.Précurseur.ValeurPosition.X] += 'o';
                         if (Nmap[(int)Y, (int)X] != 'o')
                             Nmap[(int)Y, (int)X] += 'o'; 
                             ++NoeudsVérifiés;
@@ -245,8 +229,6 @@ public class Dijkstra
                     }
                 }
         }
-        var PSourceX = maCarte.PositionSource.X * 2 + 1;
-        var PSourceY = maCarte.PositionSource.Y * 2 + 1;
         /// forme la la MAP
         for (int i = 1; i < maCarte.HauteurCarte * 2 + 1; ++i)
             {
@@ -274,7 +256,7 @@ public class Dijkstra
 
         /// <summary>
         /// UNE FOIS LE CHEMIN TROUVÉ PAR L'ÉTAPE #2, IL FAUT REAGARDER TOUS LES PRÉCURSEURS
-        /// AFIN DE RETRACER LE CHEMIN QUE NOUS AVONS UTILISÉ
+        /// AFIN DE RETRACER LES CHEMINS QUE NOUS AVONS UTILISÉ
         /// </summary>
         /// <param name="maCarte"></param>
         /// <param name="TabNoeuds"></param>
@@ -282,9 +264,7 @@ public class Dijkstra
         private Stack<Noeuds> ConstruireChemin(Carte maCarte, Noeuds[,] TabNoeuds)
         {
             Stack<Noeuds> chemin = new Stack<Noeuds>();
-
             Noeuds pts = TabNoeuds[maCarte.PositionDestination.Y, maCarte.PositionDestination.X];
-
             while (TabNoeuds[pts.ValeurPosition.Y, pts.ValeurPosition.X].Précurseur != null)
             {
                 pts = TabNoeuds[pts.ValeurPosition.Y, pts.ValeurPosition.X].Précurseur;
@@ -293,13 +273,16 @@ public class Dijkstra
             chemin.Pop();
             return chemin;
         }
-        public static float Average(int a, int b)
-        {
-            
-            return (float)(a+b)/2;
-        }
+        public static float Average(int a, int b)=> (float)(a+b)/2;
 
-        private Stack<Noeuds> ConstruireChemin(Carte maCarte, Noeuds[,] TabNoeuds,Point2D pts )
+    /// <summary>
+    /// UNE FOIS LE CHEMIN TROUVÉ PAR L'ÉTAPE #2, IL FAUT REAGARDER TOUS LES PRÉCURSEURS ( en partant d'un point donné)
+    /// AFIN DE RETRACER LES CHEMINS QUE NOUS AVONS UTILISÉ
+    /// </summary>
+    /// <param name="maCarte"></param>
+    /// <param name="TabNoeuds"></param>
+    /// <returns></returns>
+    private Stack<Noeuds> ConstruireChemin(Carte maCarte, Noeuds[,] TabNoeuds,Point2D pts )
         {
             Stack<Noeuds> chemin = new Stack<Noeuds>();
             Noeuds points = TabNoeuds[pts.Y, pts.X];
@@ -314,16 +297,20 @@ public class Dijkstra
             return chemin;
         }
 
-        /// <summary>
-        /// RECOIT LA DISTNCE OÙ NOUS SOMME ET LA DISTANCE OÙ NOUS VOULONS ALLER
-        /// LA FONCTION EST À RENVOYER S'IL EST VRAIS QUE LA DISTANCE D'OÙ NOUS VENONS + LE COÛT DU DÉPLACEMENT EST
-        /// INFÉRIEUR À LA DISTANCE DÉJA COMPRISE DANS LE BLOC OÙ NOUS VOULONS ALLER.
-        /// SI OUI, LA FONCTION TROUVERVOISIN() S'OCCUPERA DE CHANGER LA FACON DE SE RENDRE À CE POINT "X"
-        /// </summary>
-        /// <param name="TabNoeudsFinale"></param>
-        /// <param name="TabNoeudsInitiale"></param>
-        /// <returns></returns>
-        private bool MINValue(int TabNoeudsFinale, int TabNoeudsInitiale)
+
+
+    ///Pas réutilisé
+
+    /// <summary>
+    /// RECOIT LA DISTNCE OÙ NOUS SOMME ET LA DISTANCE OÙ NOUS VOULONS ALLER
+    /// LA FONCTION EST À RENVOYER S'IL EST VRAIS QUE LA DISTANCE D'OÙ NOUS VENONS + LE COÛT DU DÉPLACEMENT EST
+    /// INFÉRIEUR À LA DISTANCE DÉJA COMPRISE DANS LE BLOC OÙ NOUS VOULONS ALLER.
+    /// SI OUI, LA FONCTION TROUVERVOISIN() S'OCCUPERA DE CHANGER LA FACON DE SE RENDRE À CE POINT "X"
+    /// </summary>
+    /// <param name="TabNoeudsFinale"></param>
+    /// <param name="TabNoeudsInitiale"></param>
+    /// <returns></returns>
+    private bool MINValue(int TabNoeudsFinale, int TabNoeudsInitiale)
 
         {
             return TabNoeudsFinale > TabNoeudsInitiale + valeurDéplacement;
