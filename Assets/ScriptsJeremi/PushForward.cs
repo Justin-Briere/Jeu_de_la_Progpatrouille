@@ -4,40 +4,54 @@ using UnityEngine;
 
 public class PushForward : MonoBehaviour
 {
-    private Vector3 positionJoueur;
-    private Vector3 positionFan;
-    private GameObject joueur;
-    //private PushComponent item;
-    //BoxCollider i;
-    private bool vérif;
+    private Vector3 playerPosition;
+    private Vector3 fanPosition;
+    private GameObject player;
+    private bool check;
 
     [SerializeField]
-    int zePuissance = 7;
+    int power = 2;
+    int MEDIUM_POWER = 4;
+    int HARD_POWER = 6;
 
     //[SerializeField]
     private float Intensity;
 
     [SerializeField]
     float puissanceFan;
+
+    public void AdjustDifficulty()
+    {
+        if (KeepOverTimeComponent.difficulty == 2)
+        {
+            power = MEDIUM_POWER;
+
+        }
+        if (KeepOverTimeComponent.difficulty == 3)
+        {
+            power = HARD_POWER;
+        }
+    }
     public void PousserAvant()
     {
         //joueur.transform.(transform.forward * (Intensity) * 50);
-        joueur.GetComponent<Rigidbody>().velocity = transform.forward * Intensity * zePuissance;
+        player.GetComponent<Rigidbody>().velocity = transform.forward * Intensity * power;
     }
     void Start()
     {
-        joueur = GameObject.Find("Voleur");
+        player = GameObject.Find("Voleur");
+        AdjustDifficulty();
         //item = GetComponent<PushComponent>();
         //i = GetComponentInChildren<BoxCollider>();
     }
 
     void Update()
     {
-        if (vérif)
+        if (check)
         {
-            positionJoueur = joueur.transform.position;
-            positionFan = GetComponentInParent<Transform>().position;
-            Intensity = Mathf.Pow(Mathf.Log(TrouverDistanceBanditFan(positionJoueur, positionFan)), -1);
+            playerPosition = player.transform.position;
+            fanPosition = GetComponentInParent<Transform>().position;
+            Intensity = Mathf.Pow(Mathf.Log(TrouverDistanceBanditFan(playerPosition, fanPosition)), -1);
             PousserAvant();
         }
     }
@@ -48,11 +62,11 @@ public class PushForward : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="Player")
-            vérif = true;   
+            check = true;   
     }
     private void OnTriggerExit(Collider other)
     {
-        joueur.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        vérif = false;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        check = false;
     }
 }

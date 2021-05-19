@@ -19,7 +19,6 @@ public class ClickButton : MonoBehaviour  //Script inspiré de Yasil : https://w
     void Awake()
     {
         zeRenderer = GetComponent<Renderer>();
-        //zeRenderer.enabled = true;
         buttonPosition = transform.position;
     }
 

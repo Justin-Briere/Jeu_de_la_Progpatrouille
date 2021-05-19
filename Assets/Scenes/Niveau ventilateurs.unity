@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f423db0aa0ece94a9268ae40f839e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zePuissance: 5
+  power: 2
   puissanceFan: 0
 --- !u!114 &721501396
 MonoBehaviour:
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f423db0aa0ece94a9268ae40f839e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zePuissance: 4
+  power: 2
   puissanceFan: 0
 --- !u!1 &1856873769
 GameObject:
