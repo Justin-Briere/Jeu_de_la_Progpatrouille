@@ -1,7 +1,7 @@
-﻿/// Permet de faire une certaine action dans le script Action, lorsque toutes les tiles sont identique
+﻿/// Permet de faire une certaine action lorsque toutes les tiles sont identique
 /// 
 /// 
-/// ATTENTION, CHANGER LA FONCTION START!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
 
 using System.Collections;
 using System.Timers;
