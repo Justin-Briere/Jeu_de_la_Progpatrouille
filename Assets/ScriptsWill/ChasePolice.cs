@@ -67,7 +67,7 @@ public class ChasePolice : MonoBehaviour //Le but de ce script est de gérer le 
                 current = 0;
             
         }
-        else if (allo.Length != 1)
+        else if (allo.Length != 1) //dans la 1re pièce, les policiers ne bougent pas
         {
             Deplacer(xDiff, zDiff, paturnSpeed);
             transform.LookAt(allo[current]);
