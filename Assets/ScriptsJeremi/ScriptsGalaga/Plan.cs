@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class Plan : MonoBehaviour
+public class Plan : MonoBehaviour  //Script de la dernière session pour le Galaga faisant le mesh du plan
 {
     const int SQUARE_TRIANGLE = 2;
     const int APEX_TRIANGLE = 3;

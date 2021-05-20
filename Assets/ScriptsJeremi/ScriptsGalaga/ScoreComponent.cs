@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreChangedArgs : EventArgs
+public class ScoreChangedArgs : EventArgs 
 {
     public float NewValue { get; private set; }
 
     public ScoreChangedArgs(float newValue) => NewValue = newValue;
 }
-public class ScoreComponent : MonoBehaviour
+public class ScoreComponent : MonoBehaviour  //Script de la dernière session pour le Galaga s'occupant du score du joueur.
 {
     public event EventHandler<ScoreChangedArgs> OnScoreChanged;
     private float score;

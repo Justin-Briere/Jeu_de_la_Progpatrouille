@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class QuitSimon : MonoBehaviour
 {
-    public void Quit() 
+    public void Quit() //Fonction servant à quitter les 2 minijeux. 
     {
         SceneManager.LoadScene("FinalScene");
     }

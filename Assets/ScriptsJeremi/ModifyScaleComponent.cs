@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModifyScaleComponent : MonoBehaviour    // Script inspiré de la session passée
+public class ModifyScaleComponent : MonoBehaviour    // Script inspiré de la session passée modifiant la grosseur du texte.
 {
-    Vector3 Grandeur = new Vector3(1, 1, 1);
+    Vector3 Bigger = new Vector3(1.5f, 1.5f, 1.5f);
 
     public void AgrandirBouton()
     {
-        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        transform.localScale = Bigger;
     }
 
     public void RétrécirBouton()

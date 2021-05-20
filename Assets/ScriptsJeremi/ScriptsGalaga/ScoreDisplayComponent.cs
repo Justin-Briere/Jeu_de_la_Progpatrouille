@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreDisplayComponent : MonoBehaviour
+public class ScoreDisplayComponent : MonoBehaviour  //Script de la dernière session pour le Galaga affichant le score.
 {
    [SerializeField]
    ScoreComponent scoreProvider;

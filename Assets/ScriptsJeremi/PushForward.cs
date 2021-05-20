@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushForward : MonoBehaviour
+public class PushForward : MonoBehaviour //Classe servant à pousser le joueur selon une certaine force.
 {
     private Vector3 playerPosition;
     private Vector3 fanPosition;
@@ -17,7 +17,7 @@ public class PushForward : MonoBehaviour
     //[SerializeField]
     private float Intensity;
 
-    public void AdjustDifficulty()
+    public void AdjustDifficulty() //Fonction qui ajuste la force selon la difficulté.
     {
         if (KeepOverTimeComponent.difficulty == 2)
         {
@@ -29,7 +29,7 @@ public class PushForward : MonoBehaviour
             power = HARD_POWER;
         }
     }
-    public void PushPlayer()
+    public void PushPlayer() 
     {
         player.GetComponent<Rigidbody>().velocity = transform.forward * Intensity * power;
     }

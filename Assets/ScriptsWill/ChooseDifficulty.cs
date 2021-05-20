@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ChooseDifficulty : MonoBehaviour //Cette classe sert à déterminé la difficulté du jeu selon la porte choisie par le joueur.
 {
-    private void OnCollisionEnter(Collision porte)
+    private void OnCollisionEnter(Collision door)
     {
-        if(porte.gameObject.layer == 9)
+        if(door.gameObject.layer == 9)
         {
-            if (porte.gameObject.name == "Porte facile")
+            if (door.gameObject.name == "Porte facile")
                 KeepOverTimeComponent.difficulty = 1;
-            if (porte.gameObject.name == "Porte intermédiaire")
+            if (door.gameObject.name == "Porte intermédiaire")
                 KeepOverTimeComponent.difficulty = 2;
-            if (porte.gameObject.name == "Porte difficile")
+            if (door.gameObject.name == "Porte difficile")
                 KeepOverTimeComponent.difficulty = 3;
             SceneManager.LoadScene("FinalScene");//AIPolice
         }

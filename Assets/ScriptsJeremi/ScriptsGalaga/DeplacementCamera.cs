@@ -5,7 +5,7 @@
 
 using UnityEngine;
 
-public class DeplacementCamera : MonoBehaviour
+public class DeplacementCamera : MonoBehaviour //Script de la dernière session
 {
    [SerializeField]              // Le champs VitesseLinéaire sera accessible en tant que paramètre du script dans l'éditeur de Unity.
    float VitesseLinéaire;        // L'usage de la commande [SeralizeField] permet d'éviter de mettre l'attribut public tout en permettant 

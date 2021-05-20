@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public sealed class Boule : MonoBehaviour
+public sealed class Boule : MonoBehaviour  //Script de la dernière session pour le Galaga faisant le mesh de la boule
 {
     const float MIN_LATITUDE = -Mathf.PI / 2; 
     const float MAX_LATITUDE = Mathf.PI / 2; 

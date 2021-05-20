@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickButton : MonoBehaviour  // Classe servant à faire descendre et à rendre le bouton blanc lorsqu'il est cliqué.
+public class ClickButton : MonoBehaviour  // Classe servant à faire descendre et à rendre le bouton blanc lorsqu'il est cliqué et
+                                          // à le remettre à son état initial ensuite..
 {
     public Material colorMaterial;
     public Material whiteMaterial;

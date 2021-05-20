@@ -1,10 +1,10 @@
 ﻿
 using UnityEngine;
 
-public class ComportementProjectile : MonoBehaviour
+public class ComportementProjectile : MonoBehaviour  // Script de la dernière session servant au projectile du Galaga.
 {
     [SerializeField]
-    float DuréeVie = 0.2f;
+    float lifetime = 0.2f;
 
     [SerializeField]
     GameObject Explosion;
@@ -16,7 +16,7 @@ public class ComportementProjectile : MonoBehaviour
         float timeSpent = 0; 
         
         timeSpent += Time.deltaTime;
-        if (timeSpent > DuréeVie)
+        if (timeSpent > lifetime)
             Destroy(gameObject); 
     }
 

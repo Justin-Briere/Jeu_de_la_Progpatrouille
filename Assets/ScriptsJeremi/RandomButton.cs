@@ -30,7 +30,7 @@ public class RandomButton : MonoBehaviour //Script inspiré de Yasil : https://w
     int HARD_SCORE = 21;
     int completedScore = 10;
 
-    public void AdjustDifficulty()
+    public void AdjustDifficulty() //Fonction servant à ajuster des paramètres selon la difficulté choisie.
     {
         if (KeepOverTimeComponent.difficulty == 2)
         {
@@ -106,7 +106,7 @@ public class RandomButton : MonoBehaviour //Script inspiré de Yasil : https://w
         }
         player = true;
     }
-    public void StartGame()
+    public void StartGame() //Fonction lorsque le bouton Start est appuyé
     {
         Colors.Clear();
         generator = true;
@@ -117,13 +117,13 @@ public class RandomButton : MonoBehaviour //Script inspiré de Yasil : https://w
         scoreTexte.text = score.ToString();
         StartButton.interactable = false;
     }
-    void EndGame()
+    void EndGame() //Fonction qui s'occupe du joueur qui échoue. 
     {
         gameOverText.text = "Game Over";
         StartButton.interactable = true;
         player = false;
     }
-    public void GameCompleted()
+    public void GameCompleted() //Fonction qui gère ce qui se produit lorsque le jeu est réussi.
     {
         if (score == completedScore)
         {

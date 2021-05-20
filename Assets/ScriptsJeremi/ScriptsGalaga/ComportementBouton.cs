@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ComportementBouton : MonoBehaviour
+public class ComportementBouton : MonoBehaviour  //Script de la dernière session servant à gérer les boutons pour le Galaga
 {
    [SerializeField]
    float TauxVariationCouleur;

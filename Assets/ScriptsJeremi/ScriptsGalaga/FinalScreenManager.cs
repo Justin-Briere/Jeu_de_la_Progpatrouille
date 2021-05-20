@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FinalScreenManager : MonoBehaviour
+public class FinalScreenManager : MonoBehaviour  //// Script de la dernière session gérant le massage de la scène final de Galaga.
 {
    private void Start()
    {

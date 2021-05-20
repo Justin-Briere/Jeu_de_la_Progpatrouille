@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingFan : MonoBehaviour
+public class MovingFan : MonoBehaviour //Script faisant faire au ventilateur une rotation de ses pales.
 {
     float VitesseRotation = 50.0f;
    

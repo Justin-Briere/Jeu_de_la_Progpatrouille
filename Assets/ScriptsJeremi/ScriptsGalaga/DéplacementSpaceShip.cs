@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class DéplacementSpaceShip : MonoBehaviour
+public class DéplacementSpaceShip : MonoBehaviour  //Script de la dernière session
 {
    [SerializeField]              // Le champs VitesseLinéaire sera accessible en tant que paramètre du script dans l'éditeur de Unity.
    float VitesseLinéaire = 10f;  // L'usage de la commande [SeralizeField] permet d'éviter de mettre l'attribut public tout en permettant 

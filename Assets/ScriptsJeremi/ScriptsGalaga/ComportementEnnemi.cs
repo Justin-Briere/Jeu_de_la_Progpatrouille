@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ComportementEnnemi : MonoBehaviour
+public class ComportementEnnemi : MonoBehaviour //Script de la dernière session servant à gérer les ennemis du Galaga.
 {
    enum ÉtatEnnemi { PositionnementInitial, PositionnementFinal, Attente, Attaque, NbÉtatsEnnemi };
    enum TransitionJeu { Activation, EnMarche, Terminé };

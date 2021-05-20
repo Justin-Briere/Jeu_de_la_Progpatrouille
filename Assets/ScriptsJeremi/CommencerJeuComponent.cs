@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CommencerJeuComponent : MonoBehaviour
+public class CommencerJeuComponent : MonoBehaviour  //Script permettant de lancer le jeu.
 {
-    public void CommencerJeu()
+    public void StartGame()
     {
         SceneManager.LoadScene("Main Menu");
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuitterApplicationComponent : MonoBehaviour
 {
-    public void Quitter()  //Script dernière session
+    public void Quitter()  //Script dernière session servant à quitter au menu.
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -13,12 +13,5 @@ public class QuitterApplicationComponent : MonoBehaviour
             Application.Quit();
 #endif
     }
-
 }
-//public void QuitGame()
-//    {
-//        Application.Quit();
-//        Debug.Log("Game is exiting");
-//    }
-//}
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class ClickedObject : MonoBehaviour
+public class ClickedObject : MonoBehaviour  // Script servant à changer de scène avec un Raycast.
 {
     GameObject bandit;
     void Start()
@@ -28,7 +28,7 @@ public class ClickedObject : MonoBehaviour
         }
     }
 
-    public void CurrentClickedGameObject(GameObject gameObject)
+    public void CurrentClickedGameObject(GameObject gameObject) // Fonction permettant le changement de scène suite au Raycast.
     {
         if (gameObject.name == "Cube Simon")
         {

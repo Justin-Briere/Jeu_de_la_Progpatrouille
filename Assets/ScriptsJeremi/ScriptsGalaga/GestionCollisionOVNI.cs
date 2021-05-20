@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class GestionCollisionOVNI : MonoBehaviour
+public class GestionCollisionOVNI : MonoBehaviour //Script de la dernière session gérant les collisions du Galaga.
 {
 
     const float PtsPerElimination = 100f;

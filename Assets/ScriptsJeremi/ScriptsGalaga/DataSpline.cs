@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 
-public class DataSpline //Les docuements de JF nous on été très utile
+public class DataSpline // Script de la dernière session servant à la spline des cibles.
 {
     private string PATH = Application.dataPath + "/Ressources/Data/";
     const int NB_POINTS = 8;

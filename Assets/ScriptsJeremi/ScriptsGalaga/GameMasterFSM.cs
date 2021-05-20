@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public enum ÉtatsScène { ScèneTitre, ScèneJeu, ScèneFinale, NbÉtatsScène }
 
-public class GameMasterFSM : MonoBehaviour
+public class GameMasterFSM : MonoBehaviour //Script de la dernière session servant de gestion du Galaga.
 {
     readonly string[] NomsScènes = { "ScèneTitre", "ScèneJeu", "ScèneFinale" };
 

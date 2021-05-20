@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameScreenManager : MonoBehaviour
+public class GameScreenManager : MonoBehaviour //Script de la dernière session qui s'occupe de l'affichage du jeu de Galaga.
 {
    enum ÉtatJeu { TitreNiveau, PositionnementEscadrille, Combat, FinNiveau, NbÉtatsJeu };
    enum TransitionJeu { Activation, EnMarche, Terminé };

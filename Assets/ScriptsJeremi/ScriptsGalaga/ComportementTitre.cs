@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ComportementTitre : MonoBehaviour
+public class ComportementTitre : MonoBehaviour  //Script de la dernière session servant à gérer la scène titre pour le Galaga
 {
    [SerializeField]
    float TauxVariationCouleur;

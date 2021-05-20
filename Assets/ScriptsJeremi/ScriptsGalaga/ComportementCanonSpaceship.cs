@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ComportementCanonSpaceship : MonoBehaviour
+public class ComportementCanonSpaceship : MonoBehaviour // Script de la dernière session servant au canon du vaisseau de Galaga.
 {
    [SerializeField]
    KeyCode Key;

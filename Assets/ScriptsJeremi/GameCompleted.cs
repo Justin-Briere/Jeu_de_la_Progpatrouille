@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameCompleted : MonoBehaviour
+public class GameCompleted : MonoBehaviour  // Classe qui détruit un mur lorsque deux jeux sont réussis.
 {
     GameObject destructibleWall;
-    RandomButton Simon;
     private void Start()
     {
         destructibleWall = GameObject.FindGameObjectWithTag("DestructibleWall");
