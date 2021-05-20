@@ -57,7 +57,7 @@ public class RandomButton : MonoBehaviour //Script inspiré de Yasil : https://w
         }
     }
 
-    void ButtonPressed(int number)
+    void ButtonPressed(int number) //Fonction qui gère lorsqu'un bouton est appuyé.
     {
         if(player)
         {
@@ -89,7 +89,7 @@ public class RandomButton : MonoBehaviour //Script inspiré de Yasil : https://w
             StartCoroutine(RandomButtons());
         }
     }
-    private IEnumerator RandomButtons()
+    private IEnumerator RandomButtons() //Fonction  qui met des pauses et qui permet les actions simultanées. 
     {
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < level; i++)
