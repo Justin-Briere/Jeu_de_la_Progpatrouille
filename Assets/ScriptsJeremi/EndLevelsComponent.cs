@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndLevelsComponent : MonoBehaviour
+public class EndLevelsComponent : MonoBehaviour //Classe permettant de faire les changements de scène après les niveaux.
 {
     string sceneName;
     void Start()
