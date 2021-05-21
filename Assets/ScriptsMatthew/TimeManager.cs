@@ -13,8 +13,8 @@ public class TimeManager : MonoBehaviour
     // Permet d'activer la première plateforme
     public IEnumerator TempsAttente()
     {
-      //  verification = false;
+       verification = false;
         yield return new WaitForSeconds(3.0f);
-       // verification = true;
+        verification = true;
     }
 }
