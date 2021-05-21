@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndTrapsScene : MonoBehaviour
+public class EndMediumTrapsScene : MonoBehaviour
 {
 
 
@@ -11,7 +11,7 @@ public class EndTrapsScene : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("AIPolice");
+            SceneManager.LoadScene("Niveau Changement de Tiles");
         }
     }
 }
