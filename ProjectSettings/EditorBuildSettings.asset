@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TESTVAISSEAU.unity
     guid: d917384288bb6334d8b6314d80859bcb
   - enabled: 1
-    path: "Assets/Scenes/Sc\xE8neTitreGalaga.unity"
+    path: "Assets/Scenes/Sc\xE8neTitre.unity"
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: "Assets/Scenes/Sc\xE8neJeu.unity"

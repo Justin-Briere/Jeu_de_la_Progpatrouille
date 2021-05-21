@@ -39,7 +39,7 @@ public class ClickedObject : MonoBehaviour  // Script servant à changer de scè
         }
         if (gameObject.name == "Cube Galaga")
         {
-            SceneManager.LoadScene("ScèneTitreGalaga");
+            SceneManager.LoadScene("ScèneTitre");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             bandit.GetComponent<CameraCurseur>().enabled = false;
