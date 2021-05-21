@@ -239,14 +239,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 190019660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523eb1822bdf0ed459be83441a6e9d9b, type: 3}
+  m_Script: {fileID: 11500000, guid: b97d60e92d59ccc4aa0fd9807732e3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Difficult\xE9Facile": 0
-  "Difficult\xE9Interm\xE9diaire": 0
-  "Difficult\xE9Difficile": 0
-  next:
-    m_Handle: 0
 --- !u!65 &190019664
 BoxCollider:
   m_ObjectHideFlags: 0

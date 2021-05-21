@@ -20,4 +20,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Piege difficile.unity
     guid: 3a29a230c3566744b8f1acef196e276a
+  - enabled: 1
+    path: Assets/Scenes/AIPolice.unity
+    guid: 4b4fd32c4b37c5d40af54bf4ee712452
+  - enabled: 1
+    path: Assets/Scenes/Niveau changement de Tiles.unity
+    guid: 41ff4d8738473624fab4c731b8452a09
+  - enabled: 1
+    path: Assets/Scenes/TESTVAISSEAU.unity
+    guid: d917384288bb6334d8b6314d80859bcb
+  - enabled: 1
+    path: "Assets/Scenes/Sc\xE8neTitreGalaga.unity"
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: "Assets/Scenes/Sc\xE8neJeu.unity"
+    guid: 9367dedc9f56867488d0826db023aeab
+  - enabled: 1
+    path: "Assets/Scenes/Sc\xE8neFinale.unity"
+    guid: 952e93dd372b4f943b52ee9a93546654
+  - enabled: 1
+    path: Assets/Scenes/Simon mini game.unity
+    guid: 07a4267e27ad59e4e8e8ee4fee4159ee
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: c40d1f6aceccad647a1909f5b68973c1
   m_configObjects: {}
