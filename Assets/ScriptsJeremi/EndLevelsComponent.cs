@@ -18,11 +18,13 @@ public class EndLevelsComponent : MonoBehaviour //Classe permettant de faire les
         {
             if (sceneName == "Piege facile")
                 SceneManager.LoadScene("AIPolice");
-            if (sceneName == "Piege moyen")
-                SceneManager.LoadScene("Niveau Changement de Tiles");
+            if (sceneName == "Piege Moyen")
+                SceneManager.LoadScene("Niveau changement de Tiles");
             if (sceneName == "Piege difficile")
                 SceneManager.LoadScene("TESTVAISSEAU");
-            if (sceneName == "Niveau Changement de Tiles")
+            if (sceneName == "TESTVAISSEAU")
+                SceneManager.LoadScene("Niveau changement de Tiles");
+            if (sceneName == "Niveau changement de Tiles")
                 SceneManager.LoadScene("AIPolice");
             if (sceneName == "AIPolice")
                 SceneManager.LoadScene("FinalScene");
